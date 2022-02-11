@@ -2,12 +2,11 @@ import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   PerspectiveCamera,
-  OrbitControls,
+  // OrbitControls,
   Environment,
   ScrollControls,
-  Text,
   Loader,
-  softShadows,
+  // softShadows,
   Scroll,
 } from "@react-three/drei";
 import "./App.scss";
@@ -17,8 +16,9 @@ import SideBar from "./components/SideBar";
 import Lights from "./components/Lights";
 import Rig from "./rig";
 import Plane from "./components/Plane";
+import TextComponent from "./components/TextComponent";
 import SupportLights from "./components/SupportLight";
-import { EffectComposer, SSAO, Bloom } from "@react-three/postprocessing";
+// import { EffectComposer, SSAO, Bloom } from "@react-three/postprocessing";
 
 // softShadows();
 
@@ -36,9 +36,6 @@ const App = () => {
         <fog attach="fog" args={["red", 50, 60]} />
         <color attach="background" args={["#17171b"]} />
 
-        <ambientLight color={"purple"} intensity={3.7} />
-        <Lights />
-        <SupportLights />
         <Suspense fallback={null}>
           <PerspectiveCamera
             fov={45}
@@ -52,43 +49,12 @@ const App = () => {
               horizontal={true}
             >
               <Scroll>
-                <Text
-                  position={[-0.471, 1.2, 2]}
-                  scale={[1, 1, 0]}
-                  fontSize={0.08}
-                  color="white"
-                  maxWidth={0.69}
-                  anchorX="center"
-                  anchorY="middle"
-                >
-                  Lorem ipsum dolor sit amet
-                </Text>
-                <Text
-                  position={[2.730, 1.20, 2]}
-                  scale={[1, 1, 0]}
-                  fontSize={0.08}
-                  color="white"
-                  maxWidth={0.69}
-                  anchorX="center"
-                  anchorY="middle"
-                >
-                  Lorem ipsum dolor sit amet
-                </Text>
-                <Text
-                  position={[2.730, 1.04, 2]}
-                  scale={[1, 1, 0]}
-                  fontSize={0.03}
-                  color="white"
-                  maxWidth={0.69}
-                  anchorX="center"
-                  anchorY="middle"
-                >
-    Lorem ipsum dolor sit amet, consectetuer adipiscing
-elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
-
-                </Text>
+                <TextComponent />
                 <UnoComponent />
                 <SuComponent />
+                <ambientLight color={"purple"} intensity={3.7} />
+                <Lights />
+                <SupportLights />
                 <Plane />
               </Scroll>
             </ScrollControls>
@@ -96,7 +62,9 @@ elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam er
           <Environment preset="city" />
         </Suspense>
         <Rig />
-        {/* <OrbitControls enableZoom={false} /> */}
+        // <EffectComposer multisampling={0}>
+        //   <Bloom intensity={1.25} kernelSize={2} luminanceThreshold={0.8} luminanceSmoothing={0.0} />
+        // </EffectComposer>
       </Canvas>
       <div className="layer" />
       <Loader />

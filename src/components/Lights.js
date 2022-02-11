@@ -13,7 +13,7 @@ const Lights = () => {
         intensity={2.852}
         power={11.666}
         distance={9.64}
-        angle={0.57}
+        angle={0.381}
         decay={0.34}
         color="#ffffff"
         penumbra={1}
