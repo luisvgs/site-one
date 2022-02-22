@@ -25,18 +25,27 @@ const SupportLights = () => {
   // useHelper(pointLight, PointLightHelper, 0.2, "hotpink");
   return (
     <group ref={group}>
+      <spotLight
+        intensity={0.94}
+        color={"blue"}
+        ref={light}
+        angle={0.837}
+        power={43}
+        position={[6.405, 0.75, 3.46]}
+        penumbra={1.0}
+      />
       <pointLight
         color={"#f20723"} // Red light from corner
-        ref={pointLight}
+        // ref={pointLight}
         distance={6}
         intensity={6.003}
-        position={[-0.52, -0.493, 4.703]}
+        position={[-0.52, 0.23, 4.703]}
         power={63}
       />
       <pointLight
         // Light from top
         intensity={1.9}
-        position={[0.205, 2.170, 1.150]}
+        position={[0.205, 2.17, 1.15]}
         decay={1.27}
         distance={1.0}
         power={91.546}
@@ -45,8 +54,8 @@ const SupportLights = () => {
         intensity={0.87}
         color={"blue"}
         penumbra={1.0}
-        ref={light}
-        position={[-1.111, -0.232, 7.864]}
+        // ref={light}
+        position={[-1.111, 0.23, 7.864]}
       />
     </group>
   );

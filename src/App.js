@@ -1,12 +1,13 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   PerspectiveCamera,
-  // OrbitControls,
+  OrbitControls,
   Environment,
   ScrollControls,
   Loader,
-  // softShadows,
+  softShadows,
+  PresentationControls,
   Scroll,
 } from "@react-three/drei";
 import "./App.scss";
@@ -14,15 +15,28 @@ import UnoComponent from "./components/UnoModel";
 import SuComponent from "./components/SiteOne";
 import SideBar from "./components/SideBar";
 import Lights from "./components/Lights";
+import Base from "./components/Base";
 import Rig from "./rig";
 import Plane from "./components/Plane";
 import TextComponent from "./components/TextComponent";
 import SupportLights from "./components/SupportLight";
+import Google from "./components/Google";
+import Microsoft from "./components/Microsoft";
+import Apple from "./components/Apple";
 // import { EffectComposer, SSAO, Bloom } from "@react-three/postprocessing";
 
 // softShadows();
 
 const App = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const openHandler = () => {
+    if (!sidebarOpen) {
+      setSidebarOpen(true);
+    } else {
+      setSidebarOpen(false);
+    }
+  };
   return (
     <>
       <SideBar />
@@ -35,7 +49,6 @@ const App = () => {
       >
         <fog attach="fog" args={["red", 50, 60]} />
         <color attach="background" args={["#17171b"]} />
-
         <Suspense fallback={null}>
           <PerspectiveCamera
             fov={45}
@@ -43,8 +56,8 @@ const App = () => {
             rotation={[0.0, -6.2, 0.0]}
           >
             <ScrollControls
-              infinite={false}
-              damping={0.5}
+              damping={0.3}
+              distance={1}
               pages={2}
               horizontal={true}
             >
@@ -52,6 +65,10 @@ const App = () => {
                 <TextComponent />
                 <UnoComponent />
                 <SuComponent />
+                <Apple />
+                <Google />
+                <Microsoft />
+                <Base />
                 <ambientLight color={"purple"} intensity={3.7} />
                 <Lights />
                 <SupportLights />
@@ -62,9 +79,14 @@ const App = () => {
           <Environment preset="city" />
         </Suspense>
         <Rig />
-        // <EffectComposer multisampling={0}>
-        //   <Bloom intensity={1.25} kernelSize={2} luminanceThreshold={0.8} luminanceSmoothing={0.0} />
-        // </EffectComposer>
+        {/* <EffectComposer multisampling={0}>
+          <Bloom
+            intensity={1.25}
+            kernelSize={2}
+            luminanceThreshold={0.8}
+            luminanceSmoothing={0.0}
+          />
+        </EffectComposer> */}
       </Canvas>
       <div className="layer" />
       <Loader />
