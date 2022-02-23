@@ -63,10 +63,7 @@ const Google = (props) => {
       >
         {hovered && (
           <Html scaleFactor={1}>
-            <div class="content">
-              hello <br />
-              world
-            </div>
+            <div class="content">Descripcion del partership con Google.</div>
           </Html>
         )}
       </mesh>

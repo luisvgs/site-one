@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   PerspectiveCamera,
   OrbitControls,
@@ -27,7 +27,13 @@ import Google from "./components/Google";
 import Microsoft from "./components/Microsoft";
 import Apple from "./components/Apple";
 import { Vector3 } from "three";
-// import { EffectComposer, SSAO, Bloom } from "@react-three/postprocessing";
+import {
+  EffectComposer,
+  Noise,
+  SSAO,
+  Bloom,
+   
+} from "@react-three/postprocessing";
 // softShadows();
 
 // Camera path
@@ -49,13 +55,15 @@ const cameraLookAtCurve = new THREE.CatmullRomCurve3([
 
 const cameraLookAt = new Vector3(0, 0, 0);
 const Setup = () => {
+  const { camera, mouse } = useThree();
+  const vec = new THREE.Vector3();
   const scroll = useScroll();
-  useFrame((state, delta) => {
-    //NOTE: Here's the camera movement
-    cameraPositionCurve.getPoint(scroll.offset, state.camera.position);
-    cameraLookAtCurve.getPoint(scroll.offset, cameraLookAt);
-    state.camera.lookAt(cameraLookAt);
-  });
+  // useFrame((state, delta) => {
+  //   //NOTE: Here's the camera movement
+  //   cameraPositionCurve.getPoint(scroll.offset, state.camera.position);
+  //   cameraLookAtCurve.getPoint(scroll.offset, cameraLookAt);
+  //   state.camera.lookAt(cameraLookAt);
+  // });
 
   return (
     <>
@@ -67,6 +75,7 @@ const Setup = () => {
       <Microsoft />
       <Base />
       <ambientLight color={"purple"} intensity={3.7} />
+      <ambientLight color={"blue"} intensity={0.9} />
       <Lights />
       <SupportLights />
       <Plane />
@@ -88,12 +97,12 @@ const App = () => {
         <fog attach="fog" args={["red", 50, 60]} />
         <color attach="background" args={["#17171b"]} />
         <Suspense fallback={null}>
-          <Tube args={[cameraPositionCurve, 64, 0.05]}>
+          {/* <Tube args={[cameraPositionCurve, 64, 0.05]}>
             <meshStandardMaterial color="#ff00ff" />
           </Tube>
           <Tube args={[cameraLookAtCurve, 64, 0.05]}>
             <meshStandardMaterial color="#ffff00" />
-          </Tube>
+          </Tube> */}
           <PerspectiveCamera
             fov={45}
             position={[0.111, -0.932, 2.191]}
@@ -106,22 +115,18 @@ const App = () => {
               horizontal={true}
             >
               <Scroll>
-                {" "}
-                <Setup />{" "}
+                <Setup />
               </Scroll>
             </ScrollControls>
           </PerspectiveCamera>
           <Environment preset="city" />
         </Suspense>
         <Rig />
-        {/* <EffectComposer multisampling={0}>
-          <Bloom
-            intensity={1.25}
-            kernelSize={2}
-            luminanceThreshold={0.8}
-            luminanceSmoothing={0.0}
-          />
-        </EffectComposer> */}
+        <EffectComposer multisampling={1}>
+          {" "}
+          <Noise opacity={0.01} />
+        </EffectComposer>
+        {/* <OrbitControls /> */}
       </Canvas>
       <div className="layer" />
       <Loader />

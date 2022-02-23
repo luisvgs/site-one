@@ -8,7 +8,7 @@ const Lights = () => {
   return (
     <group>
       <spotLight
-        ref={light}
+        // ref={light}
         castShadow
         intensity={2.852}
         power={11.666}
