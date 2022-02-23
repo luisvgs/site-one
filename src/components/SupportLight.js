@@ -27,19 +27,26 @@ const SupportLights = () => {
     <group ref={group}>
       {/* Light from 3rd view */}
       <spotLight
-        intensity={0.7}
-        // castShadow
-        angle={0.381}
-        decay={0.64}
+        intensity={0.9}
+        castShadow
+        angle={0.86}
+        decay={0.32}
         color="#ffffff"
-        ref={light}
+        // ref={light}
         power={7.596}
-        position={[6.845, 2.16, 1.38]}
+        position={[5.965, 0.88, 2.67]}
         penumbra={1.0}
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+        shadow-camera-far={50}
+        shadow-camera-left={-10}
+        shadow-camera-right={10}
+        shadow-camera-top={10}
+        shadow-camera-bottom={-10}
       />
       <pointLight
         //random
-        ref={pointLight}
+        // ref={pointLight}
         distance={6}
         intensity={6.003}
         position={[6.405, 0.75, 2]}
@@ -55,8 +62,8 @@ const SupportLights = () => {
       />
       <pointLight
         // Light from top
-        intensity={1.7}
-        position={[0.205, 2.58, 1.15]}
+        intensity={1.0}
+        position={[0.205, 2.62, 1.15]}
         decay={1.27}
         distance={1.0}
         power={91.546}

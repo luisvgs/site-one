@@ -15,6 +15,7 @@ const Plane = () => {
         scale={[20.4, 30.3, 0.98]}
       >
         <planeBufferGeometry />
+        <shadowMaterial attach="material" transparent opacity={0.4} />
         <meshStandardMaterial
           attach="material"
           color="#090981"

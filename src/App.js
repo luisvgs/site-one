@@ -1,15 +1,11 @@
-import React, { Suspense, useState } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import React, { Suspense } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import {
   PerspectiveCamera,
-  OrbitControls,
   Environment,
   ScrollControls,
   Loader,
-  softShadows,
-  PresentationControls,
   useScroll,
-  Tube,
   Scroll,
 } from "@react-three/drei";
 import "./App.scss";
@@ -27,22 +23,19 @@ import Google from "./components/Google";
 import Microsoft from "./components/Microsoft";
 import Apple from "./components/Apple";
 import { Vector3 } from "three";
-import {
-  EffectComposer,
-  Noise,
-  SSAO,
-  Bloom,
-} from "@react-three/postprocessing";
 import PostProcessing from "./PostProcessing";
+// import { softShadows } from "@react-three/drei";
 
+// softShadows();
 // Camera path
 const cameraPositionCurve = new THREE.CatmullRomCurve3([
   // 1ra escena
   new Vector3(0.111, 0.11, 5.2),
   // 2da escena
-  new Vector3(-2, 0.05, 5.5),
+  new Vector3(-2, 0.05, 5.2),
   // 3ra escena
-  new Vector3(0, 1.0, 4.48),
+  new Vector3(0.32, 0.7, 4.65),
+  new Vector3(0, 1.3, 3.5),
 ]);
 
 const cameraLookAtCurve = new THREE.CatmullRomCurve3([
@@ -54,10 +47,8 @@ const cameraLookAtCurve = new THREE.CatmullRomCurve3([
 
 const cameraLookAt = new Vector3(0, 0, 0);
 const Setup = () => {
-  const { camera, mouse } = useThree();
-  const vec = new THREE.Vector3();
   const scroll = useScroll();
-  useFrame((state, delta) => {
+  useFrame((state) => {
     //NOTE: Here's the camera movement
     cameraPositionCurve.getPoint(scroll.offset, state.camera.position);
     cameraLookAtCurve.getPoint(scroll.offset, cameraLookAt);
@@ -96,12 +87,6 @@ const App = () => {
         <fog attach="fog" args={["red", 50, 60]} />
         <color attach="background" args={["#17171b"]} />
         <Suspense fallback={null}>
-          {/* <Tube args={[cameraPositionCurve, 64, 0.05]}>
-            <meshStandardMaterial color="#ff00ff" />
-          </Tube>
-          <Tube args={[cameraLookAtCurve, 64, 0.05]}>
-            <meshStandardMaterial color="#ffff00" />
-          </Tube> */}
           <PerspectiveCamera
             fov={45}
             position={[0.111, -0.932, 2.191]}
@@ -122,7 +107,6 @@ const App = () => {
         </Suspense>
         <Rig />
         <PostProcessing />
-        {/* <OrbitControls /> */}
       </Canvas>
       <div className="layer" />
       <Loader />
