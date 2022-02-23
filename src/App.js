@@ -106,7 +106,7 @@ const App = () => {
           <Environment preset="city" />
         </Suspense>
         <Rig />
-        <PostProcessing />
+        {/* <PostProcessing /> */}
       </Canvas>
       <div className="layer" />
       <Loader />
