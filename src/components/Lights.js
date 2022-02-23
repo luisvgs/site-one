@@ -8,7 +8,7 @@ const Lights = () => {
   return (
     <group>
       <spotLight
-        ref={light}
+        // ref={light}
         castShadow
         intensity={2.852}
         power={11.666}
@@ -17,7 +17,7 @@ const Lights = () => {
         decay={0.34}
         color="#ffffff"
         penumbra={1}
-        position={[1.0, -0.127, 6.204]}
+        position={[1.0, 0.23, 6.204]}
         shadow-camera-bottom={-10}
       />
     </group>
