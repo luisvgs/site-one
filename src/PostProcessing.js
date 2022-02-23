@@ -23,7 +23,7 @@ const PostProcessing = () => {
         width={width}
         height={height}
         kernelSize={KernelSize.MEDIUM}
-        luminanceThreshold={0.5}
+        luminanceThreshold={0.2}
         luminanceSmoothing={luminanceSmoothing}
       />
     </EffectComposer>
