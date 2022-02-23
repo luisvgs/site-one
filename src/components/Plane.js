@@ -45,8 +45,8 @@ const Plane = () => {
           mixStrength={4.0}
           depthScale={1}
           minDepthThreshold={0.85}
-          color="#343445"
-          metalness={0.95}
+          color="#151515"
+          metalness={0.5}
           roughness={1}
         />
       </mesh>
