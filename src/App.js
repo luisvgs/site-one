@@ -34,7 +34,7 @@ const cameraPositionCurve = new THREE.CatmullRomCurve3([
   // 2da escena
   new Vector3(-2, 0.05, 5.2),
   // 3ra escena
-  new Vector3(0.32, 0.7, 4.65),
+  new Vector3(0.32, 0.5, 4.65),
   new Vector3(0, 1.3, 3.5),
 ]);
 

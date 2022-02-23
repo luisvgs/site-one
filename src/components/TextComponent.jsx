@@ -37,6 +37,17 @@ const TextComponent = () => {
         nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
         volutpat.
       </Text>
+      <Text
+        position={[5.85, 1.6, 1.7]}
+        scale={[1, 1, 0]}
+        fontSize={0.08}
+        color="white"
+        maxWidth={0.69}
+        anchorX="center"
+        anchorY="middle"
+      >
+        Partners
+      </Text>
     </>
   );
 };
