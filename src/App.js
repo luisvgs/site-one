@@ -6,6 +6,7 @@ import {
   ScrollControls,
   Loader,
   useScroll,
+  OrbitControls,
   Scroll,
 } from "@react-three/drei";
 import "./App.scss";
@@ -48,12 +49,12 @@ const cameraLookAtCurve = new THREE.CatmullRomCurve3([
 const cameraLookAt = new Vector3(0, 0, 0);
 const Setup = () => {
   const scroll = useScroll();
-  useFrame((state) => {
-    //NOTE: Here's the camera movement
-    cameraPositionCurve.getPoint(scroll.offset, state.camera.position);
-    cameraLookAtCurve.getPoint(scroll.offset, cameraLookAt);
-    state.camera.lookAt(cameraLookAt);
-  });
+  // useFrame((state) => {
+  //   //NOTE: Here's the camera movement
+  //   cameraPositionCurve.getPoint(scroll.offset, state.camera.position);
+  //   cameraLookAtCurve.getPoint(scroll.offset, cameraLookAt);
+  //   state.camera.lookAt(cameraLookAt);
+  // });
 
   return (
     <>
@@ -106,6 +107,7 @@ const App = () => {
           <Environment preset="city" />
         </Suspense>
         <Rig />
+        {/* <OrbitControls /> */}
         {/* <PostProcessing /> */}
       </Canvas>
       <div className="layer" />
