@@ -4,7 +4,7 @@ import GoogleModel from "../models/google.glb";
 import { useFrame } from "@react-three/fiber";
 
 const Google = (props) => {
-  const [hovered, setHover] = useState(false);
+  const [hovered, setHover] = useState(true);
   const group = useRef();
   const { nodes, materials } = useGLTF(GoogleModel);
 
@@ -14,8 +14,7 @@ const Google = (props) => {
   });
 
   return (
-    <group
-      castShadow
+    <mesh
       onPointerOver={(e) => {
         e.stopPropagation();
         setHover(true);
@@ -24,13 +23,17 @@ const Google = (props) => {
         e.stopPropagation();
         setHover(false);
       }}
-      receiveShadow
       position={[6.405, 0.75, 2]}
       scale={[1, 1, 1]}
       ref={group}
       {...props}
       dispose={null}
     >
+      {!hovered && (
+        <Html position={[1.105, 0.1, -2]} distanceFactor={65}>
+          <div class="content">Descripcion del partership con Google.</div>
+        </Html>
+      )}
       <mesh
         castShadow
         receiveShadow
@@ -60,20 +63,14 @@ const Google = (props) => {
         receiveShadow
         geometry={nodes.Curve019.geometry}
         material={nodes.Curve019.material}
-      >
-        {hovered && (
-          <Html scaleFactor={1}>
-            <div class="content">Descripcion del partership con Google.</div>
-          </Html>
-        )}
-      </mesh>
+      ></mesh>
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Curve020.geometry}
         material={materials["Material.003"]}
       />
-    </group>
+    </mesh>
   );
 };
 

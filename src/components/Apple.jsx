@@ -1,8 +1,7 @@
 import React, { useRef } from "react";
-import { useGLTF, PresentationControls } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import AppleModel from "../models/apple.glb";
-import * as THREE from "three";
 
 const Apple = (props) => {
   const group = useRef();
@@ -10,7 +9,7 @@ const Apple = (props) => {
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
-    group.current.position.y = 0.8 + Math.sin(t / 0.5) / 32;
+    group.current.position.y = 0.8 + Math.sin(t / 0.8) / 32;
   });
   return (
     <group
@@ -22,19 +21,12 @@ const Apple = (props) => {
       {...props}
       dispose={null}
     >
-      <PresentationControls
-        snap={{ mass: 7, tension: 1900 }}
-        rotation={[0, 0.05, 0]}
-        polar={[0, Math.PI / 2]}
-        azimuth={[-Math.PI, Math.PI]}
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Curve022.geometry}
-          material={materials["Material.010"]}
-        />
-      </PresentationControls>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Curve022.geometry}
+        material={materials["Material.010"]}
+      />
     </group>
   );
 };

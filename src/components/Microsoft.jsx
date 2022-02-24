@@ -10,7 +10,7 @@ const Microsoft = (props) => {
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
-    group.current.position.y = 0.8 + Math.sin(t / 0.4) / 32;
+    group.current.position.y = 0.8 + Math.sin(t / 0.9) / 32;
   });
 
   return (
