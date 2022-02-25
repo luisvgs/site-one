@@ -8,7 +8,7 @@ const SideBar = () => {
       <a id="about" href="">
         About us
       </a>
-      <a id="partners" href="/">
+      <a id="partners" href="#2">
         Partners
       </a>
       <a id="portfolio" href="/">

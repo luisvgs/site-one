@@ -36,6 +36,13 @@ html {
   gap: 5px;
 }
 
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 div.label {
   background-color: white;
   border: 1px solid #888888;
