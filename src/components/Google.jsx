@@ -4,7 +4,7 @@ import GoogleModel from "../models/google.glb";
 import { useFrame } from "@react-three/fiber";
 
 const Google = (props) => {
-  const [hovered, setHover] = useState(true);
+  const [hovered, setHover] = useState(false);
   const group = useRef();
   const { nodes, materials } = useGLTF(GoogleModel);
 
@@ -29,7 +29,7 @@ const Google = (props) => {
       {...props}
       dispose={null}
     >
-      {!hovered && (
+      {hovered && (
         <Html position={[1.105, 0.1, -2]} distanceFactor={65}>
           <div class="content">Descripcion del partership con Google.</div>
         </Html>

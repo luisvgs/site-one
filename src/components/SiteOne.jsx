@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, Text } from "@react-three/drei";
 import SuModel from "../models/logo_su.glb";
 import { useFrame } from "@react-three/fiber";
 
@@ -11,8 +11,6 @@ const SuComponent = (props) => {
     <group
       ref={group}
       scale={[3, 3, 1]}
-      castShadow
-      receiveShadow
       position={[3.405, 0.88, 2]}
       {...props}
       dispose={null}

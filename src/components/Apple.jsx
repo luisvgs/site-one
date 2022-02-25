@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import React, { useRef, useState } from "react";
+import { useGLTF, Html } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import AppleModel from "../models/apple.glb";
 
 const Apple = (props) => {
+  const [hovered, setHover] = useState(false);
   const group = useRef();
   const { nodes, materials } = useGLTF(AppleModel);
 
@@ -12,7 +13,15 @@ const Apple = (props) => {
     group.current.position.y = 0.8 + Math.sin(t / 0.8) / 32;
   });
   return (
-    <group
+    <mesh
+      onPointerOver={(e) => {
+        e.stopPropagation();
+        setHover(true);
+      }}
+      onPointerOut={(e) => {
+        e.stopPropagation();
+        setHover(false);
+      }}
       ref={group}
       castShadow
       receiveShadow
@@ -21,13 +30,18 @@ const Apple = (props) => {
       {...props}
       dispose={null}
     >
+      {hovered && (
+        <Html position={[0.54, 0.8, -2]} distanceFactor={65}>
+          <div class="content">Descripcion del partership con Apple.</div>
+        </Html>
+      )}
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Curve022.geometry}
         material={materials["Material.010"]}
       />
-    </group>
+    </mesh>
   );
 };
 

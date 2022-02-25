@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import UnoModel from "../models/Number1C.glb";
 
-// UnoComponent
 const UnoComponent = (props) => {
   const group = useRef();
   const { nodes, materials } = useGLTF(UnoModel);

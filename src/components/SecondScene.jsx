@@ -1,18 +1,8 @@
 import { Text } from "@react-three/drei";
-const TextComponent = () => {
+import SuComponent from "./SiteOne";
+const SecondScene = () => {
   return (
     <>
-      <Text
-        position={[-0.471, 1.2, 2]}
-        scale={[1, 1, 0]}
-        fontSize={0.08}
-        color="white"
-        maxWidth={0.69}
-        anchorX="center"
-        anchorY="middle"
-      >
-        Lorem ipsum dolor sit amet
-      </Text>
       <Text
         position={[2.73, 1.2, 2]}
         scale={[1, 1, 0]}
@@ -37,19 +27,8 @@ const TextComponent = () => {
         nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
         volutpat.
       </Text>
-      <Text
-        position={[5.85, 1.6, 1.7]}
-        scale={[1, 1, 0]}
-        fontSize={0.08}
-        color="white"
-        maxWidth={0.69}
-        anchorX="center"
-        anchorY="middle"
-      >
-        Partners
-      </Text>
+      <SuComponent />
     </>
   );
 };
-
-export default TextComponent;
+export default SecondScene;
