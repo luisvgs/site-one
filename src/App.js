@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { useRef, useEffect, useState, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   PerspectiveCamera,
@@ -20,7 +20,23 @@ import Plane from "./components/Plane";
 import SupportLights from "./components/SupportLight";
 import { Vector3 } from "three";
 import PostProcessing from "./PostProcessing";
+import Burger from "./components/Burger";
+import Menu from "./components/Menu";
 
+export const useOnClickOutside = (ref, handler) => {
+  useEffect(() => {
+    const listener = (event) => {
+      if (!ref.current || ref.current.contains(event.target)) {
+        return;
+      }
+      handler(event);
+    };
+    document.addEventListener("mousedown", listener);
+    return () => {
+      document.removeEventListener("mousedown", listener);
+    };
+  }, [ref, handler]);
+};
 // Camera path
 const cameraPositionCurve = new THREE.CatmullRomCurve3([
   // 1ra escena
@@ -64,9 +80,15 @@ const Setup = () => {
 };
 
 const App = () => {
+  const [open, setOpen] = useState(false);
+  const node = useRef();
+  useOnClickOutside(node, () => setOpen(false));
   return (
     <>
-      <SideBar />
+      <div ref={node}>
+        <Burger open={open} setOpen={setOpen} />
+        <Menu open={open} setOpen={setOpen} />
+      </div>
       <Canvas
         dpr={[1, 1.5]}
         shadows
@@ -99,7 +121,7 @@ const App = () => {
         {/* <OrbitControls /> */}
         {/* <PostProcessing /> */}
       </Canvas>
-      <div className="layer" />
+      {/* <div className="layer" /> */}
       <Loader />
     </>
   );
