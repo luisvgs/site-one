@@ -76,7 +76,6 @@ const App = () => {
         <Menu open={open} setOpen={setOpen} />
       </div>
       <Canvas
-        frameloop="demand"
         dpr={[1, 1.5]}
         shadows
         gl={{
@@ -87,7 +86,7 @@ const App = () => {
         <color attach="background" args={["#17171b"]} />
         <Suspense fallback={null}>
           <PerspectiveCamera
-            fov={45}
+            fov={50}
             position={[0.111, -0.932, 2.191]}
             rotation={[0.0, -6.2, 0.0]}
           >
