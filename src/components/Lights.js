@@ -18,6 +18,8 @@ const Lights = () => {
         color="#ffffff"
         penumbra={1}
         position={[1.0, 0.23, 6.204]}
+        shadow-mapSize-width={2048}
+        shadow-mapSize-height={2048}
         shadow-camera-bottom={-10}
       />
     </group>
