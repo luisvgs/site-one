@@ -13,7 +13,6 @@ import * as THREE from "three";
 import FirstScene from "./components/FirstScene";
 import SecondScene from "./components/SecondScene";
 import ThirdScene from "./components/ThirdScene";
-import SideBar from "./components/SideBar";
 import Lights from "./components/Lights";
 import Rig from "./rig";
 import Plane from "./components/Plane";
@@ -22,21 +21,8 @@ import { Vector3 } from "three";
 import PostProcessing from "./PostProcessing";
 import Burger from "./components/Burger";
 import Menu from "./components/Menu";
-
-export const useOnClickOutside = (ref, handler) => {
-  useEffect(() => {
-    const listener = (event) => {
-      if (!ref.current || ref.current.contains(event.target)) {
-        return;
-      }
-      handler(event);
-    };
-    document.addEventListener("mousedown", listener);
-    return () => {
-      document.removeEventListener("mousedown", listener);
-    };
-  }, [ref, handler]);
-};
+import OnClickOutside from "./components/OnClickOutside";
+import Effects from "./Effects";
 // Camera path
 const cameraPositionCurve = new THREE.CatmullRomCurve3([
   // 1ra escena
@@ -82,7 +68,7 @@ const Setup = () => {
 const App = () => {
   const [open, setOpen] = useState(false);
   const node = useRef();
-  useOnClickOutside(node, () => setOpen(false));
+  OnClickOutside(node, () => setOpen(false));
   return (
     <>
       <div ref={node}>
@@ -90,6 +76,7 @@ const App = () => {
         <Menu open={open} setOpen={setOpen} />
       </div>
       <Canvas
+        frameloop="demand"
         dpr={[1, 1.5]}
         shadows
         gl={{
@@ -120,7 +107,14 @@ const App = () => {
         <Rig />
         {/* <OrbitControls /> */}
         {/* <PostProcessing /> */}
+        {/* <Effects /> */}
       </Canvas>
+      <div>
+        <section style={{ height: "100vh" }} id="page-1"></section>
+      </div>
+      <div>
+        <section style={{ height: "100vh" }} id="page-2"></section>
+      </div>
       {/* <div className="layer" /> */}
       <Loader />
     </>
