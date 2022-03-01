@@ -6,9 +6,7 @@ const UnoComponent = (props) => {
   const group = useRef();
   const { nodes, materials } = useGLTF(UnoModel);
   return (
-    <group
-      castShadow
-      receiveShadow
+    <mesh
       position={[0.205, 0.78, 2]}
       ref={group}
       {...props}
@@ -327,7 +325,7 @@ const UnoComponent = (props) => {
         geometry={nodes.Cylinder026.geometry}
         material={nodes.Cylinder026.material}
       />
-    </group>
+    </mesh>
   );
 };
 
