@@ -50,19 +50,16 @@ const Setup = () => {
   useFrame((state) => {
     const step = 0.1;
     if (snap.clicked === 1) {
-      state.camera.fov = THREE.MathUtils.lerp(state.camera.fov, 10, step);
-      state.camera.position.lerp(
-        dummy.set(
-          snap.clicked === 1 ? 25 : 10,
-          snap.clicked === 1 ? 1 : 5,
-          snap.clicked === 1 ? 0 : 10
-        ),
-        step
-      );
-
-      lookAtPos.x = Math.sin(state.clock.getElapsedTime() * 2);
-
-      state.camera.lookAt(lookAtPos);
+      state.camera.position.lerp(new Vector3(0.111, 0.11, 5.2), step);
+      state.camera.lookAt(cameraLookAt);
+      state.camera.updateProjectionMatrix();
+    } else if (snap.clicked === 2) {
+      state.camera.position.lerp(new Vector3(3.6, 0.11, 4.8), step);
+      state.camera.lookAt(new Vector3(2.5, -0.9, -12.8));
+      state.camera.updateProjectionMatrix();
+    } else if (snap.clicked === 3) {
+      state.camera.position.lerp(new Vector3(6.9, 0.38, 4.5), step);
+      state.camera.lookAt(new Vector3(7, -0.7, -12.8));
       state.camera.updateProjectionMatrix();
     } else {
       cameraPositionCurve.getPoint(scroll.offset, state.camera.position);
