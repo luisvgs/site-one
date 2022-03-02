@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { state } from "../state";
+import { useSnapshot, subscribe } from "valtio";
 
 const StyledMenu = styled.div`
   display: flex;
@@ -105,10 +107,11 @@ const StyledMenu = styled.div`
 `;
 
 const Menu = ({ open }) => {
+  const snap = useSnapshot(state);
   return (
     <StyledMenu className="menu" open={open}>
-      <a id="about" href="#page-1">
-        <span role="img" aria-label="about us">
+      <a id="about">
+        <span onClick={() => ++state.clicked} role="img" aria-label="about us">
           About us
         </span>
         <div class="div-1" />

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, Suspense } from "react";
+import React, { useRef, useState, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   PerspectiveCamera,
@@ -18,11 +18,11 @@ import Rig from "./rig";
 import Plane from "./components/Plane";
 import SupportLights from "./components/SupportLight";
 import { Vector3 } from "three";
-import PostProcessing from "./PostProcessing";
 import Burger from "./components/Burger";
 import Menu from "./components/Menu";
 import OnClickOutside from "./components/OnClickOutside";
-import Effects from "./Effects";
+import { useSnapshot, subscribe } from "valtio";
+import { state } from "./state";
 // Camera path
 const cameraPositionCurve = new THREE.CatmullRomCurve3([
   // 1ra escena
@@ -43,12 +43,32 @@ const cameraLookAtCurve = new THREE.CatmullRomCurve3([
 
 const cameraLookAt = new Vector3(0, 0, 0);
 const Setup = () => {
+  const snap = useSnapshot(state);
   const scroll = useScroll();
+  const dummy = new THREE.Vector3();
+  const lookAtPos = new THREE.Vector3();
   useFrame((state) => {
-    //NOTE: Here's the camera movement
-    cameraPositionCurve.getPoint(scroll.offset, state.camera.position);
-    cameraLookAtCurve.getPoint(scroll.offset, cameraLookAt);
-    state.camera.lookAt(cameraLookAt);
+    const step = 0.1;
+    if (snap.clicked === 1) {
+      state.camera.fov = THREE.MathUtils.lerp(state.camera.fov, 10, step);
+      state.camera.position.lerp(
+        dummy.set(
+          snap.clicked === 1 ? 25 : 10,
+          snap.clicked === 1 ? 1 : 5,
+          snap.clicked === 1 ? 0 : 10
+        ),
+        step
+      );
+
+      lookAtPos.x = Math.sin(state.clock.getElapsedTime() * 2);
+
+      state.camera.lookAt(lookAtPos);
+      state.camera.updateProjectionMatrix();
+    } else {
+      cameraPositionCurve.getPoint(scroll.offset, state.camera.position);
+      cameraLookAtCurve.getPoint(scroll.offset, cameraLookAt);
+      state.camera.lookAt(cameraLookAt);
+    }
   });
 
   return (
@@ -66,14 +86,16 @@ const Setup = () => {
 };
 
 const App = () => {
+  const snap = useSnapshot(state);
   const [open, setOpen] = useState(false);
   const node = useRef();
+  subscribe(state, () => console.log("state has changed to", state));
   OnClickOutside(node, () => setOpen(false));
   return (
     <>
       <div ref={node}>
         <Burger open={open} setOpen={setOpen} />
-        <Menu open={open} setOpen={setOpen} />
+        <Menu open={open} props={snap} setOpen={setOpen} />
       </div>
       <Canvas
         dpr={[1, 1.5]}
