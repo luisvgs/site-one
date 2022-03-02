@@ -50,16 +50,22 @@ const Setup = () => {
   useFrame((state) => {
     const step = 0.1;
     if (snap.clicked === 1) {
-      state.camera.position.lerp(new Vector3(0.111, 0.11, 5.2), step);
-      state.camera.lookAt(cameraLookAt);
-      state.camera.updateProjectionMatrix();
-    } else if (snap.clicked === 2) {
-      state.camera.position.lerp(new Vector3(3.6, 0.11, 4.8), step);
+      state.camera.position.lerp(new Vector3(3.5, 0.11, 4.8), step);
       state.camera.lookAt(new Vector3(2.5, -0.9, -12.8));
       state.camera.updateProjectionMatrix();
-    } else if (snap.clicked === 3) {
+      // state.camera.position.lerp(new Vector3(0.111, 0.11, 5.2), step);
+      // state.camera.lookAt(cameraLookAt);
+      // state.camera.updateProjectionMatrix();
+    } else if (snap.clicked === 2) {
       state.camera.position.lerp(new Vector3(6.9, 0.38, 4.5), step);
       state.camera.lookAt(new Vector3(7, -0.7, -12.8));
+      state.camera.updateProjectionMatrix();
+      // state.camera.position.lerp(new Vector3(3.5, 0.11, 4.8), step);
+      // state.camera.lookAt(new Vector3(2.5, -0.9, -12.8));
+      // state.camera.updateProjectionMatrix();
+    } else if (snap.clicked === 3) {
+      state.camera.position.lerp(new Vector3(0.111, 0.11, 5.2), step);
+      state.camera.lookAt(cameraLookAt);
       state.camera.updateProjectionMatrix();
     } else {
       cameraPositionCurve.getPoint(scroll.offset, state.camera.position);
