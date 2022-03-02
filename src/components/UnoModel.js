@@ -2,14 +2,13 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import UnoModel from "../models/Number1C.glb";
 
-const UnoComponent = (props) => {
+const UnoComponent = () => {
   const group = useRef();
   const { nodes, materials } = useGLTF(UnoModel);
   return (
     <mesh
       position={[0.205, 0.78, 2]}
       ref={group}
-      {...props}
       dispose={null}
       scale={[1, 1, 1]}
     >

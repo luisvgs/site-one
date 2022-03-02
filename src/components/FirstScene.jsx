@@ -1,5 +1,6 @@
 import UnoComponent from "./UnoModel";
 import { Text } from "@react-three/drei";
+
 const FirstScene = () => {
   return (
     <>
