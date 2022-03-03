@@ -31,7 +31,7 @@ const Apple = (props) => {
       dispose={null}
     >
       {hovered && (
-        <Html position={[0.54, 0.8, -2]} distanceFactor={65}>
+        <Html position={[1.2, 0.4, -2]} distanceFactor={65}>
           <div class="content">Descripcion del partership con Apple.</div>
         </Html>
       )}

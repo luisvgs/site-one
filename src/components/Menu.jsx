@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { state } from "../state";
 import { useSnapshot, subscribe } from "valtio";
-
+import Logo from "../img/white_logo.png";
 const StyledMenu = styled.div`
   display: flex;
   flex-direction: column;
@@ -110,6 +110,9 @@ const Menu = ({ open }) => {
   const snap = useSnapshot(state);
   return (
     <StyledMenu className="menu" open={open}>
+      <a href="javascript: return false;">
+        <img class="logo" onClick={() => (state.clicked = 3)} src={Logo} />
+      </a>
       <a href="javascript: return false;" id="about">
         <span
           onClick={() => (state.clicked = 1)}
@@ -127,11 +130,7 @@ const Menu = ({ open }) => {
         <div class="div-2" />
       </a>
       <a href="javascript: return false;">
-        <span
-          onClick={() => (state.clicked = 3)}
-          role="img"
-          aria-label="portfolio"
-        >
+        <span role="img" aria-label="portfolio">
           Portfolio
         </span>
         <div class="div-3" />
