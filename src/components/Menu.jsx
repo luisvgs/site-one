@@ -111,7 +111,7 @@ const Menu = ({ open }) => {
   return (
     <StyledMenu className="menu" open={open}>
       <a href="javascript: return false;">
-        <img class="logo" onClick={() => (state.clicked = 3)} src={Logo} />
+        <img class="logo" onClick={() => (state.clicked = 4)} src={Logo} />
       </a>
       <a href="javascript: return false;" id="about">
         <span
@@ -124,13 +124,13 @@ const Menu = ({ open }) => {
         <div class="div-1" />
       </a>
       <a href="javascript: return false;">
-        <span onClick={() => (state.clicked = 2)} role="img" aria-label="price">
+        <span onClick={() => (state.clicked = 2)} role="img" aria-label="partners">
           Partners
         </span>
         <div class="div-2" />
       </a>
       <a href="javascript: return false;">
-        <span role="img" aria-label="portfolio">
+        <span onClick={() => (state.clicked = 3)} role="img" aria-label="portfolio">
           Portfolio
         </span>
         <div class="div-3" />

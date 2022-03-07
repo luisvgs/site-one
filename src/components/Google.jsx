@@ -30,7 +30,8 @@ const Google = (props) => {
       dispose={null}
     >
       {hovered && (
-        <Html position={[1.105, 0.1, -2]} distanceFactor={65}>
+        <Html 
+        position={[1.105, 0.1, -2]} distanceFactor={65}>
           <div class="content">Descripcion del partership con Google.</div>
         </Html>
       )}

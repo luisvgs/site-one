@@ -1,27 +1,20 @@
 import React, { useRef, useState } from "react";
 import { useGLTF, PerspectiveCamera } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useSpring, a } from "@react-spring/three";
-import PhoneModel from "../Smarthphone.glb";
+import PhoneModel from "../models/Smarthphone.glb";
 
+    // <group position={[7.405, 0.75, 2]} scale={[1, 1, 1]}>
 const Phone = (props) => {
   const group = useRef();
-  useFrame(() => (group.current.rotation.y += 0.005));
 
   const [expand, setExpand] = useState(false);
-  const properties = useSpring({
-    scale: expand ? [1.4, 1.4, 1.4] : [1, 1, 1],
-  });
 
   const { nodes } = useGLTF(PhoneModel);
   return (
-    <group position={[5, -4, 2]} scale={12}>
-      <a.mesh
-        ref={group}
-        onClick={() => setExpand(!expand)}
-        scale={properties.scale}
-        castShadow
-      >
+    <group 
+    position={[10.270, 0.88, 2]} 
+    scale={[1, 1, 1]}>
+      <mesh ref={group} castShadow>
         <group ref={group} {...props} dispose={null}>
           <group position={[-0.8, -0.01, -0.01]}>
             <pointLight
@@ -413,7 +406,7 @@ const Phone = (props) => {
             scale={[0.02, 0.01, 0.01]}
           />
         </group>
-      </a.mesh>
+      </mesh>
     </group>
   );
 };

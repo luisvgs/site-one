@@ -12,7 +12,7 @@ const Plane = () => {
         position={[0, 0.0, 1.033]}
         receiveShadow
         castShadow
-        scale={[20.4, 30.3, 0.98]}
+        scale={[30.4, 30.3, 0.98]}
       >
         <planeBufferGeometry />
         <shadowMaterial attach="material" transparent opacity={0.4} />
