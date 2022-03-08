@@ -70,7 +70,7 @@ const Phone = (props) => {
               rotation={[-Math.PI / 2, 0, 0]}
             />
           </group>
-          <mesh
+          {/* <mesh
             castShadow
             receiveShadow
             geometry={nodes.Charger_insert.geometry}
@@ -402,7 +402,7 @@ const Phone = (props) => {
             position={[0.03, 0.54, 0.04]}
             rotation={[-Math.PI, 0, 0]}
             scale={[0.02, 0.01, 0.01]}
-          />
+          /> */}
         </group>
       </mesh>
     </group>
