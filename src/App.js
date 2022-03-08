@@ -15,6 +15,7 @@ import FirstScene from "./components/FirstScene";
 import SecondScene from "./components/SecondScene";
 import ThirdScene from "./components/ThirdScene";
 import FourthScene from "./components/FourthScene";
+import News from "./components/News";
 import Lights from "./components/Lights";
 import Rig from "./rig";
 import Plane from "./components/Plane";
@@ -63,8 +64,8 @@ const Setup = () => {
       state.camera.position.lerp(new Vector3(16.5, 0.5, 3.9), step);
       state.camera.updateProjectionMatrix();
     } else if (snap.clicked === 4) {
-      state.camera.position.lerp(new Vector3(10.27, 0.88, 5.3), step);
-      state.camera.lookAt(cameraLookAt);
+      state.camera.lookAt(new Vector3(11.7, 0, -12.8));
+      state.camera.position.lerp(new Vector3(20.03, 0.42, 3.8), step);
       state.camera.updateProjectionMatrix();
     } else {
       cameraPositionCurve.getPoint(scroll.offset, state.camera.position);
@@ -79,6 +80,7 @@ const Setup = () => {
       <SecondScene />
       <ThirdScene />
       <FourthScene />
+      <News />
       <ambientLight color={"purple"} intensity={3.7} />
       <ambientLight color={"blue"} intensity={0.9} />
       <Lights />

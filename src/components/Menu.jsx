@@ -124,19 +124,31 @@ const Menu = ({ open }) => {
         <div class="div-1" />
       </a>
       <a href="javascript: return false;">
-        <span onClick={() => (state.clicked = 2)} role="img" aria-label="partners">
+        <span
+          onClick={() => (state.clicked = 2)}
+          role="img"
+          aria-label="partners"
+        >
           Partners
         </span>
         <div class="div-2" />
       </a>
       <a href="javascript: return false;">
-        <span onClick={() => (state.clicked = 3)} role="img" aria-label="portfolio">
+        <span
+          onClick={() => (state.clicked = 3)}
+          role="img"
+          aria-label="portfolio"
+        >
           Portfolio
         </span>
         <div class="div-3" />
       </a>
-      <a href="/">
-        <span role="img" aria-label="contact">
+      <a href="javascript: return false;">
+        <span
+          onClick={() => (state.clicked = 4)}
+          role="img"
+          aria-label="portfolio"
+        >
           News
         </span>
         <div class="div-4" />
