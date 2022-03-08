@@ -1,6 +1,7 @@
 import PhoneScene from "./PhoneScene";
 import { Text } from "@react-three/drei";
 import Iphone from "./Telefono_optimizado";
+import IphoneBase from "./Telefono_base";
 
 const FourthScene = () => {
   return (
@@ -18,6 +19,7 @@ const FourthScene = () => {
       </Text>
       <Iphone />
       <PhoneScene />
+      <IphoneBase />
     </>
   );
 };
