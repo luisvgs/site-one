@@ -47,9 +47,8 @@ const cameraLookAt = new Vector3(0, 0, 0);
 const Setup = () => {
   const snap = useSnapshot(state);
   const scroll = useScroll();
-  // const dummy = new THREE.Vector3();
-  // const lookAtPos = new THREE.Vector3();
   useFrame((state) => {
+    const offset = 1 - scroll.offset;
     const step = 0.02;
     if (snap.clicked === 1) {
       state.camera.lookAt(new Vector3(2.2, -0.4, -12.8));
@@ -57,11 +56,11 @@ const Setup = () => {
       state.camera.updateProjectionMatrix();
     } else if (snap.clicked === 2) {
       state.camera.lookAt(new Vector3(7, -2.9, -12.8));
-      state.camera.position.lerp(new Vector3(10.0, 0.580, 4.3), step);
+      state.camera.position.lerp(new Vector3(10.0, 0.58, 4.3), step);
       state.camera.updateProjectionMatrix();
     } else if (snap.clicked === 3) {
       state.camera.lookAt(new Vector3(9, -0, -12.8));
-      state.camera.position.lerp(new Vector3(16.50, 0.50, 3.9), step);
+      state.camera.position.lerp(new Vector3(16.5, 0.5, 3.9), step);
       state.camera.updateProjectionMatrix();
     } else if (snap.clicked === 4) {
       state.camera.position.lerp(new Vector3(10.27, 0.88, 5.3), step);
@@ -114,22 +113,22 @@ const App = () => {
           <fog attach="fog" args={["red", 50, 60]} />
           <color attach="background" args={["#17171b"]} />
           <Suspense fallback={null}>
-            <PerspectiveCamera
-              fov={35}
-              position={[0.111, -0.932, 2.191]}
-              rotation={[0.0, -6.2, 0.0]}
+            <ScrollControls
+              damping={0.4}
+              distance={1}
+              pages={3}
+              horizontal={true}
             >
-              <ScrollControls
-                damping={0.4}
-                distance={1}
-                pages={3}
-                horizontal={true}
+              <PerspectiveCamera
+                fov={35}
+                position={[0.111, -0.932, 2.191]}
+                rotation={[0.0, -6.2, 0.0]}
               >
                 <Scroll>
                   <Setup />
                 </Scroll>
-              </ScrollControls>
-            </PerspectiveCamera>
+              </PerspectiveCamera>
+            </ScrollControls>
             <Environment preset="city" />
           </Suspense>
           <Rig />
