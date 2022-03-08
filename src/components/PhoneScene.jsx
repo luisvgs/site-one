@@ -3,7 +3,7 @@ import { useGLTF, PerspectiveCamera } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import PhoneModel from "../models/Smarthphone.glb";
 
-    // <group position={[7.405, 0.75, 2]} scale={[1, 1, 1]}>
+// <group position={[7.405, 0.75, 2]} scale={[1, 1, 1]}>
 const Phone = (props) => {
   const group = useRef();
 
@@ -11,9 +11,7 @@ const Phone = (props) => {
 
   const { nodes } = useGLTF(PhoneModel);
   return (
-    <group 
-    position={[10.270, 0.88, 2]} 
-    scale={[1, 1, 1]}>
+    <group position={[10.27, 0.88, 2]} scale={[1, 1, 1]}>
       <mesh ref={group} castShadow>
         <group ref={group} {...props} dispose={null}>
           <group position={[-0.8, -0.01, -0.01]}>
