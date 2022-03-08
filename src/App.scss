@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik&display=swap");
-@import url('https://rsms.me/inter/inter.css');
+@import url("https://rsms.me/inter/inter.css");
 
 * {
   box-sizing: border-box;
@@ -14,6 +14,28 @@ main,
   height: 100%;
   margin: 0;
   padding: 0;
+}
+.news-background {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+div.wrapper {
+  color: rgb(255, 255, 255);
+}
+
+div.test {
+  width: 100%;
+  height: 100%;
+}
+
+.cont {
+  width: 500px;
+  height: 500px;
+  background: #797d81;
+  border-radius: 3px;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 html {
@@ -48,7 +70,8 @@ div.label {
 body {
   background: #171717;
   position: fixed;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 canvas {
@@ -76,7 +99,6 @@ canvas {
     #070710 100%
   );
 }
-
 
 .fa {
   font-size: 26px;
