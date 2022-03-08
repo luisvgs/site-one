@@ -6,7 +6,7 @@ const Iphone = ({ ...props }) => {
   const group = useRef();
   const { nodes, materials } = useGLTF(TelefonoOpt);
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group position={[10.27, 0.88, 2]} scale={[1, 1, 1]}>
       <mesh
         geometry={nodes.Glass_top.geometry}
         material={nodes.Glass_top.material}
