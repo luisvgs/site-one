@@ -47,32 +47,27 @@ const cameraLookAt = new Vector3(0, 0, 0);
 const Setup = () => {
   const snap = useSnapshot(state);
   const scroll = useScroll();
-  const dummy = new THREE.Vector3();
-  const lookAtPos = new THREE.Vector3();
+  // const dummy = new THREE.Vector3();
+  // const lookAtPos = new THREE.Vector3();
   useFrame((state) => {
-    const step = 0.4;
+    const step = 0.03;
     if (snap.clicked === 1) {
+      state.camera.lookAt(new Vector3(2.5, -0.9, -12.8));
       state.camera.position.lerp(new Vector3(3.5, 0.11, 4.8), step);
-      state.camera.lookAt(new Vector3(2.5, -0.9, -12.8), 0.2);
       state.camera.updateProjectionMatrix();
     } else if (snap.clicked === 2) {
-      state.camera.position.lerp(new Vector3(6.9, 0.38, 4.5), step);
       state.camera.lookAt(new Vector3(7, -0.7, -12.8));
+      state.camera.position.lerp(new Vector3(6.9, 0.38, 4.5), step);
       state.camera.updateProjectionMatrix();
-    } 
-    else if (snap.clicked === 3) {
-      state.camera.position.lerp(new Vector3(10.92, 0.35, 3.9), step);
+    } else if (snap.clicked === 3) {
       state.camera.lookAt(new Vector3(9, -0, -12.8));
+      state.camera.position.lerp(new Vector3(10.92, 0.35, 3.9), step);
       state.camera.updateProjectionMatrix();
-
-    } 
-    else if (snap.clicked === 4) {
-      state.camera.position.lerp(new Vector3(10.270, 0.88, 5.3), step);
+    } else if (snap.clicked === 4) {
+      state.camera.position.lerp(new Vector3(10.27, 0.88, 5.3), step);
       state.camera.lookAt(cameraLookAt);
       state.camera.updateProjectionMatrix();
-
-    } 
-    else {
+    } else {
       cameraPositionCurve.getPoint(scroll.offset, state.camera.position);
       cameraLookAtCurve.getPoint(scroll.offset, cameraLookAt);
       state.camera.lookAt(cameraLookAt);
