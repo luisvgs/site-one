@@ -111,7 +111,7 @@ const Menu = ({ open }) => {
   return (
     <StyledMenu className="menu" open={open}>
       <a href="javascript: return false;">
-        <img class="logo" onClick={() => (state.clicked = 4)} src={Logo} />
+        <img class="logo" onClick={() => (state.clicked = 9)} src={Logo} />
       </a>
       <a href="javascript: return false;" id="about">
         <span

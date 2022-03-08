@@ -50,18 +50,18 @@ const Setup = () => {
   // const dummy = new THREE.Vector3();
   // const lookAtPos = new THREE.Vector3();
   useFrame((state) => {
-    const step = 0.03;
+    const step = 0.02;
     if (snap.clicked === 1) {
-      state.camera.lookAt(new Vector3(2.5, -0.9, -12.8));
-      state.camera.position.lerp(new Vector3(3.5, 0.11, 4.8), step);
+      state.camera.lookAt(new Vector3(2.2, -0.4, -12.8));
+      state.camera.position.lerp(new Vector3(5.1, 0.1, 4.6), step);
       state.camera.updateProjectionMatrix();
     } else if (snap.clicked === 2) {
-      state.camera.lookAt(new Vector3(7, -0.7, -12.8));
-      state.camera.position.lerp(new Vector3(6.9, 0.38, 4.5), step);
+      state.camera.lookAt(new Vector3(7, -2.9, -12.8));
+      state.camera.position.lerp(new Vector3(10.0, 0.580, 4.3), step);
       state.camera.updateProjectionMatrix();
     } else if (snap.clicked === 3) {
       state.camera.lookAt(new Vector3(9, -0, -12.8));
-      state.camera.position.lerp(new Vector3(10.92, 0.35, 3.9), step);
+      state.camera.position.lerp(new Vector3(16.50, 0.50, 3.9), step);
       state.camera.updateProjectionMatrix();
     } else if (snap.clicked === 4) {
       state.camera.position.lerp(new Vector3(10.27, 0.88, 5.3), step);
