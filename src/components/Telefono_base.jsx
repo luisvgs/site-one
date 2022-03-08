@@ -6,7 +6,12 @@ const IphoneBase = ({ ...props }) => {
   const group = useRef();
   const { nodes, materials } = useGLTF(TelefonoBase);
   return (
-    <group ref={group} {...props} dispose={null}>
+    <mesh
+      castShadow
+      receiveShadow
+      position={[10.27, 0.88, 2]}
+      scale={[1, 1, 1]}
+    >
       <mesh
         geometry={nodes.Cube033.geometry}
         material={nodes.Cube033.material}
@@ -48,7 +53,7 @@ const IphoneBase = ({ ...props }) => {
         material={nodes.Cube040.material}
         position={[-0.56, -0.03, -0.21]}
       />
-    </group>
+    </mesh>
   );
 };
 
