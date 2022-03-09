@@ -8,19 +8,26 @@ const Iphone = ({ ...props }) => {
   const { nodes, materials } = useGLTF(TelefonoOpt);
   return (
     <group position={[10.27, 0.88, 2]} dispose={null} scale={[1, 1, 1]}>
-      <mesh
-        geometry={nodes.Glass_top.geometry}
-        material={nodes.Glass_top.material}
-        position={[0.01, 0.37, 0.03]}
-        rotation={[-Math.PI, 0, 0]}
-        scale={0.05}
-      >
-        <Html className="cont" rotation={[3, 0, 0]} position={[-6.02, -4.9, 5]}>
-          <div className="wrapper">
-            <Carrusel />
-          </div>
-        </Html>
-      </mesh>
+      <group className="mesh-group">
+        <mesh
+          geometry={nodes.Glass_top.geometry}
+          material={nodes.Glass_top.material}
+          position={[0.01, 0.37, 0.03]}
+          rotation={[-Math.PI, 0, 0]}
+          scale={0.05}
+        >
+          <Html
+            className="cont"
+            rotation={[3.14, 0, 0]}
+            position={[-2.7, 0.3, 2]}
+            transform
+          >
+            <div className="wrapper">
+              <Carrusel />
+            </div>
+          </Html>
+        </mesh>
+      </group>
       <mesh
         geometry={nodes.Screen.geometry}
         material={nodes.Screen.material}
