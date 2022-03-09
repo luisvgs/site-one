@@ -1,26 +1,33 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, Html } from "@react-three/drei";
 import TelefonoOpt from "../models/telefono_optimizado.glb";
+import Carrusel from "./Carousel";
 
 const Iphone = ({ ...props }) => {
   const group = useRef();
   const { nodes, materials } = useGLTF(TelefonoOpt);
   return (
-    <group position={[10.27, 0.88, 2]} scale={[1, 1, 1]}>
+    <group position={[10.27, 0.88, 2]} dispose={null} scale={[1, 1, 1]}>
       <mesh
         geometry={nodes.Glass_top.geometry}
         material={nodes.Glass_top.material}
         position={[0.01, 0.37, 0.03]}
         rotation={[-Math.PI, 0, 0]}
         scale={0.05}
-      />
+      >
+        <Html className="cont" rotation={[3, 0, 0]} position={[-6.02, -4.9, 5]}>
+          <div className="wrapper">
+            <Carrusel />
+          </div>
+        </Html>
+      </mesh>
       <mesh
         geometry={nodes.Screen.geometry}
         material={nodes.Screen.material}
         position={[0.01, 0.37, 0.04]}
         rotation={[-Math.PI, 0, 0]}
         scale={[0.17, 0.36, 0.05]}
-      />
+      ></mesh>
       <mesh
         geometry={nodes.Titanium_unibody.geometry}
         material={nodes.Titanium_unibody.material}
