@@ -2,22 +2,11 @@ import React, { useRef, useState } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 import MicrosoftModel from "../models/microsoft.glb";
 import { useFrame } from "@react-three/fiber";
-import { useTransition, Transition, animated } from "react-spring";
 
 const Microsoft = (props) => {
   const [hovered, setHover] = useState(false);
-  const [show, set] = useState(false);
   const group = useRef();
   const { nodes, materials } = useGLTF(MicrosoftModel);
-
-  const transitions = useTransition(show, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    reverse: show,
-    delay: 200,
-    onRest: () => set(!show),
-  });
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -25,8 +14,7 @@ const Microsoft = (props) => {
   });
 
   return (
-    <mesh
-      onClick={() => set((show) => !show)}
+    <group
       onPointerOver={(e) => {
         e.stopPropagation();
         setHover(true);
@@ -41,11 +29,19 @@ const Microsoft = (props) => {
       {...props}
       dispose={null}
     >
-      {hovered && (
-        <Html position={[-0.98, 0.8, -2]} distanceFactor={65}>
-          <div class="content">Descripcion del partership con Microsoft.</div>
-        </Html>
-      )}
+      <Html
+        occlude
+        onOcclude={setHover}
+        position={[-0.98, 0.8, -4]}
+        distanceFactor={65}
+        style={{
+          transition: "all 0.5s",
+          // opacity: hovered ? 0 : 1,
+          transform: `scale(${hovered ? 0.9 : 0.0})`,
+        }}
+      >
+        <div class="content">Descripcion del partership con Microsoft.</div>
+      </Html>
       <mesh
         castShadow
         receiveShadow
@@ -124,7 +120,7 @@ const Microsoft = (props) => {
         geometry={nodes.Curve001.geometry}
         material={nodes.Curve001.material}
       />
-    </mesh>
+    </group>
   );
 };
 
