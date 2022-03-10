@@ -19,7 +19,7 @@ const PostProcessing = () => {
   return (
     <EffectComposer>
       <Noise opacity={0.01} />
-      <Bloom
+      {/* <Bloom
         blurPass={BlurPass}
         intensity={intensity}
         width={720}
@@ -27,7 +27,7 @@ const PostProcessing = () => {
         kernelSize={KernelSize.LARGE}
         luminanceThreshold={luminanceThreshold}
         luminanceSmoothing={luminanceSmoothing}
-      />
+      /> */}
     </EffectComposer>
   );
 };

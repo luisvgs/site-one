@@ -9,7 +9,6 @@ const Iphone = ({ ...props }) => {
   const [hidden, set] = useState();
   return (
     <group position={[10.27, 0.88, 2]} dispose={null} scale={[1, 1, 1]}>
-      <group className="mesh-group">
         <mesh
           geometry={nodes.Glass_top.geometry}
           material={nodes.Glass_top.material}
@@ -35,7 +34,6 @@ const Iphone = ({ ...props }) => {
             </div>
           </Html>
         </mesh>
-      </group>
       <mesh
         geometry={nodes.Screen.geometry}
         material={nodes.Screen.material}

@@ -26,7 +26,8 @@ import Menu from "./components/Menu";
 import OnClickOutside from "./components/OnClickOutside";
 import { useSnapshot, subscribe } from "valtio";
 import { state } from "./state";
-
+import PostProcessing from "./PostProcessing"
+import Effects from "./Effects"
 // Camera path
 const cameraPositionCurve = new THREE.CatmullRomCurve3([
   // 1ra escena
@@ -36,6 +37,7 @@ const cameraPositionCurve = new THREE.CatmullRomCurve3([
   new Vector3(-2, 0.12, 4.8), // Phone point
   // 3ra escena
   new Vector3(0.32, 0.8, 4.9),
+  new Vector3(0.32, 1.5, 4.9),
 ]);
 
 const cameraLookAtCurve = new THREE.CatmullRomCurve3([
@@ -49,19 +51,18 @@ const Setup = () => {
   const snap = useSnapshot(state);
   const scroll = useScroll();
   useFrame((state) => {
-    const offset = 1 - scroll.offset;
     const step = 0.02;
     if (snap.clicked === 1) {
+      state.camera.updateProjectionMatrix();
       state.camera.lookAt(new Vector3(2.2, -0.4, -12.8));
       state.camera.position.lerp(new Vector3(5.1, 0.1, 4.6), step);
-      state.camera.updateProjectionMatrix();
     } else if (snap.clicked === 2) {
+      state.camera.updateProjectionMatrix();
       state.camera.lookAt(new Vector3(7, -2.9, -12.8));
       state.camera.position.lerp(new Vector3(10.0, 0.58, 4.3), step);
-      state.camera.updateProjectionMatrix();
     } else if (snap.clicked === 3) {
       state.camera.lookAt(new Vector3(9, -0, -12.8));
-      state.camera.position.lerp(new Vector3(16.5, 0.5, 3.9), step);
+      state.camera.position.lerp(new Vector3(16.5, 0.5, 3.7), step);
       state.camera.updateProjectionMatrix();
     } else if (snap.clicked === 4) {
       state.camera.lookAt(new Vector3(11.7, 0, -12.8));

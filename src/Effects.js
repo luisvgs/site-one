@@ -31,6 +31,9 @@ const Effects = () => {
       <unrealBloomPass
         attachArray="passes"
         args={[aspect, strength, radius, threshold]}
+        // strength 0.3
+        // radius 0.0
+        // threshold 0.22
       />
     </effectComposer>
   );
