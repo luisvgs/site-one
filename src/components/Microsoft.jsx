@@ -30,14 +30,12 @@ const Microsoft = (props) => {
       dispose={null}
     >
       <Html
-        occlude
-        onOcclude={setHover}
-        position={[-0.98, 0.8, -4]}
-        distanceFactor={65}
+        position={[-0.9, 0.8, -4]}
+        distanceFactor={80}
         style={{
           transition: "all 0.5s",
           // opacity: hovered ? 0 : 1,
-          transform: `scale(${hovered ? 0.9 : 0.0})`,
+          transform: `scale(${hovered ? 1 : 0.0})`,
         }}
       >
         <div class="content">Descripcion del partership con Microsoft.</div>
