@@ -29,11 +29,17 @@ const Google = (props) => {
       {...props}
       dispose={null}
     >
-      {hovered && (
-        <Html position={[1.105, 0.1, -2]} distanceFactor={65}>
-          <div class="content">Descripcion del partership con Google.</div>
-        </Html>
-      )}
+      <Html
+        position={[1.105, 0.1, -2]}
+        distanceFactor={65}
+        style={{
+          transition: "all 0.3s",
+          opacity: hovered ? 1 : 0.5,
+          transform: `scale(${hovered ? 1 : 0.0})`,
+        }}
+      >
+        <div class="content">Descripcion del partership con Google.</div>
+      </Html>
       <mesh
         castShadow
         receiveShadow

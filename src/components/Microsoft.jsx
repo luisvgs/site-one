@@ -30,11 +30,11 @@ const Microsoft = (props) => {
       dispose={null}
     >
       <Html
-        position={[-0.9, 0.8, -4]}
+        position={[-0.9, 0.8, -3]}
         distanceFactor={80}
         style={{
-          transition: "all 0.5s",
-          // opacity: hovered ? 0 : 1,
+          transition: "all 0.3s",
+          opacity: hovered ? 1 : 0.5,
           transform: `scale(${hovered ? 1 : 0.0})`,
         }}
       >
