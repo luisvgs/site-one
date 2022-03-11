@@ -28,7 +28,7 @@ div.test {
 div.wrapper {
   color: rgb(255, 255, 255);
   font-size: 50px;
-  transform: scale(0.9);
+  transform: scale(1.0);
 }
 
 mesh-group {
@@ -38,22 +38,22 @@ mesh-group {
 }
 
 div.carrusel {
-  height: 370px;
+  height: 570px;
   width: 50%;
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 24px;
   justify-content: center;
 }
 
 h3 {
-  font-size: 14px;
+  font-size: 30px;
 }
 
 .cont {
-  width: 157px;
-  height: 320px;
-  background: #e9dede;
+  width: 227px;
+  height: 520px;
+  background: #000000;
   border-radius: 10px;
   align-items: center;
   padding: 0;
