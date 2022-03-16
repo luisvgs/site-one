@@ -4,7 +4,6 @@ import {
   PerspectiveCamera,
   Environment,
   ScrollControls,
-  OrbitControls,
   Loader,
   Scroll,
 } from "@react-three/drei";
@@ -15,8 +14,6 @@ import Menu from "./components/Menu";
 import OnClickOutside from "./components/OnClickOutside";
 import { useSnapshot, subscribe } from "valtio";
 import { state } from "./state";
-import PostProcessing from "./PostProcessing"
-import Effects from "./Effects"
 import Setup from "./components/Setup";
 
 const App = () => {
@@ -31,43 +28,36 @@ const App = () => {
         <Burger open={open} setOpen={setOpen} />
         <Menu open={open} props={snap} setOpen={setOpen} />
       </div>
-      <div style={{ width: "100vw", height: "100vh" }}>
-        <Canvas
-          dpr={[1, 2]}
-          shadows
-          colorManagement
-          flat
-          gl={{
-            physicallyCorrectLights: true,
-          }}
-        >
-          <fog attach="fog" args={["red", 50, 60]} />
-          <color attach="background" args={["#17171b"]} />
-          <Suspense fallback={null}>
-            <ScrollControls
-              damping={1}
-              distance={1}
-              pages={3}
-              horizontal={true}
+      <Canvas
+        dpr={[1, 2]}
+        shadows
+        colorManagement
+        flat
+        gl={{
+          physicallyCorrectLights: true,
+        }}
+      >
+        <fog attach="fog" args={["red", 50, 60]} />
+        <color attach="background" args={["#17171b"]} />
+        <Suspense fallback={null}>
+          <ScrollControls damping={1} distance={1} pages={3} horizontal={true}>
+            <PerspectiveCamera
+              fov={35}
+              position={[0.111, -0.932, 2.191]}
+              rotation={[0.0, -6.2, 0.0]}
             >
-              <PerspectiveCamera
-                fov={35}
-                position={[0.111, -0.932, 2.191]}
-                rotation={[0.0, -6.2, 0.0]}
-              >
-                <Scroll>
-                  <Setup />
-                </Scroll>
-              </PerspectiveCamera>
-            </ScrollControls>
-            <Environment preset="city" />
-          </Suspense>
-          <Rig />
-          {/* <OrbitControls /> */}
-          {/* <PostProcessing /> */}
-          {/* <Effects /> */}
-        </Canvas>
-      </div>
+              <Scroll>
+                <Setup />
+              </Scroll>
+            </PerspectiveCamera>
+          </ScrollControls>
+          <Environment preset="city" />
+        </Suspense>
+        <Rig />
+        {/* <OrbitControls /> */}
+        {/* <PostProcessing /> */}
+        {/* <Effects /> */}
+      </Canvas>
       <Loader />
     </>
   );

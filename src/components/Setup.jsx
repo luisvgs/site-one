@@ -1,7 +1,6 @@
-import {
-  useScroll
-} from "@react-three/drei";
+import { useScroll } from "@react-three/drei";
 import FirstScene from "./FirstScene";
+import React from "react";
 import SecondScene from "./SecondScene";
 import ThirdScene from "./ThirdScene";
 import FourthScene from "./FourthScene";
@@ -11,8 +10,8 @@ import { Vector3 } from "three";
 import * as THREE from "three";
 import News from "./News";
 import Lights from "./Lights";
-import { useSnapshot} from "valtio";
-import {  useFrame } from "@react-three/fiber";
+import { useSnapshot } from "valtio";
+import { useFrame, useThree } from "@react-three/fiber";
 import { state } from "../state";
 
 // Camera path
@@ -37,16 +36,20 @@ const cameraLookAt = new Vector3(0, 0, 0);
 const Setup = () => {
   const snap = useSnapshot(state);
   const scroll = useScroll();
+  const pages = 6;
+  const { size } = useThree();
+
   useFrame((state) => {
     const step = 0.02;
     if (snap.clicked === 1) {
-      state.camera.updateProjectionMatrix();
       state.camera.lookAt(new Vector3(2.2, -0.4, -12.8));
       state.camera.position.lerp(new Vector3(5.1, 0.1, 4.6), step);
-    } else if (snap.clicked === 2) {
+      scroll.el.scrollLeft = size.height * pages;
       state.camera.updateProjectionMatrix();
+    } else if (snap.clicked === 2) {
       state.camera.lookAt(new Vector3(7, -2.9, -12.8));
       state.camera.position.lerp(new Vector3(10.0, 0.58, 4.3), step);
+      state.camera.updateProjectionMatrix();
     } else if (snap.clicked === 3) {
       state.camera.lookAt(new Vector3(9, -0, -12.8));
       state.camera.position.lerp(new Vector3(16.5, 0.5, 3.7), step);

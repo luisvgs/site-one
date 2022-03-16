@@ -26,7 +26,7 @@ const Content = ({ hidden, set }) => {
 };
 const Iphone = ({ ...props }) => {
   const group = useRef();
-  const { nodes, material } = useGLTF(TelefonoOpt);
+  const { nodes } = useGLTF(TelefonoOpt);
   const [hidden, set] = useState();
   return (
     <group
