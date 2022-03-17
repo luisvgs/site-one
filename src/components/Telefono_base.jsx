@@ -2,16 +2,11 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import TelefonoBase from "../models/telefono_base.glb";
 
-const IphoneBase = ({ ...props }) => {
+const IphoneBase = ({ position }) => {
   const group = useRef();
   const { nodes, materials } = useGLTF(TelefonoBase);
   return (
-    <mesh
-      castShadow
-      receiveShadow
-      position={[10.27, 0.88, 2]}
-      scale={[1, 1, 1]}
-    >
+    <mesh castShadow receiveShadow position={position} scale={[1, 1, 1]}>
       <mesh
         geometry={nodes.Cube033.geometry}
         material={nodes.Cube033.material}

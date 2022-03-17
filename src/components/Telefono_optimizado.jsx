@@ -1,40 +1,12 @@
 import React, { useRef, useState } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 import TelefonoOpt from "../models/telefono_optimizado.glb";
-import Carrusel from "./Carousel";
 
-const Content = ({ hidden, set }) => {
-  return (
-    <Html
-      className="cont"
-      rotation={[-Math.PI, 0, 0]}
-      position={[-2.4, 0.367, 0.035]}
-      transform
-      occlude
-      onOcclude={set}
-      style={{
-        transition: "all 0.8s",
-        opacity: hidden ? 0 : 0.8,
-        transform: `scale(${hidden ? 0.0 : 0.54})`,
-      }}
-    >
-      <div className="wrapper">
-        <Carrusel />
-      </div>
-    </Html>
-  );
-};
-const Iphone = ({ ...props }) => {
+const Iphone = ({ position, content }) => {
   const group = useRef();
   const { nodes } = useGLTF(TelefonoOpt);
-  const [hidden, set] = useState();
   return (
-    <group
-      position={[10.27, 0.88, 2]}
-      ref={group}
-      dispose={null}
-      scale={[1, 1, 1]}
-    >
+    <group position={position} ref={group} dispose={null} scale={[1, 1, 1]}>
       <mesh
         geometry={nodes.Glass_top.geometry}
         material={nodes.Glass_top.material}
@@ -42,7 +14,7 @@ const Iphone = ({ ...props }) => {
         rotation={[-Math.PI, 0, 0]}
         scale={0.05}
       >
-        <Content hiddent={hidden} set={set} />
+        {content}
       </mesh>
       <mesh
         geometry={nodes.Screen.geometry}
