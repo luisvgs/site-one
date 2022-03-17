@@ -20,7 +20,6 @@ const App = () => {
   const snap = useSnapshot(state);
   const [open, setOpen] = useState(false);
   const node = useRef();
-  subscribe(state, () => console.log("state has changed to", state));
   OnClickOutside(node, () => setOpen(false));
   return (
     <>
