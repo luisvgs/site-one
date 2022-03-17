@@ -40,7 +40,7 @@ const Setup = () => {
   // const pages = 6;
   // const { size } = useThree();
   useFrame((state) => {
-    const step = 0.02;
+    const step = 0.019;
     switch (snap.clicked) {
       case 1:
         // scroll.el.scrollLeft = size.height * pages;
