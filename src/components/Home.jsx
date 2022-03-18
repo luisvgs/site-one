@@ -1,5 +1,6 @@
 import UnoComponent from "./UnoModel";
 import { Text } from "@react-three/drei";
+import UnoLights from "./UnoLights";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       >
         Lorem ipsum dolor sit amet
       </Text>
+      <UnoLights />
       <UnoComponent />
     </>
   );
