@@ -40,7 +40,7 @@ const Setup = () => {
   // const pages = 6;
   // const { size } = useThree();
   useFrame((state) => {
-    const step = 0.019;
+    const step = 0.02;
     switch (snap.clicked) {
       case 1:
         // scroll.el.scrollLeft = size.height * pages;
@@ -81,9 +81,9 @@ const Setup = () => {
       <Home />
       <AboutUs />
       <Partners />
-      <Portfolio />
-      <News />
-      <Contact />
+      {/* <Portfolio /> */}
+      {/* <News />
+      <Contact /> */}
       <ambientLight color={"purple"} intensity={3.7} />
       <ambientLight color={"blue"} intensity={0.9} />
       <Lights />
