@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { state } from "../state";
 import { useSnapshot } from "valtio";
 import Logo from "../img/white_logo.png";
+import { Link} from "wouter";
+
 const StyledMenu = styled.div`
   display: flex;
   flex-direction: column;
@@ -113,26 +115,30 @@ const Menu = ({ open }) => {
       <a href="javascript: return false;">
         <img class="logo" onClick={() => (state.clicked = 9)} src={Logo} />
       </a>
-      <a href="javascript: return false;" id="about">
-        <span
-          onClick={() => (state.clicked = 1)}
-          role="img"
-          aria-label="about us"
-        >
-          About us
-        </span>
-        <div class="div-1" />
-      </a>
-      <a href="javascript: return false;">
-        <span
-          onClick={() => (state.clicked = 2)}
-          role="img"
-          aria-label="partners"
-        >
-          Partners
-        </span>
-        <div class="div-2" />
-      </a>
+      <Link href="/about">
+        <a href="javascript: return false;" id="about">
+          <span
+            onClick={() => (state.clicked = 1)}
+            role="img"
+            aria-label="about us"
+          >
+            About us
+          </span>
+          <div class="div-1" />
+        </a>
+      </Link>
+      <Link href="/partners">
+        <a href="javascript: return false;">
+          <span
+            onClick={() => (state.clicked = 2)}
+            role="img"
+            aria-label="partners"
+          >
+            Partners
+          </span>
+          <div class="div-2" />
+        </a>
+      </Link>
       <a href="javascript: return false;">
         <span
           onClick={() => (state.clicked = 3)}
