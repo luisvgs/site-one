@@ -13,7 +13,6 @@ const Base = (props) => {
 
   useFrame((state) => {
     if (location === "/partners") {
-      console.log(back_cilinder.current.position.y);
       if (
         cilinder.current.position.y <= -0.23 &&
         big_cilinder.current.position.y <= -0.1

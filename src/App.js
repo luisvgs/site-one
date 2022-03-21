@@ -12,12 +12,10 @@ import Rig from "./rig";
 import Burger from "./components/Burger";
 import Menu from "./components/Menu";
 import OnClickOutside from "./components/OnClickOutside";
-import { useSnapshot, subscribe } from "valtio";
+import { useSnapshot } from "valtio";
 import { state } from "./state";
 import Setup from "./components/Setup";
 import Ga from "./components/Ga";
-import scrollState from "./components/store"
-import PostProcessing from "./PostProcessing";
 
 const App = () => {
   const snap = useSnapshot(state);
@@ -25,6 +23,7 @@ const App = () => {
   const node = useRef();
 
   OnClickOutside(node, () => setOpen(false));
+
   useEffect(() => {
     Ga();
   }, []);
@@ -47,7 +46,7 @@ const App = () => {
         <fog attach="fog" args={["red", 50, 60]} />
         <color attach="background" args={["#17171b"]} />
         <Suspense fallback={null}>
-          <ScrollControls damping={1} distance={1} pages={3} horizontal={true}>
+          <ScrollControls damping={1} distance={1} pages={3} horizontal>
             <PerspectiveCamera
               fov={35}
               position={[0.111, -0.932, 2.191]}
@@ -61,9 +60,6 @@ const App = () => {
           <Environment preset="city" />
         </Suspense>
         <Rig />
-        {/* <OrbitControls /> */}
-        {/* <PostProcessing /> */}
-        {/* <Effects /> */}
       </Canvas>
       <Loader />
     </>
