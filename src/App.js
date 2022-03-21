@@ -1,4 +1,4 @@
-import React, { useRef, useState, Suspense } from "react";
+import React, { useRef, useState, Suspense,useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   PerspectiveCamera,
@@ -15,12 +15,20 @@ import OnClickOutside from "./components/OnClickOutside";
 import { useSnapshot, subscribe } from "valtio";
 import { state } from "./state";
 import Setup from "./components/Setup";
+import Ga from "./components/Ga";
+import scrollState from "./components/store"
+import PostProcessing from "./PostProcessing";
 
 const App = () => {
   const snap = useSnapshot(state);
   const [open, setOpen] = useState(false);
   const node = useRef();
+
   OnClickOutside(node, () => setOpen(false));
+  useEffect(() => {
+    Ga();
+  }, []);
+
   return (
     <>
       <div ref={node}>
