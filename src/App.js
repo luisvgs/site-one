@@ -12,7 +12,7 @@ import Rig from "./rig";
 import Burger from "./components/Burger";
 import Menu from "./components/Menu";
 import OnClickOutside from "./components/OnClickOutside";
-import { useSnapshot } from "valtio";
+import { useSnapshot, subscribe } from "valtio";
 import { state } from "./state";
 import Setup from "./components/Setup";
 import Ga from "./components/Ga";
@@ -22,8 +22,8 @@ const App = () => {
   const [open, setOpen] = useState(false);
   const node = useRef();
 
+subscribe(state, () => console.log('state has changed to', state.hovered))
   OnClickOutside(node, () => setOpen(false));
-
   useEffect(() => {
     Ga();
   }, []);

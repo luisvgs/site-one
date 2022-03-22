@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF} from "@react-three/drei";
 import UnoModel from "../models/Number1C.glb";
+import Focos from "./Focos";
 
 const UnoComponent = () => {
   const group = useRef();
@@ -12,6 +13,7 @@ const UnoComponent = () => {
       dispose={null}
       scale={[1, 1, 1]}
     >
+      <Focos />
       <mesh
         castShadow
         receiveShadow

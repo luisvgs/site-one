@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { state } from "../state";
 import { useSnapshot } from "valtio";
 import Logo from "../img/white_logo.png";
-import { Link} from "wouter";
+import { Link } from "wouter";
 
 const StyledMenu = styled.div`
   display: flex;
@@ -116,7 +116,12 @@ const Menu = ({ open }) => {
         <img class="logo" onClick={() => (state.clicked = 9)} src={Logo} />
       </a>
       <Link href="/about">
-        <a href="javascript: return false;" id="about">
+        <a
+          onMouseEnter={() => state.hovered = "about"}
+          onMouseLeave={() => state.hovered = null}
+          href="javascript: return false;"
+          id="about"
+        >
           <span
             onClick={() => (state.clicked = 1)}
             role="img"
@@ -128,7 +133,10 @@ const Menu = ({ open }) => {
         </a>
       </Link>
       <Link href="/partners">
-        <a href="javascript: return false;">
+        <a 
+          onMouseEnter={() => state.hovered = "partners"}
+          onMouseLeave={() => state.hovered = null}
+        href="javascript: return false;">
           <span
             onClick={() => (state.clicked = 2)}
             role="img"
