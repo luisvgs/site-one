@@ -2,18 +2,27 @@ import React, { useRef, useState } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import AppleModel from "../models/apple.glb";
+import { useSpring, animated, config } from "@react-spring/three";
 
 const Apple = (props) => {
   const [hovered, setHover] = useState(false);
   const group = useRef();
   const { nodes, materials } = useGLTF(AppleModel);
 
+  const [active, setActive] = useState(false);
+  const { scale } = useSpring({ 
+    scale: active ? 1.1 : 1,
+    config: config.stiff,
+  });
+
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     group.current.position.y = 0.8 + Math.sin(t / 0.8) / 32;
   });
+
   return (
-    <mesh
+    <animated.mesh
+      onClick={() => setActive(!active)}
       onPointerOver={(e) => {
         e.stopPropagation();
         setHover(true);
@@ -26,7 +35,7 @@ const Apple = (props) => {
       castShadow
       receiveShadow
       position={[6.405, 0.75, 2]}
-      scale={[1, 1, 1]}
+      scale={scale}
       {...props}
       dispose={null}
     >
@@ -47,7 +56,7 @@ const Apple = (props) => {
         geometry={nodes.Curve022.geometry}
         material={materials["Material.010"]}
       />
-    </mesh>
+    </animated.mesh>
   );
 };
 
