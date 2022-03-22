@@ -117,8 +117,8 @@ const Menu = ({ open }) => {
       </a>
       <Link href="/about">
         <a
-          onMouseEnter={() => state.hovered = "about"}
-          onMouseLeave={() => state.hovered = null}
+          onMouseEnter={() => (state.hovered = "about")}
+          onMouseLeave={() => (state.hovered = null)}
           href="javascript: return false;"
           id="about"
         >
@@ -133,10 +133,11 @@ const Menu = ({ open }) => {
         </a>
       </Link>
       <Link href="/partners">
-        <a 
-          onMouseEnter={() => state.hovered = "partners"}
-          onMouseLeave={() => state.hovered = null}
-        href="javascript: return false;">
+        <a
+          onMouseEnter={() => (state.hovered = "partners")}
+          onMouseLeave={() => (state.hovered = null)}
+          href="javascript: return false;"
+        >
           <span
             onClick={() => (state.clicked = 2)}
             role="img"
@@ -147,7 +148,11 @@ const Menu = ({ open }) => {
           <div class="div-2" />
         </a>
       </Link>
-      <a href="javascript: return false;">
+      <a
+        onMouseEnter={() => (state.hovered = "portfolio")}
+        onMouseLeave={() => (state.hovered = null)}
+        href="javascript: return false;"
+      >
         <span
           onClick={() => (state.clicked = 3)}
           role="img"
@@ -157,7 +162,11 @@ const Menu = ({ open }) => {
         </span>
         <div class="div-3" />
       </a>
-      <a href="javascript: return false;">
+      <a
+        onMouseEnter={() => (state.hovered = "news")}
+        onMouseLeave={() => (state.hovered = null)}
+        href="javascript: return false;"
+      >
         <span
           onClick={() => (state.clicked = 4)}
           role="img"
@@ -167,7 +176,11 @@ const Menu = ({ open }) => {
         </span>
         <div class="div-4" />
       </a>
-      <a href="javascript: return false;">
+      <a
+        onMouseEnter={() => (state.hovered = "contact")}
+        onMouseLeave={() => (state.hovered = null)}
+        href="javascript: return false;"
+      >
         <span
           onClick={() => (state.clicked = 5)}
           role="img"

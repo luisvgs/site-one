@@ -86,7 +86,6 @@ const Setup = () => {
       <News />
       <Contact />
       <ambientLight color={"purple"} intensity={3.7} />
-      <ambientLight color={"blue"} intensity={0.9} />
       <Lights />
       <SupportLights />
       <Plane />
