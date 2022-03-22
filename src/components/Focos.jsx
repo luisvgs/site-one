@@ -5,7 +5,7 @@ import { state } from "../state";
 import { useSnapshot } from "valtio";
 const Focos = (props) => {
   const group = useRef();
-  const snap = useSnapshot(state);
+  useSnapshot(state);
   return (
     <group scale={[1, 1, 1]} ref={group} {...props} dispose={null}>
       {state.hovered === "about" && (

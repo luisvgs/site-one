@@ -12,7 +12,7 @@ import { Vector3 } from "three";
 import * as THREE from "three";
 import Lights from "./Lights";
 import { useSnapshot } from "valtio";
-import { useThree, useFrame } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { state } from "../state";
 
 // Camera path
@@ -37,8 +37,8 @@ const cameraLookAt = new Vector3(0, 0, 0);
 const Setup = () => {
   const snap = useSnapshot(state);
   const scroll = useScroll();
-  const pages = 3;
-  const { size } = useThree();
+  // const pages = 3;
+  // const { size } = useThree();
   scroll.el.scrollLeft = scroll.offset;
   useFrame((state) => {
     const step = 0.02;

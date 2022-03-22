@@ -109,10 +109,10 @@ const StyledMenu = styled.div`
 `;
 
 const Menu = ({ open }) => {
-  const snap = useSnapshot(state);
+  useSnapshot(state);
   return (
     <StyledMenu className="menu" open={open}>
-      <a href="javascript: return false;">
+      <a href="/#">
         <img class="logo" onClick={() => (state.clicked = 9)} src={Logo} />
       </a>
       <Link href="/about">
@@ -148,6 +148,7 @@ const Menu = ({ open }) => {
           <div class="div-2" />
         </a>
       </Link>
+      <Link href="/portfolio">
       <a
         onMouseEnter={() => (state.hovered = "portfolio")}
         onMouseLeave={() => (state.hovered = null)}
@@ -162,6 +163,8 @@ const Menu = ({ open }) => {
         </span>
         <div class="div-3" />
       </a>
+      </Link>
+      <Link href="/news">
       <a
         onMouseEnter={() => (state.hovered = "news")}
         onMouseLeave={() => (state.hovered = null)}
@@ -176,6 +179,8 @@ const Menu = ({ open }) => {
         </span>
         <div class="div-4" />
       </a>
+      </Link>
+      <Link href="/contact">
       <a
         onMouseEnter={() => (state.hovered = "contact")}
         onMouseLeave={() => (state.hovered = null)}
@@ -190,6 +195,7 @@ const Menu = ({ open }) => {
         </span>
         <div class="div-5" />
       </a>
+      </Link>
     </StyledMenu>
   );
 };
