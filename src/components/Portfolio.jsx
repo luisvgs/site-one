@@ -18,7 +18,7 @@ const Portfolio = () => {
       >
         Portfolio
       </Text>
-      <Iphone position={[10.27, 0.88, 2]} content={<Content />} />
+      <Iphone position={[10.27, 0.90, 2]} content={<Content />} />
       <IphoneLights position={[10.27, 0.88, 2]} />
       <IphoneBase position={[10.27, 0.88, 2]} />
     </>
