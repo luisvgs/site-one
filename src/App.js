@@ -1,4 +1,4 @@
-import React, { useRef, useState, Suspense,useEffect } from "react";
+import React, { useRef, useState, Suspense, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   PerspectiveCamera,
@@ -22,7 +22,6 @@ const App = () => {
   const [open, setOpen] = useState(false);
   const node = useRef();
 
-subscribe(state, () => console.log('state has changed to', state.hovered))
   OnClickOutside(node, () => setOpen(false));
   useEffect(() => {
     Ga();
