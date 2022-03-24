@@ -10,14 +10,9 @@ const SuComponent = (props) => {
   const [hovered, setHovered] = useState(false)
   const { nodes, material } = useGLTF(SuModel);
   const { wobble } = useSpring({ 
-    wobble: hovered ? 2.80 : 2.15,
+    wobble: hovered ? 2.60 : 2.15,
     config: config.wobbly
   });
-
-  // useFrame((state) => {
-  //   group.current.rotation.y += 0.009;
-  // }
-  // );
 
   return (
     <animated.mesh
@@ -102,13 +97,6 @@ const SuComponent = (props) => {
         geometry={nodes.Curve011.geometry}
         material={nodes.Curve011.material}
       />
-        {/* <mesh
-          name="Curve007"
-          castShadow
-          receiveShadow
-          geometry={nodes.Curve007.geometry}
-          material={materials["Material.002"]}
-        /> */}
     </animated.mesh>
   );
 };
