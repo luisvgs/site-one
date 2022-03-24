@@ -12,7 +12,7 @@ import Rig from "./rig";
 import Burger from "./components/Burger";
 import Menu from "./components/Menu";
 import OnClickOutside from "./components/OnClickOutside";
-import { useSnapshot, subscribe } from "valtio";
+import { useSnapshot} from "valtio";
 import { state } from "./state";
 import Setup from "./components/Setup";
 import Ga from "./components/Ga";

@@ -5,7 +5,6 @@ import { useSpring, animated, config } from "@react-spring/three";
 import { useLocation } from "wouter";
 
 const AboutUs = () => {
-  const [location] = useLocation();
   const [flip, set] = useState(false);
   const AnimatedText = animated(Text);
 

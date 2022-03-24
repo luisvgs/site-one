@@ -5,7 +5,6 @@ import { useSpring, animated } from "@react-spring/three";
 
 const Base = (props) => {
   const { nodes } = useGLTF(BaseModel);
-
   const spring = useSpring({
     loop: true,
     from: { position: [-0.3, -0.3, -0.41] },
@@ -14,7 +13,7 @@ const Base = (props) => {
       { position: [-0.3, -0.3, -0.41] },
     ],
     config: { duration: "5000" },
-    delay: 200,
+    delay: 700,
   });
 
   const front_cube = useSpring({
@@ -67,7 +66,7 @@ const Base = (props) => {
         material={nodes.Cube044.material}
         position={[0, -0.18, 0]}
         scale={[0.41, 0.33, 0.14]}
-      />{" "}
+      />
       {/* Apple  */}
       <mesh
         castShadow
@@ -75,7 +74,7 @@ const Base = (props) => {
         geometry={nodes.Cube045.geometry}
         material={nodes.Cube045.material}
         position={[0.83, -0.5, -0.47]}
-      />{" "}
+      />
       {/* Microsoft */}
       <mesh
         castShadow
@@ -83,7 +82,7 @@ const Base = (props) => {
         geometry={nodes.Cube046.geometry}
         material={nodes.Cube046.material}
         position={[-0.64, -0.58, -0.32]}
-      />{" "}
+      />
       {/* Movement bases */}
       <mesh
         castShadow
@@ -91,7 +90,7 @@ const Base = (props) => {
         geometry={nodes.Cube047.geometry}
         material={nodes.Cube047.material}
         position={[0.2, -0.03, -0.21]}
-      />{" "}
+      />
       <animated.mesh {...front_cube}>
         <mesh
           castShadow

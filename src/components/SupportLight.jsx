@@ -62,7 +62,7 @@ const SupportLights = () => {
       />
       <pointLight
         // Light from top
-        intensity={1.0}
+        intensity={0.98}
         position={[0.205, 2.62, 1.15]}
         decay={1.27}
         distance={1.0}
