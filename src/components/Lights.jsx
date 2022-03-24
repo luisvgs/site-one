@@ -10,12 +10,14 @@ const Lights = () => {
       <spotLight
         // ref={light}
         castShadow
-        intensity={2.852}
+        // intensity={2.852}
+        intensity={1}
         power={11.666}
         distance={9.64}
         angle={0.381}
         decay={0.34}
-        color="#ffffff"
+        // color="#ffffff"
+        color="#1218c4"
         penumbra={1}
         position={[1.0, 0.23, 6.204]}
         shadow-mapSize-width={2048}
