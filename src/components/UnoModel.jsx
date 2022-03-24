@@ -2,23 +2,36 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import UnoModel from "../models/Number1C.glb";
 import Focos from "./Focos";
-import { config, useSpring, animated } from "@react-spring/three";
+import { useSpring, animated } from "@react-spring/three";
+import { state } from "../state";
+import { useSnapshot } from "valtio";
 
 const UnoComponent = () => {
+  useSnapshot(state);
   const group = useRef();
   const { nodes, materials } = useGLTF(UnoModel);
+
   const props = useSpring({
     loop: true,
-    from: { position: [0.0, 0.1, 0] },
-    to: [{ position: [0.0, 0.2, 0] }, { position: [0.0, 0.1, 0] }],
-    config: { duration: "3000" },
+    from: { position: [0.0, 0.0, 0] },
+    to: [{ position: [0.0, 0.2, 0] }, { position: [0.0, 0.0, 0] }],
+    config: { duration: "5000" },
     delay: 700,
   });
+
   const tiny_cube = useSpring({
     loop: true,
     from: { position: [0.0, 0.0, 0] },
     to: [{ position: [0.0, 0.072, 0] }, { position: [0.0, 0.0, 0] }],
-    config: { duration: "2000" },
+    config: { duration: "2800" },
+    delay: 200,
+  });
+
+  const big_cube = useSpring({
+    loop: true,
+    from: { position: [0.0, 0.0, 0] },
+    to: [{ position: [0.0, -0.09, 0] }, { position: [0.0, 0.0, 0] }],
+    config: { duration: "6000" },
     delay: 200,
   });
 
@@ -44,6 +57,8 @@ const UnoComponent = () => {
         material={nodes.Curve010.material}
       />
       <mesh
+        onPointerOver={() => (state.hovered = "about")}
+        onPointerLeave={() => (state.hovered = null)}
         castShadow
         receiveShadow
         geometry={nodes.Curve007.geometry}
@@ -51,23 +66,31 @@ const UnoComponent = () => {
       />
       <mesh
         castShadow
+        onPointerOver={() => (state.hovered = "partners")}
+        onPointerLeave={() => (state.hovered = null)}
         receiveShadow
         geometry={nodes.Curve007_1.geometry}
         material={materials["Narajan google"]}
       />
       <mesh
+        onPointerOver={() => (state.hovered = "portfolio")}
+        onPointerLeave={() => (state.hovered = null)}
         castShadow
         receiveShadow
         geometry={nodes.Curve007_2.geometry}
         material={materials["Amarillo google"]}
       />
       <mesh
+        onPointerOver={() => (state.hovered = "news")}
+        onPointerLeave={() => (state.hovered = null)}
         castShadow
         receiveShadow
         geometry={nodes.Curve007_3.geometry}
         material={materials["Verde google"]}
       />
       <mesh
+        onPointerOver={() => (state.hovered = "contact")}
+        onPointerLeave={() => (state.hovered = null)}
         castShadow
         receiveShadow
         geometry={nodes.Curve007_4.geometry}
@@ -191,12 +214,14 @@ const UnoComponent = () => {
         material={nodes.Curve014.material}
       />
       {/* Cube here */}
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube026.geometry}
-        material={nodes.Cube026.material}
-      />
+      <animated.mesh {...big_cube}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube026.geometry}
+          material={nodes.Cube026.material}
+        />
+      </animated.mesh>
       <mesh
         castShadow
         receiveShadow
