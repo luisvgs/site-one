@@ -1,32 +1,39 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useGLTF } from "@react-three/drei";
 import BaseModel from "../models/partners_base.glb";
-import { useLocation } from "wouter";
-import { useFrame } from "@react-three/fiber";
+import { useSpring, animated } from "@react-spring/three";
 
 const Base = (props) => {
-  const [location, setLocation] = useLocation();
-  const cilinder = useRef();
-  const big_cilinder = useRef();
-  const back_cilinder = useRef();
   const { nodes } = useGLTF(BaseModel);
 
-  useFrame((state) => {
-    if (location === "/partners") {
-      if (
-        cilinder.current.position.y <= -0.23 &&
-        big_cilinder.current.position.y <= -0.1
-      ) {
-        cilinder.current.position.y += 0.002;
-        big_cilinder.current.position.y += 0.001;
-        back_cilinder.current.position.y += 0.001;
-      } else {
-        cilinder.current.position.y = cilinder.current.position.y;
-        big_cilinder.current.position.y = big_cilinder.current.position.y;
-        back_cilinder.current.position.y = back_cilinder.current.position.y;
-      }
-    }
-    // Else, restore cilinders to the floor.
+  const spring = useSpring({
+    loop: true,
+    from: { position: [-0.3, -0.3, -0.41] },
+    to: [
+      { position: [-0.3, -0.092, -0.41] },
+      { position: [-0.3, -0.3, -0.41] },
+    ],
+    config: { duration: "5000" },
+    delay: 200,
+  });
+
+  const front_cube = useSpring({
+    loop: true,
+    from: { position: [-0.16, -0.4, -0.12] },
+    to: [
+      { position: [-0.16, -0.1, -0.12] },
+      { position: [-0.16, -0.4, -0.12] },
+    ],
+    config: { duration: "8000" },
+    delay: 200,
+  });
+
+  const tiny_spring = useSpring({
+    loop: true,
+    from: { position: [0.46, -0.6, -0.41] },
+    to: [{ position: [0.46, -0.1, -0.41] }, { position: [0.46, -0.6, -0.41] }],
+    config: { duration: "9000" },
+    delay: 500,
   });
 
   return (
@@ -38,14 +45,14 @@ const Base = (props) => {
       {...props}
       dispose={null}
     >
-      <mesh
-        ref={back_cilinder}
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube031.geometry}
-        material={nodes.Cube031.material}
-        position={[-0.32, -0.3, -0.41]}
-      />{" "}
+      <animated.mesh {...spring}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube031.geometry}
+          material={nodes.Cube031.material}
+        />
+      </animated.mesh>
       <mesh
         castShadow
         receiveShadow
@@ -85,22 +92,22 @@ const Base = (props) => {
         material={nodes.Cube047.material}
         position={[0.2, -0.03, -0.21]}
       />{" "}
-      <mesh
-        ref={big_cilinder}
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube048.geometry}
-        material={nodes.Cube048.material}
-        position={[-0.16, -0.4, -0.12]}
-      />{" "}
-      <mesh
-        ref={cilinder}
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube049.geometry}
-        material={nodes.Cube049.material}
-        position={[0.46, -0.6, -0.41]}
-      />{" "}
+      <animated.mesh {...front_cube}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube048.geometry}
+          material={nodes.Cube048.material}
+        />
+      </animated.mesh>
+      <animated.mesh {...tiny_spring}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube049.geometry}
+          material={nodes.Cube049.material}
+        />
+      </animated.mesh>
     </group>
   );
 };
