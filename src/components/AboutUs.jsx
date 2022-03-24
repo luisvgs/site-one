@@ -1,4 +1,4 @@
-import { Text } from "@react-three/drei";
+import { Text, Line } from "@react-three/drei";
 import React, { useState } from "react";
 import SuComponent from "./SiteOne";
 import { useSpring, animated, config } from "@react-spring/three";
@@ -39,9 +39,18 @@ const AboutUs = () => {
       >
         Lorem ipsum dolor sit amet
       </Text>
+      <Line
+        position={[2.39, 1.104, 2]}
+        linewidth={1}
+        color={"white"}
+        points={[
+          [0, 0, 0],
+          [0.62, 0, 0],
+        ]}
+      />
       <AnimatedText
         {...wobble_spring}
-        position={[2.73, 1.04, 2]}
+        position={[2.73, 1.02, 2]}
         fontSize={0.03}
         color="white"
         maxWidth={0.69}
