@@ -1,7 +1,7 @@
 import UnoComponent from "./UnoModel";
 import { Text } from "@react-three/drei";
 import UnoLights from "./UnoLights";
-import {useSpring, animated} from "@react-spring/three";
+import { useSpring, animated } from "@react-spring/three";
 
 const Home = () => {
   const AnimatedText = animated(Text);
@@ -11,14 +11,13 @@ const Home = () => {
     config: {
       friction: 12,
     },
-    // config: config.wobbly,
     delay: 700,
-  })
+  });
 
   return (
     <>
       <AnimatedText
-      {...spring}
+        {...spring}
         position={[-0.471, 1.2, 2]}
         fontSize={0.08}
         color="white"

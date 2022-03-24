@@ -1,11 +1,27 @@
 import React, { useRef } from "react";
-import { useGLTF} from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import UnoModel from "../models/Number1C.glb";
 import Focos from "./Focos";
+import { config, useSpring, animated } from "@react-spring/three";
 
 const UnoComponent = () => {
   const group = useRef();
   const { nodes, materials } = useGLTF(UnoModel);
+  const props = useSpring({
+    loop: true,
+    from: { position: [0.0, 0.1, 0] },
+    to: [{ position: [0.0, 0.2, 0] }, { position: [0.0, 0.1, 0] }],
+    config: { duration: "3000" },
+    delay: 700,
+  });
+  const tiny_cube = useSpring({
+    loop: true,
+    from: { position: [0.0, 0.0, 0] },
+    to: [{ position: [0.0, 0.072, 0] }, { position: [0.0, 0.0, 0] }],
+    config: { duration: "2000" },
+    delay: 200,
+  });
+
   return (
     <mesh
       position={[0.205, 0.78, 2]}
@@ -14,6 +30,7 @@ const UnoComponent = () => {
       scale={[1, 1, 1]}
     >
       <Focos />
+      {/* Uno model starts here*/}
       <mesh
         castShadow
         receiveShadow
@@ -62,12 +79,15 @@ const UnoComponent = () => {
         geometry={nodes.Cube017.geometry}
         material={nodes.Cube017.material}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube019.geometry}
-        material={nodes.Cube019.material}
-      />
+      {/* Cilinder 1 */}
+      <animated.mesh {...props}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube019.geometry}
+          material={nodes.Cube019.material}
+        />
+      </animated.mesh>
       <mesh
         castShadow
         receiveShadow
@@ -170,6 +190,7 @@ const UnoComponent = () => {
         geometry={nodes.Curve014.geometry}
         material={nodes.Curve014.material}
       />
+      {/* Cube here */}
       <mesh
         castShadow
         receiveShadow
@@ -182,18 +203,22 @@ const UnoComponent = () => {
         geometry={nodes.Cube027.geometry}
         material={nodes.Cube027.material}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube028.geometry}
-        material={nodes.Cube028.material}
-      />
+      {/* Cube here  */}
+      <animated.mesh {...tiny_cube}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube028.geometry}
+          material={nodes.Cube028.material}
+        />
+      </animated.mesh>
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cube029.geometry}
         material={nodes.Cube029.material}
       />
+      {/* Uno model ends here*/}
       <mesh
         castShadow
         receiveShadow
