@@ -103,14 +103,14 @@ const UnoComponent = () => {
         material={nodes.Cube017.material}
       />
       {/* Cilinder 1 */}
-      <animated.mesh {...props}>
+      {/* <animated.mesh {...props}>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cube019.geometry}
           material={nodes.Cube019.material}
         />
-      </animated.mesh>
+      </animated.mesh> */}
       <mesh
         castShadow
         receiveShadow
@@ -214,14 +214,14 @@ const UnoComponent = () => {
         material={nodes.Curve014.material}
       />
       {/* Cube here */}
-      <animated.mesh {...big_cube}>
+      {/* <animated.mesh {...big_cube}>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cube026.geometry}
           material={nodes.Cube026.material}
         />
-      </animated.mesh>
+      </animated.mesh> */}
       <mesh
         castShadow
         receiveShadow
@@ -229,14 +229,14 @@ const UnoComponent = () => {
         material={nodes.Cube027.material}
       />
       {/* Cube here  */}
-      <animated.mesh {...tiny_cube}>
+      {/* <animated.mesh {...tiny_cube}>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cube028.geometry}
           material={nodes.Cube028.material}
         />
-      </animated.mesh>
+      </animated.mesh> */}
       <mesh
         castShadow
         receiveShadow
