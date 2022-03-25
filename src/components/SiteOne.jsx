@@ -1,31 +1,33 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import SuModel from "../models/SU_technology.glb";
-import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
 import { useSpring, animated, config } from "@react-spring/three";
 
 const SuComponent = (props) => {
   const group = useRef();
-  const [hovered, setHovered] = useState(false)
-  const { nodes, material } = useGLTF(SuModel);
-  const { wobble } = useSpring({ 
-    wobble: hovered ? 2.60 : 2.15,
-    config: config.wobbly
+  const [hovered, setHovered] = useState(false);
+  const { nodes } = useGLTF(SuModel);
+  const { wobble } = useSpring({
+    wobble: hovered ? 2.6 : 2.15,
+    config: config.wobbly,
   });
+
+  useEffect(
+    () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
+    [hovered]
+  );
 
   return (
     <animated.mesh
-    onPointerOver={() => setHovered(true)}
-    onPointerOut={() => setHovered(false)}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
       ref={group}
-      // scale={[3, 3, 1]}
       scale={wobble}
       position={[3.425, 0.88, 2]}
       {...props}
       dispose={null}
-  >
-          <mesh
+    >
+      <mesh
         castShadow
         receiveShadow
         geometry={nodes.Curve.geometry}
