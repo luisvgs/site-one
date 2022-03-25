@@ -3,8 +3,9 @@ import IphoneLights from "./IphoneLights";
 import { Text } from "@react-three/drei";
 import Iphone from "./Telefono_optimizado";
 import IphoneBase from "./Telefono_base";
-import Content from "./Content";
+// import Content from "./Content";
 import { useSpring, animated, config } from "react-spring";
+import Selector from "./Selector";
 
 const Portfolio = () => {
   const [hovered, setHovered] = useState(false);
@@ -32,6 +33,7 @@ const Portfolio = () => {
       <Iphone position={[10.27, 0.9, 2]} />
       <IphoneLights position={[10.27, 0.88, 2]} />
       <IphoneBase position={[10.27, 0.88, 2]} />
+      <Selector />
     </>
   );
 };

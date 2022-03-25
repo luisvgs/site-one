@@ -56,7 +56,7 @@ const Setup = () => {
         break;
       case 3:
         state.camera.lookAt(new Vector3(9, -0, -12.8));
-        state.camera.position.lerp(new Vector3(16.5, 0.5, 3.7), step);
+        state.camera.position.lerp(new Vector3(16.4, 0.5, 3.7), step);
         state.camera.updateProjectionMatrix();
         break;
       case 4:
