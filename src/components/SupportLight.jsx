@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useHelper } from "@react-three/drei";
 import { PointLightHelper, SpotLightHelper } from "three";
-import { useControls } from "leva";
+// import { useControls } from "leva";
 
 const SupportLights = () => {
   // const { intensity, topLight } = useControls({

@@ -1,10 +1,8 @@
 import React, { useRef } from "react";
 import { useGLTF, PerspectiveCamera } from "@react-three/drei";
-import Focos from "../models/Focos.glb";
 
 const UnoLights = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF(Focos);
   return (
     <group ref={group} {...props} position={[-0.471, 1.2, 2]} dispose={null}>
       <group position={[-0.8, -0.01, -0.01]}>

@@ -2,20 +2,10 @@ import { Text, Line } from "@react-three/drei";
 import React, { useState } from "react";
 import SuComponent from "./SiteOne";
 import { useSpring, animated, config } from "@react-spring/three";
-import { useLocation } from "wouter";
 
 const AboutUs = () => {
   const [flip, set] = useState(false);
   const AnimatedText = animated(Text);
-
-  const opacity_spring = useSpring({
-    from: { fillOpacity: 0.1 },
-    to: { fillOpacity: 1 },
-    reset: false,
-    reverse: flip,
-    config: config.stiff,
-    onRest: () => (flip ? set(false) : !flip),
-  });
 
   const wobble_spring = useSpring({
     from: { scale: [0.7, 0.7, 0] },

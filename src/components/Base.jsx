@@ -13,7 +13,7 @@ const Base = (props) => {
       { position: [-0.3, -0.3, -0.41] },
     ],
     config: { duration: "5000" },
-    delay: 700,
+    delay: 200,
   });
 
   const front_cube = useSpring({
@@ -32,7 +32,7 @@ const Base = (props) => {
     from: { position: [0.46, -0.6, -0.41] },
     to: [{ position: [0.46, -0.1, -0.41] }, { position: [0.46, -0.6, -0.41] }],
     config: { duration: "9000" },
-    delay: 500,
+    delay: 200,
   });
 
   return (
