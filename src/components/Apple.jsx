@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import AppleModel from "../models/apple.glb";
@@ -10,10 +10,15 @@ const Apple = (props) => {
   const { nodes, materials } = useGLTF(AppleModel);
 
   const [active, setActive] = useState(false);
-  const { scale } = useSpring({ 
+  const { scale } = useSpring({
     scale: active ? 1.1 : 1,
     config: config.stiff,
   });
+
+  useEffect(
+    () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
+    [hovered]
+  );
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();

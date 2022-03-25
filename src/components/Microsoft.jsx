@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 import MicrosoftModel from "../models/microsoft.glb";
 import { useFrame } from "@react-three/fiber";
@@ -10,7 +10,7 @@ const Microsoft = (props) => {
   const { nodes, materials } = useGLTF(MicrosoftModel);
 
   const [active, setActive] = useState(false);
-  const { scale } = useSpring({ 
+  const { scale } = useSpring({
     scale: active ? 1.1 : 1,
     config: config.gentle,
   });
@@ -20,9 +20,14 @@ const Microsoft = (props) => {
     group.current.position.y = 0.8 + Math.sin(t / 0.9) / 32;
   });
 
+  useEffect(
+    () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
+    [hovered]
+  );
+
   return (
     <animated.mesh
-    onClick={() => setActive(!active)}
+      onClick={() => setActive(!active)}
       onPointerOver={(e) => {
         e.stopPropagation();
         setHover(true);

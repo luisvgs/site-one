@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 import GoogleModel from "../models/google.glb";
 import { useFrame } from "@react-three/fiber";
@@ -9,7 +9,7 @@ const Google = (props) => {
   const group = useRef();
   const { nodes, materials } = useGLTF(GoogleModel);
   const [active, setActive] = useState(false);
-  const { scale } = useSpring({ 
+  const { scale } = useSpring({
     scale: active ? 1.1 : 1,
     config: config.wobbly,
   });
@@ -18,6 +18,11 @@ const Google = (props) => {
     const t = state.clock.getElapsedTime();
     group.current.position.y = 0.8 + Math.sin(t + 0.01 / 0.5) / 32;
   });
+
+  useEffect(
+    () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
+    [hovered]
+  );
 
   return (
     <animated.mesh
