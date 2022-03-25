@@ -23,9 +23,9 @@ const App = () => {
   const node = useRef();
 
   OnClickOutside(node, () => setOpen(false));
-  useEffect(() => {
-    Ga();
-  }, []);
+  // useEffect(() => {
+  //   Ga();
+  // }, []);
 
   return (
     <>

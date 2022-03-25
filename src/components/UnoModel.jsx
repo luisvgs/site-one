@@ -15,7 +15,7 @@ const UnoComponent = () => {
     loop: true,
     from: { position: [0.0, 0.0, 0] },
     to: [{ position: [0.0, 0.2, 0] }, { position: [0.0, 0.0, 0] }],
-    config: { duration: "5000" },
+    config: { duration: "7000" },
     delay: 700,
   });
 
@@ -23,7 +23,7 @@ const UnoComponent = () => {
     loop: true,
     from: { position: [0.0, 0.0, 0] },
     to: [{ position: [0.0, 0.072, 0] }, { position: [0.0, 0.0, 0] }],
-    config: { duration: "2800" },
+    config: { duration: "7000" },
     delay: 200,
   });
 
@@ -31,7 +31,7 @@ const UnoComponent = () => {
     loop: true,
     from: { position: [0.0, 0.0, 0] },
     to: [{ position: [0.0, -0.09, 0] }, { position: [0.0, 0.0, 0] }],
-    config: { duration: "6000" },
+    config: { duration: "7000" },
     delay: 200,
   });
 
