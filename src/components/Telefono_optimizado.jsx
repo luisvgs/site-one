@@ -8,14 +8,17 @@ const Iphone = ({ position, content }) => {
   const group = useRef();
   const { nodes } = useGLTF(TelefonoOpt);
   const { mouse, clock } = useThree();
-  // const [rEuler, rQuaternion] = useMemo(() => [new THREE.Euler(), new THREE.Quaternion()], [])
-  // useFrame(() => {
-  //   if (group.current) {
-  //     rEuler.set((-mouse.y * Math.PI) / 48, (mouse.x * Math.PI) / 28, 0)
-  //     group.current.quaternion.slerp(rQuaternion.setFromEuler(rEuler), 0.05)
-  //     group.current.time = clock.getElapsedTime() * 5
-  //   }
-  // })
+  const [rEuler, rQuaternion] = useMemo(
+    () => [new THREE.Euler(), new THREE.Quaternion()],
+    []
+  );
+  useFrame(() => {
+    if (group.current) {
+      rEuler.set((-mouse.y * Math.PI) / 48, (mouse.x * Math.PI) / 28, 0);
+      group.current.quaternion.slerp(rQuaternion.setFromEuler(rEuler), 0.05);
+      group.current.time = clock.getElapsedTime() * 5;
+    }
+  });
   return (
     <group position={position} ref={group} dispose={null} scale={[1, 1, 1]}>
       <mesh
