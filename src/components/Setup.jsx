@@ -82,7 +82,7 @@ const Setup = () => {
       <Home />
       <AboutUs />
       <Partners />
-      {/* <Portfolio /> */}
+      <Portfolio />
       <News />
       <Contact />
       <ambientLight color={"#351f4f"} intensity={0.98} />
