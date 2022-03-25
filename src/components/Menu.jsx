@@ -112,7 +112,7 @@ const Menu = ({ open }) => {
   useSnapshot(state);
   return (
     <StyledMenu className="menu" open={open}>
-      <a href="/#">
+      <a href="javascript: return false;">
         <img class="logo" onClick={() => (state.clicked = 9)} src={Logo} />
       </a>
       <Link href="/about">
@@ -149,52 +149,52 @@ const Menu = ({ open }) => {
         </a>
       </Link>
       <Link href="/portfolio">
-      <a
-        onMouseEnter={() => (state.hovered = "portfolio")}
-        onMouseLeave={() => (state.hovered = null)}
-        href="javascript: return false;"
-      >
-        <span
-          onClick={() => (state.clicked = 3)}
-          role="img"
-          aria-label="portfolio"
+        <a
+          onMouseEnter={() => (state.hovered = "portfolio")}
+          onMouseLeave={() => (state.hovered = null)}
+          href="javascript: return false;"
         >
-          Portfolio
-        </span>
-        <div class="div-3" />
-      </a>
+          <span
+            onClick={() => (state.clicked = 3)}
+            role="img"
+            aria-label="portfolio"
+          >
+            Portfolio
+          </span>
+          <div class="div-3" />
+        </a>
       </Link>
       <Link href="/news">
-      <a
-        onMouseEnter={() => (state.hovered = "news")}
-        onMouseLeave={() => (state.hovered = null)}
-        href="javascript: return false;"
-      >
-        <span
-          onClick={() => (state.clicked = 4)}
-          role="img"
-          aria-label="portfolio"
+        <a
+          onMouseEnter={() => (state.hovered = "news")}
+          onMouseLeave={() => (state.hovered = null)}
+          href="javascript: return false;"
         >
-          News
-        </span>
-        <div class="div-4" />
-      </a>
+          <span
+            onClick={() => (state.clicked = 4)}
+            role="img"
+            aria-label="portfolio"
+          >
+            News
+          </span>
+          <div class="div-4" />
+        </a>
       </Link>
       <Link href="/contact">
-      <a
-        onMouseEnter={() => (state.hovered = "contact")}
-        onMouseLeave={() => (state.hovered = null)}
-        href="javascript: return false;"
-      >
-        <span
-          onClick={() => (state.clicked = 5)}
-          role="img"
-          aria-label="portfolio"
+        <a
+          onMouseEnter={() => (state.hovered = "contact")}
+          onMouseLeave={() => (state.hovered = null)}
+          href="javascript: return false;"
         >
-          Contact
-        </span>
-        <div class="div-5" />
-      </a>
+          <span
+            onClick={() => (state.clicked = 5)}
+            role="img"
+            aria-label="portfolio"
+          >
+            Contact
+          </span>
+          <div class="div-5" />
+        </a>
       </Link>
     </StyledMenu>
   );
