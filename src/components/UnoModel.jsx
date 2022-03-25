@@ -1,10 +1,40 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import UnoModel from "../models/Number1C.glb";
+import Focos from "./Focos";
+import { useSpring, animated } from "@react-spring/three";
+import { state } from "../state";
+import { useSnapshot } from "valtio";
 
 const UnoComponent = () => {
+  useSnapshot(state);
   const group = useRef();
   const { nodes, materials } = useGLTF(UnoModel);
+
+  const props = useSpring({
+    loop: true,
+    from: { position: [0.0, 0.0, 0] },
+    to: [{ position: [0.0, 0.2, 0] }, { position: [0.0, 0.0, 0] }],
+    config: { duration: "5000" },
+    delay: 700,
+  });
+
+  const tiny_cube = useSpring({
+    loop: true,
+    from: { position: [0.0, 0.0, 0] },
+    to: [{ position: [0.0, 0.072, 0] }, { position: [0.0, 0.0, 0] }],
+    config: { duration: "2800" },
+    delay: 200,
+  });
+
+  const big_cube = useSpring({
+    loop: true,
+    from: { position: [0.0, 0.0, 0] },
+    to: [{ position: [0.0, -0.09, 0] }, { position: [0.0, 0.0, 0] }],
+    config: { duration: "6000" },
+    delay: 200,
+  });
+
   return (
     <mesh
       position={[0.205, 0.78, 2]}
@@ -12,6 +42,8 @@ const UnoComponent = () => {
       dispose={null}
       scale={[1, 1, 1]}
     >
+      <Focos />
+      {/* Uno model starts here*/}
       <mesh
         castShadow
         receiveShadow
@@ -25,6 +57,8 @@ const UnoComponent = () => {
         material={nodes.Curve010.material}
       />
       <mesh
+        onPointerOver={() => (state.hovered = "about")}
+        onPointerLeave={() => (state.hovered = null)}
         castShadow
         receiveShadow
         geometry={nodes.Curve007.geometry}
@@ -32,23 +66,31 @@ const UnoComponent = () => {
       />
       <mesh
         castShadow
+        onPointerOver={() => (state.hovered = "partners")}
+        onPointerLeave={() => (state.hovered = null)}
         receiveShadow
         geometry={nodes.Curve007_1.geometry}
         material={materials["Narajan google"]}
       />
       <mesh
+        onPointerOver={() => (state.hovered = "portfolio")}
+        onPointerLeave={() => (state.hovered = null)}
         castShadow
         receiveShadow
         geometry={nodes.Curve007_2.geometry}
         material={materials["Amarillo google"]}
       />
       <mesh
+        onPointerOver={() => (state.hovered = "news")}
+        onPointerLeave={() => (state.hovered = null)}
         castShadow
         receiveShadow
         geometry={nodes.Curve007_3.geometry}
         material={materials["Verde google"]}
       />
       <mesh
+        onPointerOver={() => (state.hovered = "contact")}
+        onPointerLeave={() => (state.hovered = null)}
         castShadow
         receiveShadow
         geometry={nodes.Curve007_4.geometry}
@@ -60,12 +102,15 @@ const UnoComponent = () => {
         geometry={nodes.Cube017.geometry}
         material={nodes.Cube017.material}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube019.geometry}
-        material={nodes.Cube019.material}
-      />
+      {/* Cilinder 1 */}
+      <animated.mesh {...props}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube019.geometry}
+          material={nodes.Cube019.material}
+        />
+      </animated.mesh>
       <mesh
         castShadow
         receiveShadow
@@ -168,30 +213,37 @@ const UnoComponent = () => {
         geometry={nodes.Curve014.geometry}
         material={nodes.Curve014.material}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube026.geometry}
-        material={nodes.Cube026.material}
-      />
+      {/* Cube here */}
+      <animated.mesh {...big_cube}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube026.geometry}
+          material={nodes.Cube026.material}
+        />
+      </animated.mesh>
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cube027.geometry}
         material={nodes.Cube027.material}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube028.geometry}
-        material={nodes.Cube028.material}
-      />
+      {/* Cube here  */}
+      <animated.mesh {...tiny_cube}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube028.geometry}
+          material={nodes.Cube028.material}
+        />
+      </animated.mesh>
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cube029.geometry}
         material={nodes.Cube029.material}
       />
+      {/* Uno model ends here*/}
       <mesh
         castShadow
         receiveShadow

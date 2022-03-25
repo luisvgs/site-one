@@ -2,13 +2,22 @@ import IphoneLights from "./IphoneLights";
 import { Text } from "@react-three/drei";
 import Iphone from "./Telefono_optimizado";
 import IphoneBase from "./Telefono_base";
-
+import { config, useSpring, animated } from "@react-spring/three";
+import { useState } from "react";
 const Contact = () => {
+  const [hovered, setHovered] = useState(false);
+  const AnimatedText = animated(Text);
+  const { wobble } = useSpring({
+    wobble: hovered ? 1 : 1.1,
+    config: config.wobbly,
+  });
   return (
     <>
-      <Text
+      <AnimatedText
+        onPointerOver={() => setHovered(true)}
+        onPointerOut={() => setHovered(false)}
         position={[16.6, 1.29, 2]}
-        scale={[1, 1, 1]}
+        scale={wobble}
         fontSize={0.06}
         color="white"
         maxWidth={0.69}
@@ -16,7 +25,7 @@ const Contact = () => {
         anchorY="middle"
       >
         Contact
-      </Text>
+      </AnimatedText>
       <IphoneLights position={[16.27, 0.88, 2]} />
       <Iphone position={[16.27, 0.88, 2]} />
       <IphoneBase position={[16.27, 0.88, 2]} />

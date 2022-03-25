@@ -1,20 +1,32 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 import GoogleModel from "../models/google.glb";
 import { useFrame } from "@react-three/fiber";
+import { useSpring, animated, config } from "@react-spring/three";
 
 const Google = (props) => {
   const [hovered, setHover] = useState(false);
   const group = useRef();
   const { nodes, materials } = useGLTF(GoogleModel);
+  const [active, setActive] = useState(false);
+  const { scale } = useSpring({
+    scale: active ? 1.1 : 1,
+    config: config.wobbly,
+  });
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     group.current.position.y = 0.8 + Math.sin(t + 0.01 / 0.5) / 32;
   });
 
+  useEffect(
+    () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
+    [hovered]
+  );
+
   return (
-    <mesh
+    <animated.mesh
+      onClick={() => setActive(!active)}
       onPointerOver={(e) => {
         e.stopPropagation();
         setHover(true);
@@ -24,7 +36,7 @@ const Google = (props) => {
         setHover(false);
       }}
       position={[6.405, 0.75, 2]}
-      scale={[1, 1, 1]}
+      scale={scale}
       ref={group}
       {...props}
       dispose={null}
@@ -76,7 +88,7 @@ const Google = (props) => {
         geometry={nodes.Curve020.geometry}
         material={materials["Material.003"]}
       />
-    </mesh>
+    </animated.mesh>
   );
 };
 

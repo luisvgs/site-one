@@ -1,4 +1,4 @@
-import React, { useRef, useState, Suspense } from "react";
+import React, { useRef, useState, Suspense, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   PerspectiveCamera,
@@ -12,16 +12,21 @@ import Rig from "./rig";
 import Burger from "./components/Burger";
 import Menu from "./components/Menu";
 import OnClickOutside from "./components/OnClickOutside";
-import { useSnapshot, subscribe } from "valtio";
+import { useSnapshot} from "valtio";
 import { state } from "./state";
 import Setup from "./components/Setup";
+import Ga from "./components/Ga";
 
 const App = () => {
   const snap = useSnapshot(state);
   const [open, setOpen] = useState(false);
   const node = useRef();
-  subscribe(state, () => console.log("state has changed to", state));
+
   OnClickOutside(node, () => setOpen(false));
+  useEffect(() => {
+    Ga();
+  }, []);
+
   return (
     <>
       <div ref={node}>
@@ -40,7 +45,7 @@ const App = () => {
         <fog attach="fog" args={["red", 50, 60]} />
         <color attach="background" args={["#17171b"]} />
         <Suspense fallback={null}>
-          <ScrollControls damping={1} distance={1} pages={3} horizontal={true}>
+          <ScrollControls damping={1} distance={1} pages={3} horizontal>
             <PerspectiveCamera
               fov={35}
               position={[0.111, -0.932, 2.191]}
@@ -54,9 +59,6 @@ const App = () => {
           <Environment preset="city" />
         </Suspense>
         <Rig />
-        {/* <OrbitControls /> */}
-        {/* <PostProcessing /> */}
-        {/* <Effects /> */}
       </Canvas>
       <Loader />
     </>

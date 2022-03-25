@@ -1,20 +1,33 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 import MicrosoftModel from "../models/microsoft.glb";
 import { useFrame } from "@react-three/fiber";
+import { useSpring, animated, config } from "@react-spring/three";
 
 const Microsoft = (props) => {
   const [hovered, setHover] = useState(false);
   const group = useRef();
   const { nodes, materials } = useGLTF(MicrosoftModel);
 
+  const [active, setActive] = useState(false);
+  const { scale } = useSpring({
+    scale: active ? 1.1 : 1,
+    config: config.gentle,
+  });
+
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     group.current.position.y = 0.8 + Math.sin(t / 0.9) / 32;
   });
 
+  useEffect(
+    () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
+    [hovered]
+  );
+
   return (
-    <group
+    <animated.mesh
+      onClick={() => setActive(!active)}
       onPointerOver={(e) => {
         e.stopPropagation();
         setHover(true);
@@ -24,7 +37,7 @@ const Microsoft = (props) => {
         setHover(false);
       }}
       position={[6.405, 0.75, 2]}
-      scale={[1, 1, 1]}
+      scale={scale}
       ref={group}
       {...props}
       dispose={null}
@@ -118,7 +131,7 @@ const Microsoft = (props) => {
         geometry={nodes.Curve001.geometry}
         material={nodes.Curve001.material}
       />
-    </group>
+    </animated.mesh>
   );
 };
 

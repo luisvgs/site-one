@@ -8,7 +8,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { StyledEngineProvider } from "@mui/material/styles";
-import Divider from "@mui/material/Divider";
 import ReptileImage from "./contemplative-reptile.jpg";
 
 const NewsComponent = () => {

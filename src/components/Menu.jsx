@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { state } from "../state";
 import { useSnapshot } from "valtio";
-import Logo from "../img/white_logo.png";
+import Logo from "../img/site-one-technology.png";
+import { Link } from "wouter";
+
 const StyledMenu = styled.div`
   display: flex;
   flex-direction: column;
@@ -107,33 +109,51 @@ const StyledMenu = styled.div`
 `;
 
 const Menu = ({ open }) => {
-  const snap = useSnapshot(state);
+  useSnapshot(state);
   return (
     <StyledMenu className="menu" open={open}>
-      <a href="javascript: return false;">
+      <a href="/#">
         <img class="logo" onClick={() => (state.clicked = 9)} src={Logo} />
       </a>
-      <a href="javascript: return false;" id="about">
-        <span
-          onClick={() => (state.clicked = 1)}
-          role="img"
-          aria-label="about us"
+      <Link href="/about">
+        <a
+          onMouseEnter={() => (state.hovered = "about")}
+          onMouseLeave={() => (state.hovered = null)}
+          href="javascript: return false;"
+          id="about"
         >
-          About us
-        </span>
-        <div class="div-1" />
-      </a>
-      <a href="javascript: return false;">
-        <span
-          onClick={() => (state.clicked = 2)}
-          role="img"
-          aria-label="partners"
+          <span
+            onClick={() => (state.clicked = 1)}
+            role="img"
+            aria-label="about us"
+          >
+            About us
+          </span>
+          <div class="div-1" />
+        </a>
+      </Link>
+      <Link href="/partners">
+        <a
+          onMouseEnter={() => (state.hovered = "partners")}
+          onMouseLeave={() => (state.hovered = null)}
+          href="javascript: return false;"
         >
-          Partners
-        </span>
-        <div class="div-2" />
-      </a>
-      <a href="javascript: return false;">
+          <span
+            onClick={() => (state.clicked = 2)}
+            role="img"
+            aria-label="partners"
+          >
+            Partners
+          </span>
+          <div class="div-2" />
+        </a>
+      </Link>
+      <Link href="/portfolio">
+      <a
+        onMouseEnter={() => (state.hovered = "portfolio")}
+        onMouseLeave={() => (state.hovered = null)}
+        href="javascript: return false;"
+      >
         <span
           onClick={() => (state.clicked = 3)}
           role="img"
@@ -143,7 +163,13 @@ const Menu = ({ open }) => {
         </span>
         <div class="div-3" />
       </a>
-      <a href="javascript: return false;">
+      </Link>
+      <Link href="/news">
+      <a
+        onMouseEnter={() => (state.hovered = "news")}
+        onMouseLeave={() => (state.hovered = null)}
+        href="javascript: return false;"
+      >
         <span
           onClick={() => (state.clicked = 4)}
           role="img"
@@ -153,7 +179,13 @@ const Menu = ({ open }) => {
         </span>
         <div class="div-4" />
       </a>
-      <a href="javascript: return false;">
+      </Link>
+      <Link href="/contact">
+      <a
+        onMouseEnter={() => (state.hovered = "contact")}
+        onMouseLeave={() => (state.hovered = null)}
+        href="javascript: return false;"
+      >
         <span
           onClick={() => (state.clicked = 5)}
           role="img"
@@ -163,6 +195,7 @@ const Menu = ({ open }) => {
         </span>
         <div class="div-5" />
       </a>
+      </Link>
     </StyledMenu>
   );
 };
