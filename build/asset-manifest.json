@@ -1,18 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.34c83c4c.css",
-    "main.js": "/static/js/main.42f5a80a.js",
+    "main.css": "/static/css/main.a11b93fa.css",
+    "main.js": "/static/js/main.e0f89507.js",
     "static/js/787.775b8429.chunk.js": "/static/js/787.775b8429.chunk.js",
+    "static/media/telefono_optimizado.glb": "/static/media/telefono_optimizado.d7cafdd3b2afdca9f566.glb",
+    "static/media/partners_base.glb": "/static/media/partners_base.fc73cee6eb2df8cf4e98.glb",
+    "static/media/telefono_base.glb": "/static/media/telefono_base.fbae4fbd2de11557ca21.glb",
     "static/media/Background.png": "/static/media/Background.435a6f40efa953ade133.png",
     "static/media/Number1C.glb": "/static/media/Number1C.3eadb162ed08b5809983.glb",
-    "static/media/logo.png": "/static/media/logo.fe99424965b1a5d2f77e.png",
+    "static/media/SU_technology.glb": "/static/media/SU_technology.207a154efa062637a240.glb",
+    "static/media/google.glb": "/static/media/google.c090671332639ceda1ae.glb",
+    "static/media/microsoft.glb": "/static/media/microsoft.956945d16d5727f0d379.glb",
+    "static/media/contemplative-reptile.jpg": "/static/media/contemplative-reptile.7ab4186592990b5e85bc.jpg",
+    "static/media/apple.glb": "/static/media/apple.3ce6295ff86476c7bc00.glb",
+    "static/media/site-one-technology.png": "/static/media/site-one-technology.524c64e999baaf98f218.png",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.34c83c4c.css.map": "/static/css/main.34c83c4c.css.map",
-    "main.42f5a80a.js.map": "/static/js/main.42f5a80a.js.map",
+    "main.a11b93fa.css.map": "/static/css/main.a11b93fa.css.map",
+    "main.e0f89507.js.map": "/static/js/main.e0f89507.js.map",
     "787.775b8429.chunk.js.map": "/static/js/787.775b8429.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.34c83c4c.css",
-    "static/js/main.42f5a80a.js"
+    "static/css/main.a11b93fa.css",
+    "static/js/main.e0f89507.js"
   ]
 }
