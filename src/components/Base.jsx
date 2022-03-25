@@ -44,14 +44,14 @@ const Base = (props) => {
       {...props}
       dispose={null}
     >
-      {/* <animated.mesh {...spring}>
+      <animated.mesh {...spring}>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cube031.geometry}
           material={nodes.Cube031.material}
         />
-      </animated.mesh> */}
+      </animated.mesh>
       <mesh
         castShadow
         receiveShadow
@@ -91,22 +91,22 @@ const Base = (props) => {
         material={nodes.Cube047.material}
         position={[0.2, -0.03, -0.21]}
       />
-      {/* <animated.mesh {...front_cube}>
+      <animated.mesh {...front_cube}>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cube048.geometry}
           material={nodes.Cube048.material}
         />
-      </animated.mesh> */}
-      {/* <animated.mesh {...tiny_spring}>
+      </animated.mesh>
+      <animated.mesh {...tiny_spring}>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cube049.geometry}
           material={nodes.Cube049.material}
         />
-      </animated.mesh> */}
+      </animated.mesh>
     </group>
   );
 };
