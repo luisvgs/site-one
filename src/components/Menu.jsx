@@ -108,7 +108,7 @@ const StyledMenu = styled.div`
   }
 `;
 
-const Menu = ({ open }) => {
+const Menu = ({ setOpen, open }) => {
   useSnapshot(state);
   return (
     <StyledMenu className="menu" open={open}>
@@ -123,7 +123,10 @@ const Menu = ({ open }) => {
           id="about"
         >
           <span
-            onClick={() => (state.clicked = 1)}
+            onClick={() => {
+              setOpen(false);
+              state.clicked = 1;
+            }}
             role="img"
             aria-label="about us"
           >
@@ -139,7 +142,10 @@ const Menu = ({ open }) => {
           href="javascript: return false;"
         >
           <span
-            onClick={() => (state.clicked = 2)}
+            onClick={() => {
+              setOpen(false);
+              state.clicked = 2;
+            }}
             role="img"
             aria-label="partners"
           >
@@ -155,7 +161,10 @@ const Menu = ({ open }) => {
           href="javascript: return false;"
         >
           <span
-            onClick={() => (state.clicked = 3)}
+            onClick={() => {
+              setOpen(false);
+              state.clicked = 3;
+            }}
             role="img"
             aria-label="portfolio"
           >
@@ -171,7 +180,10 @@ const Menu = ({ open }) => {
           href="javascript: return false;"
         >
           <span
-            onClick={() => (state.clicked = 4)}
+            onClick={() => {
+              setOpen(false);
+              state.clicked = 4;
+            }}
             role="img"
             aria-label="portfolio"
           >
@@ -187,7 +199,10 @@ const Menu = ({ open }) => {
           href="javascript: return false;"
         >
           <span
-            onClick={() => (state.clicked = 5)}
+            onClick={() => {
+              setOpen(false);
+              state.clicked = 5;
+            }}
             role="img"
             aria-label="portfolio"
           >
