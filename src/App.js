@@ -15,7 +15,7 @@ import OnClickOutside from "./components/OnClickOutside";
 import { useSnapshot } from "valtio";
 import { state } from "./state";
 import Setup from "./components/Setup";
-import Ga from "./components/Ga";
+// import Ga from "./components/Ga";
 
 const App = () => {
   const snap = useSnapshot(state);

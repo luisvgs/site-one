@@ -4,14 +4,14 @@ import TelefonoBase from "../models/telefono_base.glb";
 import { useSpring, animated } from "@react-spring/three";
 
 const IphoneBase = ({ position }) => {
-  const { nodes, materials } = useGLTF(TelefonoBase);
+  const { nodes } = useGLTF(TelefonoBase);
 
   const spring = useSpring({
     loop: true,
     from: { position: [0.46, -0.4, -0.41] },
     to: [{ position: [0.46, -0.2, -0.41] }, { position: [0.46, -0.4, -0.41] }],
     config: { duration: "7000" },
-    delay: 200,
+    delay: 700,
   });
 
   const props = useSpring({
@@ -21,7 +21,7 @@ const IphoneBase = ({ position }) => {
     },
     to: [{ position: [0.2, -0.17, -0.21] }, { position: [0.2, -0.03, -0.21] }],
     config: { duration: "7000" },
-    delay: 200,
+    delay: 700,
   });
 
   return (
