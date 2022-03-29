@@ -9,7 +9,7 @@ const News = () => {
           <NewsCard />
         </Html>
       </mesh>
-      <meshStandardMaterial color="black" opacity={0.1} transparent />
+      <meshStandardMaterial color="black" opacity={0.02} transparent />
     </Box>
   );
 };
