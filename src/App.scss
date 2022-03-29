@@ -18,6 +18,7 @@ main,
 }
 .news-background {
   background-color: rgba(0, 0, 0, 0.2);
+  z-index: 6;
 }
 
 div.test {
@@ -96,7 +97,7 @@ body {
 }
 
 canvas {
-  z-index: -1;
+  // z-index: 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -148,6 +149,7 @@ body {
   bottom: 0;
   background: #111;
   padding-top: 50px;
+  z-index: 1;
 }
 
 .sidebar #about::after {

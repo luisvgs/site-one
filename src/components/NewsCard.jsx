@@ -22,7 +22,7 @@ const NewsComponent = () => {
           justifyContent: "center",
           borderRadius: 1,
         }}
-        height={740}
+        height={770}
         width={1080}
       >
         <Typography
@@ -46,7 +46,7 @@ const NewsComponent = () => {
           container
           spacing={3}
         >
-          {Array.from(Array(4)).map((_, index) => (
+          {Array.from(Array(6)).map((_, index) => (
             <Grid item xs={1} md={3} ml={1} key={index}>
               <Card
                 style={{ backgroundColor: "#1c1b1b" }}

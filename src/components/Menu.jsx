@@ -16,7 +16,7 @@ const StyledMenu = styled.div`
   padding: 2rem;
   padding-right: 0px;
   position: fixed;
-  z-index: 9;
+  z-index: 10;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;

@@ -1,13 +1,16 @@
-import { Html } from "@react-three/drei";
+import { Html, Box } from "@react-three/drei";
 import NewsCard from "./NewsCard";
+
 const News = () => {
   return (
-    <mesh>
-      <Html center distanceFactor={1} position={[12.6, 1.24, 2]}>
-        <h1 style={{ color: "white" }}>News </h1>
-        <NewsCard />
-      </Html>
-    </mesh>
+    <Box position={[12.9, 1.2, 2]} scale={[1.4, 0.9, 0.02]}>
+      <mesh position={[-0.12, 0, 0]}>
+        <Html zIndexRange={[1, 0]} center distanceFactor={1}>
+          <NewsCard />
+        </Html>
+      </mesh>
+      <meshStandardMaterial color="black" opacity={0.1} transparent />
+    </Box>
   );
 };
 
