@@ -3,7 +3,7 @@ import IphoneLights from "./IphoneLights";
 import { Text } from "@react-three/drei";
 import Iphone from "./Telefono_optimizado";
 import IphoneBase from "./Telefono_base";
-// import Content from "./Content";
+import Content from "./Content";
 import { useSpring, animated, config } from "react-spring";
 import Selector from "./Selector";
 

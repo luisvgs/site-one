@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useScroll } from "@react-three/drei";
 import Home from "./Home";
 import AboutUs from "./AboutUs";
@@ -12,7 +12,7 @@ import { Vector3 } from "three";
 import * as THREE from "three";
 import Lights from "./Lights";
 import { useSnapshot } from "valtio";
-import { useFrame } from "@react-three/fiber";
+import { useThree, useFrame } from "@react-three/fiber";
 import { state } from "../state";
 
 // Camera path
@@ -34,17 +34,23 @@ const cameraLookAtCurve = new THREE.CatmullRomCurve3([
 ]);
 
 const cameraLookAt = new Vector3(0, 0, 0);
+
 const Setup = () => {
+  const ref = useRef();
   const snap = useSnapshot(state);
+
   const scroll = useScroll();
-  // const pages = 3;
-  // const { size } = useThree();
-  scroll.el.scrollLeft = scroll.offset;
+  const { size } = useThree();
+  const page = 3;
+
+  useEffect(() => {
+    scroll.el.scrollLeft = size.width * page;
+  }, [page, scroll.el, size.width]);
+
   useFrame((state) => {
     const step = 0.02;
     switch (snap.clicked) {
       case 1:
-        // scroll.el.scrollLeft = size.width / pages;
         state.camera.lookAt(new Vector3(2.2, -0.4, -12.8));
         state.camera.position.lerp(new Vector3(5.1, 0.1, 4.6), step);
         state.camera.updateProjectionMatrix();
@@ -81,10 +87,10 @@ const Setup = () => {
     <>
       <Home />
       <AboutUs />
-      <Partners />
+      {/* <Partners /> */}
       <Portfolio />
       <News />
-      <Contact />
+      {/* <Contact /> */}
       <ambientLight color={"#351f4f"} intensity={0.98} />
       <Lights />
       <SupportLights />

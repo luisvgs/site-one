@@ -6,6 +6,16 @@
   box-sizing: border-box;
 }
 
+.scrollArea {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 html,
 body,
 .bg,
@@ -15,6 +25,7 @@ main,
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 .news-background {
   background-color: rgba(0, 0, 0, 0.2);
@@ -97,8 +108,8 @@ body {
 }
 
 canvas {
-  // z-index: 0;
-  position: fixed;
+  z-index: 0;
+  position: absolute;
   top: 0;
   left: 0;
 }
