@@ -62,7 +62,7 @@ const Setup = () => {
         break;
       case 3:
         state.camera.lookAt(new Vector3(9, -0, -12.8));
-        state.camera.position.lerp(new Vector3(16.4, 0.5, 3.7), step);
+        state.camera.position.lerp(new Vector3(16.4, 0.5, 3.9), step);
         state.camera.updateProjectionMatrix();
         break;
       case 4:
@@ -85,11 +85,11 @@ const Setup = () => {
 
   return (
     <>
-      <Home />
-      <AboutUs />
+      {/* <Home />
+      <AboutUs /> */}
       {/* <Partners /> */}
       <Portfolio />
-      <News />
+      {/* <News /> */}
       {/* <Contact /> */}
       <ambientLight color={"#351f4f"} intensity={0.98} />
       <Lights />
