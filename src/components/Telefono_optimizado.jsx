@@ -3,8 +3,9 @@ import { useGLTF, Html } from "@react-three/drei";
 import TelefonoOpt from "../models/telefono_optimizado.glb";
 import * as THREE from "three";
 import { useThree, useFrame } from "@react-three/fiber";
+import { config, useSpring, animated } from "@react-spring/three";
 
-const Iphone = ({ position, content }) => {
+const Iphone = ({ position, content, rotate, setRotate }) => {
   const group = useRef();
   const { nodes } = useGLTF(TelefonoOpt);
   const { mouse, clock } = useThree();
@@ -19,8 +20,25 @@ const Iphone = ({ position, content }) => {
       group.current.time = clock.getElapsedTime() * 5;
     }
   });
+
+  // https://react-spring.io/common/props#events
+  const spring = useSpring({
+    from: { rotation: [0, 0, 0] },
+    to: [{ rotation: [0, -6.3, 0] }, { rotation: [0, 0, 0] }],
+    config: config.default,
+    immediate: false,
+    pause: rotate ? true : false,
+    onRest: setRotate(!rotate),
+  });
+
   return (
-    <group position={position} ref={group} dispose={null} scale={[1, 1, 1]}>
+    <animated.mesh
+      position={position}
+      ref={group}
+      dispose={null}
+      scale={[1, 1, 1]}
+      {...spring}
+    >
       <mesh
         geometry={nodes.Glass_top.geometry}
         material={nodes.Glass_top.material}
@@ -60,7 +78,7 @@ const Iphone = ({ position, content }) => {
         rotation={[-Math.PI, 0, 0]}
         scale={0.03}
       />
-    </group>
+    </animated.mesh>
   );
 };
 
