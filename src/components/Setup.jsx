@@ -85,8 +85,8 @@ const Setup = () => {
 
   return (
     <>
-      {/* <Home />
-      <AboutUs /> */}
+      <Home />
+      {/* <AboutUs /> */}
       {/* <Partners /> */}
       <Portfolio />
       {/* <News /> */}

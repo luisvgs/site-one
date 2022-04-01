@@ -78,11 +78,11 @@ const Portfolio = () => {
 
   return (
     <>
-      <AnimatedImage
-        url={images[position]}
-        position={[10.4, 1.6, 2]}
-        scale={[0.09, 0.09, 0.09]}
-      />
+      {/* <AnimatedImage */}
+      {/*   url={images[position]} */}
+      {/*   position={[10.4, 1.6, 2]} */}
+      {/*   scale={[0.09, 0.09, 0.09]} */}
+      {/* /> */}
       <AnimatedText
         //! TODO fix here
         // onPointerOver={() => setHovered(true)}
