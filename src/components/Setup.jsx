@@ -42,8 +42,7 @@ const Setup = () => {
   const page = state.clicked;
 
   useEffect(() => {
-    scroll.el.scrollLeft = size.width * (page - 1);
-    // scroll.el.scrollLeft = 2;
+    // scroll.el.scrollLeft = size.width * (page - 1);
   }, [page, scroll.el, size.width]);
 
   useFrame((state) => {

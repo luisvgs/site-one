@@ -1,10 +1,8 @@
-import React, { useRef, useState, Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { Suspense } from "react";
 import {
   PerspectiveCamera,
   Environment,
   ScrollControls,
-  Loader,
   Scroll,
 } from "@react-three/drei";
 import "./App.scss";

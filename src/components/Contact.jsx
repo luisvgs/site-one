@@ -4,6 +4,7 @@ import IphoneContact from "./Telefono_contact";
 import IphoneBase from "./Telefono_base";
 import { config, useSpring, animated } from "@react-spring/three";
 import { useState } from "react";
+import Content from "./Content";
 
 const Contact = () => {
   const [hovered, setHovered] = useState(false);
@@ -28,7 +29,7 @@ const Contact = () => {
         Contact
       </AnimatedText>
       <IphoneLights position={[16.27, 0.88, 2]} />
-      <IphoneContact position={[16.27, 0.88, 2]} />
+      <IphoneContact content={<Content />} position={[16.27, 0.88, 2]} />
       <IphoneBase position={[16.27, 0.88, 2]} />
     </>
   );

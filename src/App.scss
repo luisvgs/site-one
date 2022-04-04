@@ -37,10 +37,27 @@ div.test {
   height: 100%;
 }
 
+.html-wrapper{
+  width: 240px;
+  height: 350px;
+  background: #000000;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+}
+
 div.wrapper {
   color: rgb(255, 255, 255);
-  font-size: 50px;
-  transform: scale(1);
+  transform: scale(0.8);
+  // height: 70px;
+  // width: 90px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
 }
 
 mesh-group {
@@ -49,26 +66,8 @@ mesh-group {
   justify-content: center;
 }
 
-div.carrusel {
-  height: 570px;
-  width: 50%;
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  justify-content: center;
-}
-
 h3 {
   font-size: 30px;
-}
-
-.cont {
-  width: 227px;
-  height: 520px;
-  background: #000000;
-  border-radius: 10px;
-  align-items: center;
-  padding: 0;
 }
 
 html {

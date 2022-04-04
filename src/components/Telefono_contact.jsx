@@ -13,16 +13,16 @@ const IphoneContact = ({ position, content }) => {
         position={[0.013, 0.367, 0.035]}
         rotation={[-Math.PI, 0, 0]}
         scale={0.05}
-      >
-        {content}
-      </mesh>
+      ></mesh>
       <mesh
         geometry={nodes.Screen.geometry}
         material={nodes.Screen.material}
         position={[0.01, 0.37, 0.04]}
         rotation={[-Math.PI, 0, 0]}
         scale={[0.17, 0.36, 0.05]}
-      ></mesh>
+      >
+        {content}
+      </mesh>
       <group ref={group}>
         <mesh
           geometry={nodes.Titanium_unibody.geometry}
