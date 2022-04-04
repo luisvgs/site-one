@@ -36,15 +36,14 @@ const cameraLookAtCurve = new THREE.CatmullRomCurve3([
 const cameraLookAt = new Vector3(0, 0, 0);
 
 const Setup = () => {
-  const ref = useRef();
   const snap = useSnapshot(state);
-
   const scroll = useScroll();
   const { size } = useThree();
-  const page = 3;
+  const page = state.clicked;
 
   useEffect(() => {
-    scroll.el.scrollLeft = size.width * page;
+    scroll.el.scrollLeft = size.width * (page - 1);
+    // scroll.el.scrollLeft = 2;
   }, [page, scroll.el, size.width]);
 
   useFrame((state) => {
@@ -86,11 +85,11 @@ const Setup = () => {
   return (
     <>
       <Home />
-      {/* <AboutUs /> */}
-      {/* <Partners /> */}
+      <AboutUs />
+      <Partners />
       <Portfolio />
-      {/* <News /> */}
-      {/* <Contact /> */}
+      <News />
+      <Contact />
       <ambientLight color={"#351f4f"} intensity={0.98} />
       <Lights />
       <SupportLights />
