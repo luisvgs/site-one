@@ -20,7 +20,6 @@ const App = () => {
 
   return (
     <>
-      <div style={{ width: "100vw", height: "100vh" }}>
         <div ref={node}>
           <Burger open={open} setOpen={setOpen} />
           <Menu open={open} props={snap} setOpen={setOpen} />
@@ -38,7 +37,6 @@ const App = () => {
             {(matches) => (matches.small ? <PhoneView /> : <DesktopView />)}
           </Media>
         </Canvas>
-      </div>
       <Loader />
     </>
   );

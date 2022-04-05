@@ -9,7 +9,7 @@ import {
 } from "@react-three/drei";
 import "./App.scss";
 import Rig from "./rig";
-import Setup from "./components/Setup";
+import MobileSetup from "./components/mobileSetup";
 
 const PhoneView = () => {
   return (
@@ -19,11 +19,11 @@ const PhoneView = () => {
           <PerspectiveCamera
             onUpdate={(c) => c.updateProjectionMatrix()}
             fov={35}
-            position={[0.111, -0.932, 1.751]}
+            position={[0.051, -0.932, 1.711]}
             rotation={[0.0, -6.2, 0.0]}
           >
             <Scroll>
-              <Setup />
+              <MobileSetup />
             </Scroll>
           </PerspectiveCamera>
         </ScrollControls>

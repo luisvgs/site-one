@@ -35,7 +35,7 @@ const cameraLookAtCurve = new THREE.CatmullRomCurve3([
 
 const cameraLookAt = new Vector3(0, 0, 0);
 
-const Setup = () => {
+const MobileSetup = () => {
   const ref = useRef();
   const snap = useSnapshot(state);
 
@@ -51,31 +51,37 @@ const Setup = () => {
     const step = 0.02;
     switch (snap.clicked) {
       case 1:
+        state.camera.fov = 75;
         state.camera.lookAt(new Vector3(2.2, -0.4, -12.8));
         state.camera.position.lerp(new Vector3(5.1, 0.1, 4.6), step);
         state.camera.updateProjectionMatrix();
         break;
       case 2:
-        state.camera.lookAt(new Vector3(7, -2.9, -12.8));
-        state.camera.position.lerp(new Vector3(10.0, 0.58, 4.3), step);
+        state.camera.fov = 60;
+        state.camera.lookAt(new Vector3(8, -2.1, -12.8));
+        state.camera.position.lerp(new Vector3(9.6, 0.6, 4.9), step);
         state.camera.updateProjectionMatrix();
         break;
       case 3:
+        state.camera.fov = 75;
         state.camera.lookAt(new Vector3(9, -0, -12.8));
         state.camera.position.lerp(new Vector3(16.4, 0.5, 3.9), step);
         state.camera.updateProjectionMatrix();
         break;
       case 4:
+        state.camera.fov = 75;
         state.camera.lookAt(new Vector3(11.7, 0, -12.8));
         state.camera.position.lerp(new Vector3(20.03, 0.42, 3.8), step);
         state.camera.updateProjectionMatrix();
         break;
       case 5:
+        state.camera.fov = 75;
         state.camera.lookAt(new Vector3(16.03, 0, 0));
         state.camera.position.lerp(new Vector3(25.5, 0.5, 3.3), step);
         state.camera.updateProjectionMatrix();
         break;
       default:
+        state.camera.fov = 75;
         cameraPositionCurve.getPoint(scroll.offset, state.camera.position);
         cameraLookAtCurve.getPoint(scroll.offset, cameraLookAt);
         state.camera.lookAt(cameraLookAt);
@@ -100,4 +106,4 @@ const Setup = () => {
 };
 
 // Camera path
-export default Setup;
+export default MobileSetup;
