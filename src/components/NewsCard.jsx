@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { StyledEngineProvider } from "@mui/material/styles";
 import ReptileImage from "./contemplative-reptile.jpg";
+import moment from "moment";
 
 const NewsComponent = () => {
   const [title, setTitle] = useState("");
@@ -21,10 +22,8 @@ const NewsComponent = () => {
     )
       .then((request) => request.json())
       .then((blog) => blog.posts)
-      .then((post) => {
-        setTitle(post[0].title);
-        setContent(post[0].content);
-        setPost(post);
+      .then((single_post) => {
+        setPost(single_post);
       });
   };
 
@@ -66,10 +65,10 @@ const NewsComponent = () => {
           container
           spacing={3}
         >
-          {Array.from(Array(6)).map((_, index) => (
+          {post.map((single_post, index) => (
             <Grid item xs={1} md={3} ml={1} key={index}>
               <Card
-                style={{ backgroundColor: "#1c1b1b" }}
+                style={{ backgroundColor: "white" }}
                 sx={{ maxWidth: 270, maxHeight: 280 }}
               >
                 <CardMedia
@@ -79,19 +78,21 @@ const NewsComponent = () => {
                   alt="green iguana"
                 />
                 <CardContent>
-                  <Typography color="common.white" variant="h5" component="div">
-                    {title}
+                  <Typography color="common.black" variant="h5" component="div">
+                    {single_post.title}
                   </Typography>
-                  <Typography sx={{ mb: 1.5 }} color="common.white">
-                    Lorem ipsim dolot sit amet
+                  <Typography sx={{ mb: 1.5 }} color="common.black">
+                    {moment(single_post.date).format("L")}
                   </Typography>
-                  <Typography color="common.white" variant="body2">
-                    {content}
+                  <Typography color="common.black" variant="body2">
+                    {single_post.content.replace("<p>", "").replace("</p>", "")}
                     <br />
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">Read the article</Button>
+                  <Button size="small" href={single_post.URL}>
+                    Read the article
+                  </Button>
                 </CardActions>
               </Card>
             </Grid>
