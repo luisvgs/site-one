@@ -42,7 +42,7 @@ const Setup = () => {
   const page = state.clicked;
 
   useEffect(() => {
-    scroll.el.scrollLeft = size.width * (page - 1);
+    // scroll.el.scrollLeft = size.width * (page - 1);
     // scroll.el.scrollLeft = 2;
   }, [page, scroll.el, size.width]);
 
