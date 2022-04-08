@@ -117,107 +117,102 @@ const Menu = ({ setOpen, open }) => {
           class="logo"
           onClick={() => {
             setOpen(false);
-            state.clicked = 9;
+            state.clicked = 0;
           }}
           src={Logo}
         />
       </a>
-      <Link href="/about">
-        <a
-          onMouseEnter={() => (state.hovered = "about")}
-          onMouseLeave={() => (state.hovered = null)}
-          href="javascript: return false;"
-          id="about"
+
+      <a
+        onMouseEnter={() => (state.hovered = "about")}
+        onMouseLeave={() => (state.hovered = null)}
+        href="javascript: return false;"
+        id="about"
+      >
+        <span
+          onClick={() => {
+            setOpen(false);
+            state.clicked = 1;
+          }}
+          role="img"
+          aria-label="about us"
         >
-          <span
-            onClick={() => {
-              setOpen(false);
-              state.clicked = 1;
-            }}
-            role="img"
-            aria-label="about us"
-          >
-            About us
-          </span>
-          <div class="div-1" />
-        </a>
-      </Link>
-      <Link href="/partners">
-        <a
-          onMouseEnter={() => (state.hovered = "partners")}
-          onMouseLeave={() => (state.hovered = null)}
-          href="javascript: return false;"
+          About us
+        </span>
+        <div class="div-1" />
+      </a>
+
+      <a
+        onMouseEnter={() => (state.hovered = "partners")}
+        onMouseLeave={() => (state.hovered = null)}
+        href="javascript: return false;"
+      >
+        <span
+          onClick={() => {
+            setOpen(false);
+            state.clicked = 2;
+          }}
+          role="img"
+          aria-label="partners"
         >
-          <span
-            onClick={() => {
-              setOpen(false);
-              state.clicked = 2;
-            }}
-            role="img"
-            aria-label="partners"
-          >
-            Partners
-          </span>
-          <div class="div-2" />
-        </a>
-      </Link>
-      <Link href="/portfolio">
-        <a
-          onMouseEnter={() => (state.hovered = "portfolio")}
-          onMouseLeave={() => (state.hovered = null)}
-          href="javascript: return false;"
+          Partners
+        </span>
+        <div class="div-2" />
+      </a>
+
+      <a
+        onMouseEnter={() => (state.hovered = "portfolio")}
+        onMouseLeave={() => (state.hovered = null)}
+        href="javascript: return false;"
+      >
+        <span
+          onClick={() => {
+            setOpen(false);
+            state.clicked = 3;
+          }}
+          role="img"
+          aria-label="portfolio"
         >
-          <span
-            onClick={() => {
-              setOpen(false);
-              state.clicked = 3;
-            }}
-            role="img"
-            aria-label="portfolio"
-          >
-            Portfolio
-          </span>
-          <div class="div-3" />
-        </a>
-      </Link>
-      <Link href="/news">
-        <a
-          onMouseEnter={() => (state.hovered = "news")}
-          onMouseLeave={() => (state.hovered = null)}
-          href="javascript: return false;"
+          Portfolio
+        </span>
+        <div class="div-3" />
+      </a>
+
+      <a
+        onMouseEnter={() => (state.hovered = "news")}
+        onMouseLeave={() => (state.hovered = null)}
+        href="javascript: return false;"
+      >
+        <span
+          onClick={() => {
+            setOpen(false);
+            state.clicked = 4;
+          }}
+          role="img"
+          aria-label="portfolio"
         >
-          <span
-            onClick={() => {
-              setOpen(false);
-              state.clicked = 4;
-            }}
-            role="img"
-            aria-label="portfolio"
-          >
-            News
-          </span>
-          <div class="div-4" />
-        </a>
-      </Link>
-      <Link href="/contact">
-        <a
-          onMouseEnter={() => (state.hovered = "contact")}
-          onMouseLeave={() => (state.hovered = null)}
-          href="javascript: return false;"
+          News
+        </span>
+        <div class="div-4" />
+      </a>
+      <a
+        onMouseEnter={() => (state.hovered = "contact")}
+        onMouseLeave={() => (state.hovered = null)}
+        href="javascript: return false;"
+      >
+        <span
+          onClick={() => {
+            setOpen(false);
+            state.clicked = 5;
+          }}
+          role="img"
+          aria-label="portfolio"
         >
-          <span
-            onClick={() => {
-              setOpen(false);
-              state.clicked = 5;
-            }}
-            role="img"
-            aria-label="portfolio"
-          >
-            Contact
-          </span>
-          <div class="div-5" />
-        </a>
-      </Link>
+          Contact
+        </span>
+        <div class="div-5" />
+      </a>
+
     </StyledMenu>
   );
 };
