@@ -47,32 +47,21 @@ const SECTIONS = ["HOME", "ABOUT", "PARTNERS", "PORTFOLIO", "NEWS", "CONTACT"]
 
 // Camera path
 const cameraPositionCurve = new THREE.CatmullRomCurve3(SECTIONS.map(k => POSITION[k]));
-
 const cameraLookAtCurve = new THREE.CatmullRomCurve3(SECTIONS.map(k => LOOKAT[k]));
-
-
-
 
 const lookAt = new Vector3();
 const position = new Vector3();
-
+const step = 0.02;
 
 const Setup = () => {
-  const ref = useRef();
-  const snap = useSnapshot(state);
-
   const scroll = useScroll();
   const { size } = useThree();
-  const page = state.clicked;
 
   useEffect(() => {
-    scroll.el.scrollLeft = (size.width*2) * SCROLL_POSITION[SECTIONS[page]];
-    console.log(scroll.el.scrollLeft)
+    scroll.el.scrollLeft = (size.width*2) * SCROLL_POSITION[SECTIONS[state.clicked]];
   }, [page, scroll.el, size.width]);
 
   useFrame((state) => {
-    console.log(scroll.offset);
-    const step = 0.02;
     cameraPositionCurve.getPoint(scroll.offset, position);
     cameraLookAtCurve.getPoint(scroll.offset, lookAt);
     state.camera.lookAt(lookAt);
