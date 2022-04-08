@@ -56,12 +56,14 @@ const step = 0.02;
 const Setup = () => {
   const scroll = useScroll();
   const { size } = useThree();
+  const page = state.clicked;
 
   useEffect(() => {
-    scroll.el.scrollLeft = (size.width*2) * SCROLL_POSITION[SECTIONS[state.clicked]];
+    scroll.el.scrollLeft = (size.width*2) * SCROLL_POSITION[SECTIONS[page]];
   }, [page, scroll.el, size.width]);
 
   useFrame((state) => {
+
     cameraPositionCurve.getPoint(scroll.offset, position);
     cameraLookAtCurve.getPoint(scroll.offset, lookAt);
     state.camera.lookAt(lookAt);
