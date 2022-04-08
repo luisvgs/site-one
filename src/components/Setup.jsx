@@ -40,11 +40,11 @@ const Setup = () => {
   const scroll = useScroll();
   const { size } = useThree();
   const page = state.clicked;
+  const offset = scroll.offset;
 
   useEffect(() => {
     scroll.el.scrollLeft = size.width * (page - 1);
-    // scroll.el.scrollLeft = 2;
-  }, [page, scroll.el, size.width]);
+  }, [offset]);
 
   useFrame((state) => {
     const step = 0.02;
