@@ -20,9 +20,7 @@ const DesktopView = () => {
             position={[0.111, -0.932, 2.191]}
             rotation={[0.0, -6.2, 0.0]}
           >
-            <Scroll>
-              <Setup />
-            </Scroll>
+            <Setup />
           </PerspectiveCamera>
         </ScrollControls>
         <Environment preset="city" />
