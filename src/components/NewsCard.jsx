@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
@@ -9,8 +9,27 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { StyledEngineProvider } from "@mui/material/styles";
 import ReptileImage from "./contemplative-reptile.jpg";
+import moment from "moment";
 
 const NewsComponent = () => {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [post, setPost] = useState([]);
+
+  const loadData = async () => {
+    await fetch(
+      "https://public-api.wordpress.com/rest/v1.1/sites/nubelula.wordpress.com/posts/"
+    )
+      .then((request) => request.json())
+      .then((blog) => blog.posts)
+      .then((single_post) => {
+        setPost(single_post);
+      });
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
   return (
     <StyledEngineProvider injectFirst>
       <Box
@@ -46,32 +65,34 @@ const NewsComponent = () => {
           container
           spacing={3}
         >
-          {Array.from(Array(6)).map((_, index) => (
+          {post.map((single_post, index) => (
             <Grid item xs={1} md={3} ml={1} key={index}>
               <Card
-                style={{ backgroundColor: "#1c1b1b" }}
+                style={{ backgroundColor: "white" }}
                 sx={{ maxWidth: 270, maxHeight: 280 }}
               >
                 <CardMedia
                   component="img"
-                  height="100"
+                  height="80"
                   image={ReptileImage}
                   alt="green iguana"
                 />
                 <CardContent>
-                  <Typography color="common.white" variant="h5" component="div">
-                    Latest news
+                  <Typography color="common.black" variant="h5" component="div">
+                    {single_post.title}
                   </Typography>
-                  <Typography sx={{ mb: 1.5 }} color="common.white">
-                    Lorem ipsim dolot sit amet
+                  <Typography sx={{ mb: 1.5 }} color="common.black">
+                    {moment(single_post.date).format("L")}
                   </Typography>
-                  <Typography color="common.white" variant="body2">
-                    morbi tristique senectus et netus et malesuada fames.
+                  <Typography color="common.black" variant="body2">
+                    {single_post.content.replace("<p>", "").replace("</p>", "")}
                     <br />
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">Leer mas</Button>
+                  <Button size="small" href={single_post.URL}>
+                    Read the article
+                  </Button>
                 </CardActions>
               </Card>
             </Grid>
