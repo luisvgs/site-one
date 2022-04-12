@@ -109,10 +109,10 @@ const Setup = () => {
   return (
     <>
       <Home />
-      {/* <AboutUs /> */}
+      <AboutUs />
       <Partners />
-      {/* <Portfolio /> */}
-      {/* <News /> */}
+      <Portfolio />
+      <News />
       <Contact />
       <ambientLight color={"#351f4f"} intensity={0.98} />
       <Lights />
