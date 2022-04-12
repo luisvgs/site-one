@@ -25,7 +25,7 @@ const DesktopView = () => {
             </Scroll>
           </PerspectiveCamera>
         </ScrollControls>
-        <Environment preset="city" />
+        {/* <Environment preset="city" /> */}
       </Suspense>
       <Rig />
     </>
