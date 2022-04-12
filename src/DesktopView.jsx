@@ -3,7 +3,6 @@ import {
   PerspectiveCamera,
   Environment,
   ScrollControls,
-  Scroll,
 } from "@react-three/drei";
 import "./App.scss";
 import Rig from "./rig";
@@ -25,7 +24,7 @@ const DesktopView = () => {
             </Scroll>
           </PerspectiveCamera>
         </ScrollControls>
-        {/* <Environment preset="city" /> */}
+        <Environment preset="city" />
       </Suspense>
       <Rig />
     </>
