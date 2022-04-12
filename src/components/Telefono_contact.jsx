@@ -13,9 +13,7 @@ const IphoneContact = ({ position, content }) => {
         position={[0.013, 0.367, 0.035]}
         rotation={[-Math.PI, 0, 0]}
         scale={0.05}
-      >
-        {content}
-      </mesh>
+      ></mesh>
       <mesh
         geometry={nodes.Screen.geometry}
         material={nodes.Screen.material}
@@ -30,7 +28,9 @@ const IphoneContact = ({ position, content }) => {
           position={[0.0126, 0.36682, 0.03467]}
           rotation={[-Math.PI, 0, 0]}
           scale={0.03}
-        ></mesh>
+        >
+          {content}
+        </mesh>
       </group>
       <mesh
         geometry={nodes.Titanium_unibody001.geometry}

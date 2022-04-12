@@ -4,12 +4,10 @@ import {
   PerspectiveCamera,
   Environment,
   ScrollControls,
-  Loader,
-  Scroll,
 } from "@react-three/drei";
 import "./App.scss";
 import Rig from "./rig";
-import MobileSetup from "./components/mobileSetup";
+import Setup from "./components/Setup";
 
 const PhoneView = () => {
   return (
@@ -22,12 +20,10 @@ const PhoneView = () => {
             position={[0.051, -0.932, 1.711]}
             rotation={[0.0, -6.2, 0.0]}
           >
-            <Scroll>
-              <MobileSetup />
-            </Scroll>
+            <Setup />
           </PerspectiveCamera>
         </ScrollControls>
-        <Environment preset="city" />
+        {/* <Environment preset="city" /> */}
       </Suspense>
       <Rig />
     </>

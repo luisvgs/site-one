@@ -20,23 +20,23 @@ const App = () => {
 
   return (
     <>
-        <div ref={node}>
-          <Burger open={open} setOpen={setOpen} />
-          <Menu open={open} props={snap} setOpen={setOpen} />
-        </div>
-        <Canvas
-          dpr={[1, 2]}
-          shadows
-          colorManagement
-          flat
-          gl={{
-            physicallyCorrectLights: true,
-          }}
-        >
-          <Media queries={{ small: { maxWidth: 617 } }}>
-            {(matches) => (matches.small ? <PhoneView /> : <DesktopView />)}
-          </Media>
-        </Canvas>
+      <div ref={node}>
+        <Burger open={open} setOpen={setOpen} />
+        <Menu open={open} props={snap} setOpen={setOpen} />
+      </div>
+      <Canvas
+        dpr={[1, 2]}
+        shadows
+        colorManagement
+        flat
+        gl={{
+          physicallyCorrectLights: true,
+        }}
+      >
+        <Media queries={{ small: { maxWidth: 617 } }}>
+          {(matches) => (matches.small ? <PhoneView /> : <DesktopView />)}
+        </Media>
+      </Canvas>
       <Loader />
     </>
   );

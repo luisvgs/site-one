@@ -14,8 +14,16 @@ const ContactForm = () => {
         <Map />
       </div>
       <Box>
-        <Paper sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}>
-          <BottomNavigation sx={{ width: 500 }} showLabels>
+        <Paper
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            position: "fixed",
+            bottom: 0,
+            left: 0,
+          }}
+        >
+          <BottomNavigation sx={{ width: 350 }} showLabels>
             <BottomNavigationAction label="Contacto" icon={<FavoriteIcon />} />
             <BottomNavigationAction label="Lugar" icon={<LocationOnIcon />} />
           </BottomNavigation>

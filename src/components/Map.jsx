@@ -13,7 +13,7 @@ const Map = () => {
   };
 
   return (
-    <div style={{ height: "40vh", width: "55vh" }}>
+    <div style={{ height: "60vh", width: "35vh" }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: "" }}
         defaultCenter={defaultProps.center}

@@ -12,9 +12,8 @@ const DesktopView = () => {
   return (
     <>
       <Suspense fallback={null}>
-        <ScrollControls damping={1} distance={1} pages={3} horizontal>
+        <ScrollControls damping={3} distance={1} pages={3} horizontal>
           <PerspectiveCamera
-            onUpdate={(c) => c.updateProjectionMatrix()}
             fov={35}
             position={[0.111, -0.932, 2.191]}
             rotation={[0.0, -6.2, 0.0]}
