@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, Html } from "@react-three/drei";
 import UnoModel from "../models/Number1C.glb";
 import Focos from "./Focos";
 import { useSpring, animated } from "@react-spring/three";
@@ -76,7 +76,19 @@ const UnoComponent = () => {
         receiveShadow
         geometry={nodes.Curve007.geometry}
         material={materials["Azul google"]}
-      />
+      >
+        <Html
+          position={[0.07, 0.43, 0]}
+          distanceFactor={20}
+          style={{
+            transition: "all 0.2s",
+            opacity: state.hovered === "about" ? 1 : 0.2,
+            transform: `scale(${state.hovered === "about" ? 1 : 0.0})`,
+          }}
+        >
+          <div class="content">About us</div>
+        </Html>
+      </mesh>
       <mesh
         castShadow
         onClick={() => {
@@ -93,7 +105,19 @@ const UnoComponent = () => {
         receiveShadow
         geometry={nodes.Curve007_1.geometry}
         material={materials["Narajan google"]}
-      />
+      >
+        <Html
+          position={[-0.23, 0.35, 0]}
+          distanceFactor={20}
+          style={{
+            transition: "all 0.2s",
+            opacity: state.hovered === "partners" ? 1 : 0.2,
+            transform: `scale(${state.hovered === "partners" ? 1 : 0.0})`,
+          }}
+        >
+          <div class="content">Partners</div>
+        </Html>
+      </mesh>
       <mesh
         onClick={() => {
           state.clicked = 3;
@@ -110,7 +134,19 @@ const UnoComponent = () => {
         receiveShadow
         geometry={nodes.Curve007_2.geometry}
         material={materials["Amarillo google"]}
-      />
+      >
+        <Html
+          position={[0.07, 0.28, 0]}
+          distanceFactor={20}
+          style={{
+            transition: "all 0.2s",
+            opacity: state.hovered === "portfolio" ? 1 : 0.2,
+            transform: `scale(${state.hovered === "portfolio" ? 1 : 0.0})`,
+          }}
+        >
+          <div class="content">Portfolio</div>
+        </Html>
+      </mesh>
       <mesh
         onClick={() => {
           state.clicked = 4;
@@ -127,7 +163,19 @@ const UnoComponent = () => {
         receiveShadow
         geometry={nodes.Curve007_3.geometry}
         material={materials["Verde google"]}
-      />
+      >
+        <Html
+          position={[-0.23, 0.2, 0]}
+          distanceFactor={20}
+          style={{
+            transition: "all 0.2s",
+            opacity: state.hovered === "news" ? 1 : 0.2,
+            transform: `scale(${state.hovered === "news" ? 1 : 0.0})`,
+          }}
+        >
+          <div class="content">News</div>
+        </Html>
+      </mesh>
       <mesh
         onClick={() => {
           state.clicked = 5;
@@ -144,7 +192,19 @@ const UnoComponent = () => {
         receiveShadow
         geometry={nodes.Curve007_4.geometry}
         material={materials["Azul oscuro google"]}
-      />
+      >
+        <Html
+          position={[0.07, 0.12, 0]}
+          distanceFactor={20}
+          style={{
+            transition: "all 0.2s",
+            opacity: state.hovered === "contact" ? 1 : 0.2,
+            transform: `scale(${state.hovered === "contact" ? 1 : 0.0})`,
+          }}
+        >
+          <div class="content">Contact</div>
+        </Html>
+      </mesh>
       <mesh
         castShadow
         receiveShadow
