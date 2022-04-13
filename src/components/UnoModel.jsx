@@ -57,6 +57,7 @@ const UnoComponent = () => {
         material={nodes.Curve010.material}
       />
       <mesh
+        onClick={() => (state.clicked = 1)}
         onPointerOver={() => (state.hovered = "about")}
         onPointerLeave={() => (state.hovered = null)}
         castShadow
@@ -66,6 +67,9 @@ const UnoComponent = () => {
       />
       <mesh
         castShadow
+        onClick={() => {
+          state.clicked = 2;
+        }}
         onPointerOver={() => (state.hovered = "partners")}
         onPointerLeave={() => (state.hovered = null)}
         receiveShadow
@@ -73,6 +77,9 @@ const UnoComponent = () => {
         material={materials["Narajan google"]}
       />
       <mesh
+        onClick={() => {
+          state.clicked = 3;
+        }}
         onPointerOver={() => (state.hovered = "portfolio")}
         onPointerLeave={() => (state.hovered = null)}
         castShadow
@@ -81,6 +88,9 @@ const UnoComponent = () => {
         material={materials["Amarillo google"]}
       />
       <mesh
+        onClick={() => {
+          state.clicked = 4;
+        }}
         onPointerOver={() => (state.hovered = "news")}
         onPointerLeave={() => (state.hovered = null)}
         castShadow
@@ -89,6 +99,9 @@ const UnoComponent = () => {
         material={materials["Verde google"]}
       />
       <mesh
+        onClick={() => {
+          state.clicked = 5;
+        }}
         onPointerOver={() => (state.hovered = "contact")}
         onPointerLeave={() => (state.hovered = null)}
         castShadow
