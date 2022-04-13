@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import UnoModel from "../models/Number1C.glb";
 import Focos from "./Focos";
@@ -10,6 +10,7 @@ const UnoComponent = () => {
   useSnapshot(state);
   const group = useRef();
   const { nodes, materials } = useGLTF(UnoModel);
+  const [hovered, setHovered] = useState(false);
 
   const props = useSpring({
     loop: true,
@@ -35,6 +36,11 @@ const UnoComponent = () => {
     delay: 200,
   });
 
+  useEffect(
+    () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
+    [hovered]
+  );
+
   return (
     <mesh
       position={[0.205, 0.78, 2]}
@@ -58,8 +64,14 @@ const UnoComponent = () => {
       />
       <mesh
         onClick={() => (state.clicked = 1)}
-        onPointerOver={() => (state.hovered = "about")}
-        onPointerLeave={() => (state.hovered = null)}
+        onPointerOver={() => {
+          state.hovered = "about";
+          setHovered(true);
+        }}
+        onPointerLeave={() => {
+          state.hovered = null;
+          setHovered(false);
+        }}
         castShadow
         receiveShadow
         geometry={nodes.Curve007.geometry}
@@ -70,8 +82,14 @@ const UnoComponent = () => {
         onClick={() => {
           state.clicked = 2;
         }}
-        onPointerOver={() => (state.hovered = "partners")}
-        onPointerLeave={() => (state.hovered = null)}
+        onPointerOver={() => {
+          state.hovered = "partners";
+          setHovered(true);
+        }}
+        onPointerLeave={() => {
+          state.hovered = null;
+          setHovered(false);
+        }}
         receiveShadow
         geometry={nodes.Curve007_1.geometry}
         material={materials["Narajan google"]}
@@ -80,8 +98,14 @@ const UnoComponent = () => {
         onClick={() => {
           state.clicked = 3;
         }}
-        onPointerOver={() => (state.hovered = "portfolio")}
-        onPointerLeave={() => (state.hovered = null)}
+        onPointerOver={() => {
+          state.hovered = "portfolio";
+          setHovered(true);
+        }}
+        onPointerLeave={() => {
+          state.hovered = null;
+          setHovered(false);
+        }}
         castShadow
         receiveShadow
         geometry={nodes.Curve007_2.geometry}
@@ -91,8 +115,14 @@ const UnoComponent = () => {
         onClick={() => {
           state.clicked = 4;
         }}
-        onPointerOver={() => (state.hovered = "news")}
-        onPointerLeave={() => (state.hovered = null)}
+        onPointerOver={() => {
+          state.hovered = "news";
+          setHovered(true);
+        }}
+        onPointerLeave={() => {
+          state.hovered = null;
+          setHovered(false);
+        }}
         castShadow
         receiveShadow
         geometry={nodes.Curve007_3.geometry}
@@ -102,8 +132,14 @@ const UnoComponent = () => {
         onClick={() => {
           state.clicked = 5;
         }}
-        onPointerOver={() => (state.hovered = "contact")}
-        onPointerLeave={() => (state.hovered = null)}
+        onPointerOver={() => {
+          state.hovered = "contact";
+          setHovered(true);
+        }}
+        onPointerLeave={() => {
+          state.hovered = null;
+          setHovered(false);
+        }}
         castShadow
         receiveShadow
         geometry={nodes.Curve007_4.geometry}
