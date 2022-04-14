@@ -90,7 +90,7 @@ const NewsComponent = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" href={single_post.URL}>
+                  <Button size="small" href={single_post.URL} target="_blank">
                     Read the article
                   </Button>
                 </CardActions>
