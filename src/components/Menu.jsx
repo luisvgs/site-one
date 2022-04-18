@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { state } from "../state";
 import { useSnapshot } from "valtio";
 import Logo from "../img/site-one-technology.png";
-import { Link } from "wouter";
 
 const StyledMenu = styled.div`
   display: flex;

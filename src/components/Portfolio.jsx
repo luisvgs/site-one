@@ -3,7 +3,6 @@ import IphoneLights from "./IphoneLights";
 import { Text, Image, Plane, useTexture } from "@react-three/drei";
 import Iphone from "./Telefono_optimizado";
 import IphoneBase from "./Telefono_base";
-// import Content from "./Content";
 import Selector from "./Selector";
 import Playstore from "./google-arrow.png";
 import AppStore from "./apple-black.png";
