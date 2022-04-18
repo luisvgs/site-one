@@ -173,7 +173,7 @@ const UnoComponent = () => {
             transform: `scale(${state.hovered === "news" ? 1 : 0.0})`,
           }}
         >
-          <div class="content">News</div>
+          <div class="content">Press room</div>
         </Html>
       </mesh>
       <mesh
