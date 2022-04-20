@@ -6,7 +6,7 @@ import { useSpring, animated, config } from "@react-spring/three";
 const AboutUs = () => {
   const [flip, set] = useState(false);
   const AnimatedText = animated(Text);
-
+  const isMobile = window.screen.width <= 617;
   const wobble_spring = useSpring({
     from: { scale: [0.7, 0.7, 0] },
     to: { scale: [1, 1, 0] },
@@ -38,7 +38,7 @@ const AboutUs = () => {
         ]}
       />
       <AnimatedText
-        {...wobble_spring}
+        {...(isMobile ? [1, 1, 0] : wobble_spring)}
         position={[2.73, 1.02, 2]}
         fontSize={0.03}
         color="white"
