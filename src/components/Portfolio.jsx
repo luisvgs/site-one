@@ -1,49 +1,20 @@
 import { useState } from "react";
 import IphoneLights from "./IphoneLights";
-import { Text, Image, Plane, useTexture } from "@react-three/drei";
+import { Text, Image } from "@react-three/drei";
 import Iphone from "./Telefono_optimizado";
 import IphoneBase from "./Telefono_base";
 import Selector from "./Selector";
-import Playstore from "./google-arrow.png";
-import AppStore from "./apple-black.png";
 import { config, useSpring, animated } from "@react-spring/three";
 import { useTransition } from "react-spring";
-
-const Logo = ({ tex, scale, position }) => {
-  const texture = useTexture(tex);
-  return (
-    <mesh position={position} scale={scale}>
-      <Plane radius={0.05}>
-        <meshBasicMaterial attach="material" map={texture} />
-      </Plane>
-    </mesh>
-  );
-};
+import AppStore from "./AppStore";
+import Playstore from "./Playstore";
 
 const Logos = () => {
   return (
     <>
       <group>
-        <Logo
-          tex={AppStore}
-          position={[10.65, 1.2, 2]}
-          scale={[0.2, 0.06, 0.0]}
-        />
-        <Logo
-          tex={Playstore}
-          position={[10.83, 1.2, 2]}
-          scale={[0.04, 0.05, 0.01]}
-        />
-        {/* <Image
-          url={Playstore}
-          position={[10.7, 1.2, 2]}
-          scale={[0.07, 0.07, 0.07]}
-        /> */}
-        {/* <Image
-          url={AppStore}
-          position={[10.6, 1.2, 2]}
-          scale={[0.2, 0.07, 0.07]}
-        /> */}
+        <AppStore position={[10.57, 1.2, 2]} scale={[0.8, 0.8, 0.8]} />
+        <Playstore position={[10.76, 1.194, 2]} scale={[0.8, 0.8, 0.8]} />
       </group>
     </>
   );
