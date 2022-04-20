@@ -8,7 +8,7 @@ const Microsoft = (props) => {
   const [hovered, setHover] = useState(false);
   const group = useRef();
   const { nodes, materials } = useGLTF(MicrosoftModel);
-
+  const isMobile = window.screen.width <= 617;
   const [active, setActive] = useState(false);
   const { scale } = useSpring({
     scale: active ? 1.1 : 1,
@@ -17,7 +17,11 @@ const Microsoft = (props) => {
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
-    group.current.position.y = 0.8 + Math.sin(t / 0.9) / 32;
+    {
+      isMobile
+        ? (group.current.position.y = group.current.position.y)
+        : (group.current.position.y = 0.8 + Math.sin(t / 0.9) / 32);
+    }
   });
 
   useEffect(
@@ -37,7 +41,7 @@ const Microsoft = (props) => {
         setHover(false);
       }}
       position={[6.405, 0.75, 2]}
-      scale={scale}
+      scale={isMobile ? 1 : scale}
       ref={group}
       {...props}
       dispose={null}
