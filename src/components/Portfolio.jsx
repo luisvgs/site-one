@@ -13,8 +13,8 @@ const Logos = () => {
   return (
     <>
       <group>
-        <AppStore position={[10.57, 1.2, 2]} scale={[0.8, 0.8, 0.8]} />
-        <Playstore position={[10.76, 1.194, 2]} scale={[0.8, 0.8, 0.8]} />
+        <AppStore position={[10.6, 1.2, 2]} scale={[0.8, 0.8, 0.8]} />
+        <Playstore position={[10.78, 1.194, 2]} scale={[0.8, 0.8, 0.8]} />
       </group>
     </>
   );
