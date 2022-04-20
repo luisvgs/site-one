@@ -4,6 +4,7 @@ import UnoLights from "./UnoLights";
 import { useSpring, animated } from "@react-spring/three";
 
 const Home = () => {
+  const isMobile = window.screen.width <= 617;
   const AnimatedText = animated(Text);
   const spring = useSpring({
     from: { scale: [0, 0, 0] },
@@ -17,7 +18,7 @@ const Home = () => {
   return (
     <>
       <AnimatedText
-        {...spring}
+        {...(isMobile ? [1, 1, 0] : spring)}
         position={[-0.471, 1.2, 2]}
         fontSize={0.08}
         color="white"
