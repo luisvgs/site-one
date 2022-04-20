@@ -7,6 +7,7 @@ import { config, useSpring, animated } from "@react-spring/three";
 import { useState } from "react";
 
 const Partners = () => {
+  const isMobile = window.screen.width <= 617;
   const [hovered, setHovered] = useState(false);
   const { wobble } = useSpring({
     wobble: hovered ? 1 : 1.2,
@@ -20,7 +21,7 @@ const Partners = () => {
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
         position={[5.85, 1.6, 1.7]}
-        scale={wobble}
+        scale={isMobile ? 1.2 : wobble}
         fontSize={0.08}
         color="white"
         maxWidth={0.69}
