@@ -13,7 +13,7 @@ const PhoneView = () => {
   return (
     <>
       <Suspense fallback={null}>
-        <ScrollControls damping={1} distance={1} pages={3} horizontal>
+        <ScrollControls damping={2} distance={1} pages={3} horizontal>
           <PerspectiveCamera
             onUpdate={(c) => c.updateProjectionMatrix()}
             fov={35}
