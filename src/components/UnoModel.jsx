@@ -11,6 +11,7 @@ const UnoComponent = () => {
   const group = useRef();
   const { nodes, materials } = useGLTF(UnoModel);
   const [hovered, setHovered] = useState(false);
+  const isMobile = window.screen.width <= 617;
 
   const props = useSpring({
     loop: true,
@@ -212,7 +213,7 @@ const UnoComponent = () => {
         material={nodes.Cube017.material}
       />
       {/* Cilinder 1 */}
-      <animated.mesh {...props}>
+      <animated.mesh {...(isMobile ? [0.0, 0.2, 0] : props)}>
         <mesh
           castShadow
           receiveShadow
@@ -323,7 +324,7 @@ const UnoComponent = () => {
         material={nodes.Curve014.material}
       />
       {/* Cube here */}
-      <animated.mesh {...big_cube}>
+      <animated.mesh {...(isMobile ? [0.0, -0.09, 0] : big_cube)}>
         <mesh
           castShadow
           receiveShadow
@@ -338,7 +339,7 @@ const UnoComponent = () => {
         material={nodes.Cube027.material}
       />
       {/* Cube here  */}
-      <animated.mesh {...tiny_cube}>
+      <animated.mesh {...(isMobile ? [0.0, 0.072, 0] : tiny_cube)}>
         <mesh
           castShadow
           receiveShadow
