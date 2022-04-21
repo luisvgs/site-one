@@ -9,7 +9,7 @@ const IphoneLights = ({ position }) => {
         <group ref={group} dispose={null}>
           <group position={[-0.8, -0.01, -0.01]}>
             <pointLight
-              intensity={11}
+              intensity={1}
               decay={2}
               color="#ff1624"
               rotation={[-Math.PI / 2, 0, 0]}
@@ -25,7 +25,7 @@ const IphoneLights = ({ position }) => {
           </group>
           <group position={[-0.34, 0.52, 0.34]}>
             <pointLight
-              intensity={14}
+              intensity={13}
               decay={2}
               color="#0c20ff"
               rotation={[-Math.PI / 2, 0, 0]}
