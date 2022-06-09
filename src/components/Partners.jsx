@@ -18,8 +18,6 @@ const Partners = () => {
   return (
     <>
       <AnimatedText
-        onPointerOver={() => setHovered(true)}
-        onPointerOut={() => setHovered(false)}
         position={[5.85, 1.6, 1.7]}
         scale={isMobile ? 1.2 : wobble}
         fontSize={0.08}
