@@ -73,6 +73,10 @@ const Setup = () => {
 
   return (
     <>
+      <Home />
+      <AboutUs />
+      <Partners />
+      <Portfolio />
       <Contact />
       <ambientLight color={"#351f4f"} intensity={0.98} />
       <Lights />
