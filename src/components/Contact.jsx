@@ -1,6 +1,6 @@
 import IphoneLights from "./IphoneLights";
 import { Text } from "@react-three/drei";
-import Sphere from "./Sphere";
+import ContactRoom from "./ContactScene";
 import { config, useSpring, animated } from "@react-spring/three";
 import { useState } from "react";
 
@@ -26,8 +26,8 @@ const Contact = () => {
       >
         Contact
       </AnimatedText>
-      <IphoneLights position={[16.27, 0.88, 2]} />
-      <Sphere position={[16.27, 0.88, 2]} />
+      <IphoneLights position={[16.27, 0.88, 4.9]} />
+      <ContactRoom position={[16.27, 0.88, 2]} />
     </>
   );
 };

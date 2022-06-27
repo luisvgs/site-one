@@ -4,7 +4,6 @@ import Home from "./Home";
 import AboutUs from "./AboutUs";
 import Partners from "./Partners";
 import Portfolio from "./Portfolio";
-import News from "./News";
 import Contact from "./Contact";
 import Plane from "./Plane";
 import SupportLights from "./SupportLight";
