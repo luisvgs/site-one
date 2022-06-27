@@ -7,6 +7,7 @@ import {
 import "./App.scss";
 import Rig from "./rig";
 import Setup from "./components/Setup";
+import PostProcessing from "./PostProcessing";
 
 const DesktopView = () => {
   return (
