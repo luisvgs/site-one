@@ -22,7 +22,7 @@ const DesktopView = () => {
             <Setup />
           </PerspectiveCamera>
         </ScrollControls>
-        <Environment preset="city" />
+        <Environment preset="night" />
       </Suspense>
       <Rig />
     </>
