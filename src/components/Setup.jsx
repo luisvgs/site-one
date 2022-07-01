@@ -4,6 +4,7 @@ import Home from "./Home";
 import AboutUs from "./AboutUs";
 import Partners from "./Partners";
 import Portfolio from "./Portfolio";
+import PressRoom from "./PressRoom";
 import Contact from "./Contact";
 import Plane from "./Plane";
 import SupportLights from "./SupportLight";
@@ -18,8 +19,8 @@ const LOOKAT = {
   ABOUT: new Vector3(2.2, -0.4, -12.8),
   PARTNERS: new Vector3(7, -2.9, -12.8),
   PORTFOLIO: new Vector3(9, -0, -12.8),
-  NEWS: new Vector3(11.7, 0, -12.8),
-  CONTACT: new Vector3(16.03, 0, 0),
+  NEWS: new Vector3(13.85, 0, -12.8),
+  CONTACT: new Vector3(19.4, -0.3, 0),
 };
 
 const POSITION = {
@@ -27,8 +28,8 @@ const POSITION = {
   ABOUT: new Vector3(5.1, 0.1, 4.6),
   PARTNERS: new Vector3(10.0, 0.58, 4.3),
   PORTFOLIO: new Vector3(16.4, 0.5, 3.9),
-  NEWS: new Vector3(20.03, 0.42, 3.8),
-  CONTACT: new Vector3(25.5, 0.5, 3.3),
+  NEWS: new Vector3(23.45, -0.8, 4.5),
+  CONTACT: new Vector3(30.6, 0.3, 3.8),
 };
 
 const SCROLL_POSITION = {
@@ -77,6 +78,7 @@ const Setup = () => {
       <Partners />
       <Portfolio />
       <Contact />
+      <PressRoom />
       <ambientLight color={"#351f4f"} intensity={0.98} />
       <Lights />
       <SupportLights />
