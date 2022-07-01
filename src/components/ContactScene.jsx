@@ -1,6 +1,7 @@
 import React, { useRef, useMemo, useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import ContactHome from "../models/ContactHome.glb";
+import ContactLights from "./ContactLights";
 
 const ContactScene = ({ ...props }) => {
   const group = useRef();
@@ -32,9 +33,12 @@ const ContactScene = ({ ...props }) => {
   );
 
   return (
-    <group ref={group} scale={[0.2, 0.2, 0.2]} {...props} dispose={null}>
-      <primitive object={scene} />
-    </group>
+    <>
+      <ContactLights {...props} />
+      <group ref={group} scale={[0.2, 0.2, 0.2]} {...props} dispose={null}>
+        <primitive object={scene} />
+      </group>
+    </>
   );
 };
 export default ContactScene;
