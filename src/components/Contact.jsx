@@ -27,7 +27,7 @@ const Contact = () => {
         Contact
       </AnimatedText>
       <IphoneLights position={[16.27, 0.88, 4.9]} />
-      <ContactRoom position={[16.27, 0.88, 2]} />
+      <ContactRoom position={[19.68, 0.65, 2]} />
     </>
   );
 };

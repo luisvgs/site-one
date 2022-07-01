@@ -32,7 +32,7 @@ const ContactScene = ({ ...props }) => {
   );
 
   return (
-    <group ref={group} scale={[0.1, 0.1, 0.1]} {...props} dispose={null}>
+    <group ref={group} scale={[0.2, 0.2, 0.2]} {...props} dispose={null}>
       <primitive object={scene} />
     </group>
   );
