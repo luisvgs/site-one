@@ -1,10 +1,9 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
 
 const PressRoomLights = ({ ...props }) => {
   const group = useRef();
   return (
-    <group position={[14.9, 0.7, 2.0]} dispose={null}>
+    <group ref={group} position={[14.9, 0.7, 2.0]} dispose={null} {...props}>
       <group
         position={[-4.55, 3.44, 2.1]}
         rotation={[3.05, -1.24, 0.02]}
