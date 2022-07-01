@@ -1,9 +1,6 @@
-import { Html, Box } from "@react-three/drei";
-import NewsCard from "./NewsCard";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import PressModel from "../models/PressRoom.glb";
-import PressRoomLights from "../components/PressRoomLights";
 
 const PressRoomComponent = ({ ...props }) => {
   const group = useRef();
