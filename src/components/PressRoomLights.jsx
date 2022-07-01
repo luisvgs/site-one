@@ -1,15 +1,24 @@
 import React, { useRef } from "react";
+import { useHelper } from "@react-three/drei";
+import { PointLightHelper } from "three";
 
 const PressRoomLights = ({ ...props }) => {
   const group = useRef();
+  const light = useRef();
+  useHelper(light, PointLightHelper, 0.5, "cyan");
   return (
-    <group ref={group} position={[14.9, 0.7, 2.0]} dispose={null} {...props}>
+    <group
+      ref={group}
+      position={[16.9, -3, 2.0]}
+      // position={[-0.471, 1.2, 2]}
+    >
       <group
         position={[-4.55, 3.44, 2.1]}
         rotation={[3.05, -1.24, 0.02]}
         scale={0.77}
       >
         <pointLight
+          // ref={light}
           intensity={25}
           decay={2}
           color="#5280ff"
@@ -22,6 +31,7 @@ const PressRoomLights = ({ ...props }) => {
         scale={0.77}
       >
         <pointLight
+          ref={light}
           intensity={55}
           decay={2}
           color="blue"
@@ -34,6 +44,7 @@ const PressRoomLights = ({ ...props }) => {
         scale={0.77}
       >
         <pointLight
+          ref={light}
           intensity={15}
           decay={2}
           color="#5280ff"
@@ -46,6 +57,7 @@ const PressRoomLights = ({ ...props }) => {
         scale={0.77}
       >
         <pointLight
+          ref={light}
           intensity={15}
           decay={2}
           color="#5280ff"
@@ -58,6 +70,7 @@ const PressRoomLights = ({ ...props }) => {
         scale={[0.67, 0.57, 1.18]}
       >
         <pointLight
+          ref={light}
           intensity={68.7}
           decay={2}
           color="#074aff"
@@ -82,6 +95,7 @@ const PressRoomLights = ({ ...props }) => {
         scale={[0.67, 0.57, 1.18]}
       >
         <pointLight
+          ref={light}
           intensity={68.7}
           decay={2}
           color="#074aff"
@@ -94,6 +108,7 @@ const PressRoomLights = ({ ...props }) => {
         scale={[0.67, 0.57, 1.18]}
       >
         <pointLight
+          ref={light}
           intensity={68.7}
           decay={2}
           color="#074aff"
