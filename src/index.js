@@ -20,10 +20,5 @@ const app = initializeApp(firebaseConfig);
 getAnalytics(app);
 getPerformance(app);
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));
 reportWebVitals();
