@@ -1,16 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import PressModel from "../models/PressRoom.glb";
-import { useSpring, animated, config } from "react-spring";
 
 const Flechas = ({ setNext, setPrev, rotate, setRotate }) => {
   const { nodes, materials } = useGLTF(PressModel);
   const [hovered, setHovered] = useState(false);
-
-  const { props } = useSpring({
-    wobble: hovered ? 0.03 : 0.02,
-    config: config.wobbly,
-  });
 
   useEffect(
     () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
