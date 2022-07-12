@@ -41,7 +41,8 @@ const SupportLights = () => {
         ref={pointLight}
         distance={6}
         intensity={6.003}
-        position={[6.405, 0.25, 3]}
+        color={"#f20723"} // Red light from corner
+        position={[6.405, 0.25, 4]}
         power={63}
       />
       <pointLight

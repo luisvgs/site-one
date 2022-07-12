@@ -22,7 +22,7 @@ const ContactScene = ({ ...props }) => {
 
   return (
     <>
-      <ContactLights {...props} />
+      {/* <ContactLights {...props} /> */}
       <group ref={group} scale={[0.2, 0.2, 0.14]} {...props} dispose={null}>
         <group name="Scene">
           <group

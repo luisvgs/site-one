@@ -28,7 +28,7 @@ const Home = () => {
       >
         Lorem ipsum dolor sit amet
       </AnimatedText>
-      <UnoLights />
+      <UnoLights position={[-0.471, 1.2, 2]} />
       <UnoComponent />
     </>
   );

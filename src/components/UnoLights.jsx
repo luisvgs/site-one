@@ -1,12 +1,20 @@
 import React, { useRef } from "react";
-import { useGLTF, PerspectiveCamera } from "@react-three/drei";
+import { useHelper, useGLTF, PerspectiveCamera } from "@react-three/drei";
+import { PointLightHelper } from "three";
 
-const UnoLights = (props) => {
+const UnoLights = ({ ...props }) => {
   const group = useRef();
+  const light = useRef();
+  const light1 = useRef();
+  const light2 = useRef();
+  useHelper(light, PointLightHelper, 0.5, "red");
+  useHelper(light1, PointLightHelper, 0.5, "red");
+  useHelper(light2, PointLightHelper, 0.5, "red");
   return (
-    <group ref={group} {...props} position={[-0.471, 1.2, 2]} dispose={null}>
+    <group ref={group} {...props} dispose={null}>
       <group position={[-0.8, -0.01, -0.01]}>
         <pointLight
+          ref={light}
           intensity={15}
           decay={2}
           color="#ff1624"
@@ -23,6 +31,7 @@ const UnoLights = (props) => {
       </group>
       <group position={[-0.34, 0.52, 0.34]}>
         <pointLight
+          ref={light1}
           intensity={14}
           decay={2}
           color="#0c20ff"
@@ -34,27 +43,10 @@ const UnoLights = (props) => {
       </group>
       <group position={[-0.94, 0.52, 0.34]}>
         <pointLight
+          ref={light2}
           intensity={14}
           decay={2}
           color="#0c20ff"
-          rotation={[-Math.PI / 2, 0, 0]}
-        />
-      </group>
-      <group position={[-1.03, 0.32, 3.16]} rotation={[1.55, -0.01, 0.27]}>
-        <PerspectiveCamera
-          makeDefault={false}
-          far={1000}
-          near={0.1}
-          fov={22.9}
-          rotation={[-Math.PI / 2, 0, 0]}
-        />
-      </group>
-      <group position={[-1.03, 0.32, 3.16]} rotation={[1.55, -0.01, 0.27]}>
-        <PerspectiveCamera
-          makeDefault={false}
-          far={1000}
-          near={0.1}
-          fov={22.9}
           rotation={[-Math.PI / 2, 0, 0]}
         />
       </group>

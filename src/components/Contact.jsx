@@ -1,4 +1,5 @@
 import IphoneLights from "./IphoneLights";
+import UnoLights from "./UnoLights";
 import { Text } from "@react-three/drei";
 import ContactRoom from "./ContactScene";
 import { config, useSpring } from "@react-spring/three";
@@ -12,7 +13,8 @@ const Contact = () => {
   });
   return (
     <>
-      <IphoneLights position={[16.27, 0.88, 4.9]} />
+      {/* <IphoneLights position={[16.27, 0.88, 4.9]} /> */}
+      <UnoLights position={[20.07, 0.88, 4.4]} />
       <ContactRoom position={[19.68, 0.65, 2]} />
     </>
   );

@@ -5,7 +5,7 @@ const PressRoom = () => {
   return (
     <>
       <PressRoomComponent />
-      <PressRoomLights />
+      <PressRoomLights position={[16.9, -3, 2.0]} />
     </>
   );
 };

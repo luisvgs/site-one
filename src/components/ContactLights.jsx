@@ -7,9 +7,9 @@ const ContactLights = ({ ...props }) => {
   const light = useRef();
   const light1 = useRef();
   const light2 = useRef();
-  useHelper(light, PointLightHelper, 0.5, "cyan");
-  useHelper(light1, PointLightHelper, 0.5, "cyan");
-  useHelper(light2, PointLightHelper, 0.5, "cyan");
+  useHelper(light, PointLightHelper, 0.5, "purple");
+  useHelper(light1, PointLightHelper, 0.5, "purple");
+  useHelper(light2, PointLightHelper, 0.5, "purple");
   return (
     <group ref={group} position={[19.68, 0.65, 2]} dispose={null}>
       <group position={[-5.62, 4.48, 0.51]}>

@@ -2,6 +2,7 @@ import { Text } from "@react-three/drei";
 import Google from "./Google";
 import Microsoft from "./Microsoft";
 import Apple from "./Apple";
+import UnoLights from "./UnoLights";
 import Base from "./Base";
 import { config, useSpring, animated } from "@react-spring/three";
 import { useState } from "react";
@@ -32,6 +33,7 @@ const Partners = () => {
       <Google />
       <Microsoft />
       <Base />
+      <UnoLights position={[6.571, 1.8, 3.1]} />
     </>
   );
 };
