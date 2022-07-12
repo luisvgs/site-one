@@ -1,6 +1,14 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, Text } from "@react-three/drei";
 import PressModel from "../models/PressRoom.glb";
+
+const Entry = ({ ...props }) => {
+  return (
+    <Text {...props} color="black" anchorX="center" anchorY="middle">
+      hello world!
+    </Text>
+  );
+};
 
 const PressRoomComponent = ({ ...props }) => {
   const group = useRef();
@@ -30,6 +38,7 @@ const PressRoomComponent = ({ ...props }) => {
           rotation={[0, -Math.PI / 3, -Math.PI / 2]}
           scale={[1.53, 0.77, 1]}
         />
+        <Entry position={[-5.11, 0.5, 1.3]} rotation={[0, 0.4, 0]} />
         <mesh
           castShadow
           receiveShadow
@@ -66,7 +75,6 @@ const PressRoomComponent = ({ ...props }) => {
           rotation={[Math.PI, -Math.PI / 3, Math.PI / 2]}
           scale={[1.53, 0.77, 1]}
         />
-        // Left arrow
         <mesh
           onPointerOver={() => setHovered(true)}
           onPointerOut={() => setHovered(false)}
@@ -78,7 +86,6 @@ const PressRoomComponent = ({ ...props }) => {
           rotation={[Math.PI / 2, -Math.PI / 2, 0]}
           scale={0.81}
         />
-        // Right arrow
         <mesh
           onPointerOver={() => setHovered(true)}
           onPointerOut={() => setHovered(false)}
