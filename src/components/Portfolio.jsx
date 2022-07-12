@@ -3,7 +3,6 @@ import IphoneLights from "./IphoneLights";
 import { Text, Image } from "@react-three/drei";
 import Iphone from "./Telefono_optimizado";
 import IphoneBase from "./Telefono_base";
-import Selector from "./Selector";
 import Flechas from "./Flechas";
 import { config, useSpring, animated } from "@react-spring/three";
 import { useTransition } from "react-spring";
