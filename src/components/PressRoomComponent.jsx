@@ -1,10 +1,17 @@
-import React, { useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import PressModel from "../models/PressRoom.glb";
 
 const PressRoomComponent = ({ ...props }) => {
   const group = useRef();
   const { nodes, materials } = useGLTF(PressModel);
+  const [hovered, setHovered] = useState(false);
+
+  useEffect(
+    () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
+    [hovered]
+  );
+
   return (
     <>
       <group
@@ -59,7 +66,10 @@ const PressRoomComponent = ({ ...props }) => {
           rotation={[Math.PI, -Math.PI / 3, Math.PI / 2]}
           scale={[1.53, 0.77, 1]}
         />
+        // Left arrow
         <mesh
+          onPointerOver={() => setHovered(true)}
+          onPointerOut={() => setHovered(false)}
           castShadow
           receiveShadow
           geometry={nodes.Move_left_button001.geometry}
@@ -68,7 +78,13 @@ const PressRoomComponent = ({ ...props }) => {
           rotation={[Math.PI / 2, -Math.PI / 2, 0]}
           scale={0.81}
         />
+        // Right arrow
         <mesh
+          onPointerOver={() => setHovered(true)}
+          onPointerOut={() => setHovered(false)}
+          onClick={() => {
+            console.log("Hola");
+          }}
           castShadow
           receiveShadow
           geometry={nodes.Move_right_button001.geometry}
