@@ -4,25 +4,18 @@ import { PointLightHelper, SpotLightHelper } from "three";
 // import { useControls } from "leva";
 
 const SupportLights = () => {
-  // const { intensity, topLight } = useControls({
-  //   intensity: {
-  //     min: 8.0,
-  //     max: 13.0,
-  //     value: 0.5,
-  //     step: 0.1,
-  //   },
-  //   topIntensity: {
-  //     min: 1.9,
-  //     max: 13.0,
-  //     value: 0.5,
-  //     step: 0.1,
-  //   },
-  // });
   const group = useRef();
   const pointLight = useRef();
+  const pointLight2 = useRef();
+  const pointLight3 = useRef();
+  const pointLight4 = useRef();
   const light = useRef();
+
   useHelper(light, SpotLightHelper, "lightblue");
   useHelper(pointLight, PointLightHelper, 0.2, "hotpink");
+  useHelper(pointLight2, PointLightHelper, 0.2, "hotpink");
+  useHelper(pointLight3, PointLightHelper, 0.2, "cyan");
+
   return (
     <group ref={group}>
       {/* Light from 3rd view */}
@@ -32,7 +25,7 @@ const SupportLights = () => {
         angle={0.86}
         decay={0.32}
         color="#ffffff"
-        // ref={light}
+        ref={light}
         power={7.596}
         position={[5.965, 0.88, 2.67]}
         penumbra={1.0}
@@ -45,16 +38,15 @@ const SupportLights = () => {
         shadow-camera-bottom={-10}
       />
       <pointLight
-        //random
-        // ref={pointLight}
+        ref={pointLight}
         distance={6}
         intensity={6.003}
-        position={[6.405, 0.75, 2]}
+        position={[6.405, 0.25, 3]}
         power={63}
       />
       <pointLight
         color={"#f20723"} // Red light from corner
-        // ref={pointLight}
+        ref={pointLight2}
         distance={6}
         intensity={6.003}
         position={[-0.52, 0.23, 4.703]}
@@ -67,13 +59,7 @@ const SupportLights = () => {
         decay={1.27}
         distance={1.0}
         power={91.546}
-      />
-      <spotLight
-        intensity={0.87}
-        color={"blue"}
-        penumbra={1.0}
-        // ref={light}
-        position={[-1.111, 0.23, 7.864]}
+        ref={pointLight3}
       />
     </group>
   );

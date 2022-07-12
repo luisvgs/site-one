@@ -5,20 +5,30 @@ import { PointLightHelper } from "three";
 const PressRoomLights = ({ ...props }) => {
   const group = useRef();
   const light = useRef();
+  const light1 = useRef();
+  const light2 = useRef();
+  const light3 = useRef();
+  const light4 = useRef();
+  const light5 = useRef();
+  const light6 = useRef();
+  const light7 = useRef();
   useHelper(light, PointLightHelper, 0.5, "cyan");
+  useHelper(light1, PointLightHelper, 0.5, "red");
+  useHelper(light2, PointLightHelper, 0.5, "red");
+  useHelper(light3, PointLightHelper, 0.5, "red");
+  useHelper(light4, PointLightHelper, 0.5, "red");
+  useHelper(light5, PointLightHelper, 0.5, "red");
+  useHelper(light6, PointLightHelper, 0.5, "red");
+  useHelper(light7, PointLightHelper, 0.5, "red");
   return (
-    <group
-      ref={group}
-      position={[16.9, -3, 2.0]}
-      // position={[-0.471, 1.2, 2]}
-    >
+    <group ref={group} position={[16.9, -3, 2.0]}>
       <group
         position={[-4.55, 3.44, 2.1]}
         rotation={[3.05, -1.24, 0.02]}
         scale={0.77}
       >
         <pointLight
-          // ref={light}
+          ref={light7}
           intensity={25}
           decay={2}
           color="#5280ff"
@@ -31,7 +41,7 @@ const PressRoomLights = ({ ...props }) => {
         scale={0.77}
       >
         <pointLight
-          ref={light}
+          ref={light1}
           intensity={55}
           decay={2}
           color="blue"
@@ -44,7 +54,7 @@ const PressRoomLights = ({ ...props }) => {
         scale={0.77}
       >
         <pointLight
-          ref={light}
+          ref={light1}
           intensity={15}
           decay={2}
           color="#5280ff"
@@ -57,7 +67,7 @@ const PressRoomLights = ({ ...props }) => {
         scale={0.77}
       >
         <pointLight
-          ref={light}
+          ref={light2}
           intensity={15}
           decay={2}
           color="#5280ff"
@@ -70,7 +80,7 @@ const PressRoomLights = ({ ...props }) => {
         scale={[0.67, 0.57, 1.18]}
       >
         <pointLight
-          ref={light}
+          ref={light3}
           intensity={68.7}
           decay={2}
           color="#074aff"
@@ -83,6 +93,7 @@ const PressRoomLights = ({ ...props }) => {
         scale={[0.67, 0.57, 1.18]}
       >
         <pointLight
+          ref={light4}
           intensity={68.7}
           decay={2}
           color="#074aff"
@@ -95,7 +106,7 @@ const PressRoomLights = ({ ...props }) => {
         scale={[0.67, 0.57, 1.18]}
       >
         <pointLight
-          ref={light}
+          ref={light5}
           intensity={68.7}
           decay={2}
           color="#074aff"
@@ -108,7 +119,7 @@ const PressRoomLights = ({ ...props }) => {
         scale={[0.67, 0.57, 1.18]}
       >
         <pointLight
-          ref={light}
+          ref={light6}
           intensity={68.7}
           decay={2}
           color="#074aff"

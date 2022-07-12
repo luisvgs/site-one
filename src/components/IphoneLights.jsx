@@ -1,8 +1,19 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useHelper, useGLTF } from "@react-three/drei";
+import { PointLightHelper } from "three";
 
 const IphoneLights = ({ position }) => {
   const group = useRef();
+  const light = useRef();
+  const light1 = useRef();
+  const light2 = useRef();
+  const light3 = useRef();
+  const light4 = useRef();
+  useHelper(light, PointLightHelper, 0.5, "green");
+  useHelper(light1, PointLightHelper, 0.5, "pink");
+  useHelper(light2, PointLightHelper, 0.5, "cyan");
+  useHelper(light3, PointLightHelper, 0.5, "red");
+  useHelper(light4, PointLightHelper, 0.5, "hotpink");
   return (
     <group position={position} scale={[1, 1, 1]}>
       <mesh ref={group} castShadow>
@@ -13,6 +24,7 @@ const IphoneLights = ({ position }) => {
               decay={2}
               color="#ff1624"
               rotation={[-Math.PI / 2, 0, 0]}
+              ref={light}
             />
           </group>
           <group position={[0.57, 0.52, -0.07]}>
@@ -21,6 +33,7 @@ const IphoneLights = ({ position }) => {
               decay={2}
               color="#0477ff"
               rotation={[-Math.PI / 2, 0, 0]}
+              ref={light1}
             />
           </group>
           <group position={[-0.34, 0.52, 0.34]}>
@@ -29,6 +42,7 @@ const IphoneLights = ({ position }) => {
               decay={2}
               color="#0c20ff"
               rotation={[-Math.PI / 2, 0, 0]}
+              ref={light2}
             />
           </group>
           <group position={[-0.16, 0.85, -0.08]} scale={[0.55, 0.55, 0.55]}>
@@ -36,6 +50,7 @@ const IphoneLights = ({ position }) => {
               intensity={10}
               decay={2}
               rotation={[-Math.PI / 2, 0, 0]}
+              ref={light3}
             />
           </group>
           <group position={[1.2, -0.45, -0.07]}>
@@ -44,6 +59,7 @@ const IphoneLights = ({ position }) => {
               decay={2}
               color="#0477ff"
               rotation={[-Math.PI / 2, 0, 0]}
+              ref={light4}
             />
           </group>
         </group>
