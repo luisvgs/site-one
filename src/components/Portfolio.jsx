@@ -4,6 +4,7 @@ import { Text, Image } from "@react-three/drei";
 import Iphone from "./Telefono_optimizado";
 import IphoneBase from "./Telefono_base";
 import Selector from "./Selector";
+import Flechas from "./Flechas";
 import { config, useSpring, animated } from "@react-spring/three";
 import { useTransition } from "react-spring";
 import AppStore from "./AppStore";
@@ -90,12 +91,18 @@ const Portfolio = () => {
       />
       <IphoneLights position={[10.27, 0.88, 2]} />
       <IphoneBase position={[10.27, 0.88, 2]} />
-      <Selector
+      <Flechas
         setNext={setNext}
         setPrev={setPrev}
         rotate={rotate}
         setRotate={setRotate}
       />
+      {/* <Selector */}
+      {/*   setNext={setNext} */}
+      {/*   setPrev={setPrev} */}
+      {/*   rotate={rotate} */}
+      {/*   setRotate={setRotate} */}
+      {/* /> */}
     </>
   );
 };
