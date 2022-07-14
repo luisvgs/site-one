@@ -13,9 +13,8 @@ const Contact = () => {
   });
   return (
     <>
-      {/* <IphoneLights position={[16.27, 0.88, 4.9]} /> */}
-      <UnoLights position={[20.07, 0.88, 4.4]} />
-      <ContactRoom position={[19.68, 0.65, 2]} />
+      <UnoLights position={[16.1, 0.88, 4.1]} />
+      <ContactRoom position={[14.9, 0.65, 2]} />
     </>
   );
 };
