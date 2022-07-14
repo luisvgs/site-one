@@ -2,33 +2,47 @@ import React, { useEffect, useState, useRef } from "react";
 import { useGLTF, Text } from "@react-three/drei";
 import PressModel from "../models/PressRoom.glb";
 
-const Entry = ({ ...props }) => {
-  return (
-    <Text {...props} color="black" anchorX="center" anchorY="middle">
-      hello world!
-    </Text>
-  );
-};
-
 const PressRoomComponent = ({ ...props }) => {
   const group = useRef();
   const { nodes, materials } = useGLTF(PressModel);
   const [hovered, setHovered] = useState(false);
+  const [post, setPost] = useState([]);
+
+  const Entry = ({ ...props }) => {
+    post.map((single_post, index) => {
+      console.log(single_post);
+    });
+
+    return (
+      <Text {...props} color="black" anchorX="center" anchorY="middle">
+        hello world!
+      </Text>
+    );
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
 
   useEffect(
     () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
     [hovered]
   );
 
+  const loadData = async () => {
+    await fetch(
+      "https://public-api.wordpress.com/rest/v1.1/sites/nubelula.wordpress.com/posts/"
+    )
+      .then((request) => request.json())
+      .then((blog) => blog.posts)
+      .then((single_post) => {
+        setPost(single_post);
+      });
+  };
+
   return (
     <>
-      <group
-        ref={group}
-        position={[14.9, 0.7, 2.0]}
-        scale={[0.2, 0.2, 0.2]}
-        {...props}
-        dispose={null}
-      >
+      <group ref={group} scale={[0.2, 0.2, 0.2]} {...props} dispose={null}>
         <mesh
           castShadow
           receiveShadow
@@ -38,7 +52,7 @@ const PressRoomComponent = ({ ...props }) => {
           rotation={[0, -Math.PI / 3, -Math.PI / 2]}
           scale={[1.53, 0.77, 1]}
         />
-        <Entry position={[-5.11, 0.5, 1.3]} rotation={[0, 0.4, 0]} />
+        {/* <Entry position={[-5.11, 0.5, 1.3]} rotation={[0, 0.4, 0]} /> */}
         <mesh
           castShadow
           receiveShadow
