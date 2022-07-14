@@ -19,8 +19,8 @@ const LOOKAT = {
   ABOUT: new Vector3(2.2, -0.4, -12.8),
   PARTNERS: new Vector3(7, -2.9, -12.8),
   PORTFOLIO: new Vector3(9, -0, -12.8),
-  NEWS: new Vector3(13.85, 0, -12.8),
-  CONTACT: new Vector3(19.4, -0.2, 0),
+  CONTACT: new Vector3(13.85, 0, -12.8),
+  NEWS: new Vector3(19.4, -0.3, 0),
 };
 
 const POSITION = {
@@ -28,8 +28,8 @@ const POSITION = {
   ABOUT: new Vector3(5.1, 0.1, 4.6),
   PARTNERS: new Vector3(10.0, 0.58, 4.3),
   PORTFOLIO: new Vector3(16.4, 0.5, 3.9),
-  NEWS: new Vector3(23.45, -0.8, 4.5),
-  CONTACT: new Vector3(30.6, 0.37, 3.7),
+  CONTACT: new Vector3(23.45, 0.37, 4.1),
+  NEWS: new Vector3(30.7, -0.9, 3.7),
 };
 
 const SCROLL_POSITION = {
@@ -37,11 +37,11 @@ const SCROLL_POSITION = {
   ABOUT: 0.2,
   PARTNERS: 0.4,
   PORTFOLIO: 0.6,
-  NEWS: 0.8,
-  CONTACT: 1,
+  CONTACT: 0.8,
+  NEWS: 1,
 };
 
-const SECTIONS = ["HOME", "ABOUT", "PARTNERS", "PORTFOLIO", "NEWS", "CONTACT"];
+const SECTIONS = ["HOME", "ABOUT", "PARTNERS", "PORTFOLIO", "CONTACT", "NEWS"];
 
 // Camera path
 const cameraPositionCurve = new THREE.CatmullRomCurve3(
