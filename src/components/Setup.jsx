@@ -28,7 +28,7 @@ const POSITION = {
   ABOUT: new Vector3(5.1, 0.1, 4.6),
   PARTNERS: new Vector3(10.0, 0.58, 4.3),
   PORTFOLIO: new Vector3(16.4, 0.5, 3.9),
-  CONTACT: new Vector3(23.45, 0.37, 4.1),
+  CONTACT: new Vector3(23.4, 0.3, 4.1),
   NEWS: new Vector3(30.7, -0.9, 3.7),
 };
 
