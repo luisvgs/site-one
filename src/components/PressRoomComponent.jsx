@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useGLTF, Text } from "@react-three/drei";
 import PressModel from "../models/PressRoom.glb";
+import { useSpring, animated, config } from "@react-spring/three";
 
 const POSITION = [
   [-5.11, 0.5, 1.13],
@@ -74,6 +75,12 @@ const PressRoomComponent = ({ ...props }) => {
   const { nodes, materials } = useGLTF(PressModel);
   const [hovered, setHovered] = useState(false);
   const [post, setPost] = useState([]);
+  const [active, setActive] = useState(false);
+  const [leftactive, setLeftActive] = useState(false);
+  const { scale } = useSpring({
+    scale: active || leftactive ? 0.95 : 0.81,
+    config: config.wobbly,
+  });
 
   const loadData = async () => {
     await fetch(
@@ -83,7 +90,6 @@ const PressRoomComponent = ({ ...props }) => {
       .then((blog) => blog.posts)
       .then((single_post) => {
         setPost(single_post);
-        console.log(single_post);
       });
   };
 
@@ -100,30 +106,42 @@ const PressRoomComponent = ({ ...props }) => {
     <>
       <group ref={group} scale={[0.2, 0.2, 0.2]} {...props} dispose={null}>
         <Article nodes={nodes} post={post} />
-        <mesh
-          onPointerOver={() => setHovered(true)}
-          onPointerOut={() => setHovered(false)}
+        <animated.mesh
+          onPointerOver={() => {
+            setHovered(true);
+            setLeftActive(true);
+          }}
+          onPointerOut={() => {
+            setLeftActive(false);
+            setHovered(false);
+          }}
           castShadow
           receiveShadow
           geometry={nodes.Move_left_button001.geometry}
           material={materials["Light Blue variant 2.001"]}
           position={[-1.66, -2.59, 1.71]}
           rotation={[Math.PI / 2, -Math.PI / 2, 0]}
-          scale={0.81}
+          scale={scale}
           onClick={() => {
             console.log("Left button");
           }}
         />
-        <mesh
-          onPointerOver={() => setHovered(true)}
-          onPointerOut={() => setHovered(false)}
+        <animated.mesh
+          onPointerOver={() => {
+            setHovered(true);
+            setActive(true);
+          }}
+          onPointerOut={() => {
+            setActive(false);
+            setHovered(false);
+          }}
           castShadow
           receiveShadow
           geometry={nodes.Move_right_button001.geometry}
           material={materials["Light Blue variant 2.001"]}
           position={[1.86, -2.58, 2.1]}
           rotation={[-Math.PI / 2, Math.PI / 2, 0]}
-          scale={0.81}
+          scale={scale}
           onClick={() => {
             console.log("Right button");
           }}
