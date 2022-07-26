@@ -2,6 +2,22 @@ import React, { useEffect, useState, useRef } from "react";
 import { useGLTF, Text } from "@react-three/drei";
 import PressModel from "../models/PressRoom.glb";
 
+const POSITION = [
+  [-5.11, 0.5, 1.13],
+  [-2.53, 0.51, 0.05],
+  [0.09, 0.51, -0.32],
+  [2.94, 0.51, 0.08],
+  [5.39, 0.51, 1.12],
+];
+
+const ROTATION = [
+  [0, -Math.PI / 3, -Math.PI / 2],
+  [0, -1.31, -Math.PI / 2],
+  [Math.PI / 2, -Math.PI / 2, 0],
+  [Math.PI, -1.31, Math.PI / 2],
+  [Math.PI, -Math.PI / 3, Math.PI / 2],
+];
+
 const Article = ({ nodes, post }) => {
   const { materials } = useGLTF(PressModel);
   return (
