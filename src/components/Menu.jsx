@@ -190,7 +190,7 @@ const Menu = ({ setOpen, open }) => {
           role="img"
           aria-label="portfolio"
         >
-          Press room
+          Contact
         </span>
         <div class="div-4" />
       </a>
@@ -207,7 +207,7 @@ const Menu = ({ setOpen, open }) => {
           role="img"
           aria-label="portfolio"
         >
-          Contact
+          Press Room
         </span>
         <div class="div-5" />
       </a>
