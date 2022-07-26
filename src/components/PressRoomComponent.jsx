@@ -8,14 +8,14 @@ const PressRoomComponent = ({ ...props }) => {
   const [hovered, setHovered] = useState(false);
   const [post, setPost] = useState([]);
 
-  const Entry = ({ ...props }) => {
-    post.map((single_post, index) => {
-      console.log(single_post);
-    });
+  const Entry = ({ title }) => {
+    // post.map((single_post, index) => {
+    //   console.log(single_post.title);
+    // });
 
     return (
-      <Text {...props} color="black" anchorX="center" anchorY="middle">
-        hello world!
+      <Text color="black" anchorX="center" anchorY="middle">
+        {title}
       </Text>
     );
   };
@@ -37,6 +37,7 @@ const PressRoomComponent = ({ ...props }) => {
       .then((blog) => blog.posts)
       .then((single_post) => {
         setPost(single_post);
+        console.log(single_post);
       });
   };
 
@@ -52,7 +53,20 @@ const PressRoomComponent = ({ ...props }) => {
           rotation={[0, -Math.PI / 3, -Math.PI / 2]}
           scale={[1.53, 0.77, 1]}
         />
-        {/* <Entry position={[-5.11, 0.5, 1.3]} rotation={[0, 0.4, 0]} /> */}
+        <Text
+          position={[-5.11, 0.5, 1.3]}
+          rotation={[0, 0.5, 0]}
+          color="black"
+          anchorX="center"
+          anchorY="middle"
+        >
+          {post.map((single_post, i) =>
+            single_post.content
+              .replace("<p>", "")
+              .replace("</p>", "")
+              .substring(0, 38)
+          )}
+        </Text>
         <mesh
           castShadow
           receiveShadow
@@ -62,6 +76,20 @@ const PressRoomComponent = ({ ...props }) => {
           rotation={[0, -1.31, -Math.PI / 2]}
           scale={[1.53, 0.77, 1]}
         />
+        <Text
+          position={[-2.53, 0.51, 0.3]}
+          rotation={[0, 0.3, 0]}
+          color="black"
+          anchorX="center"
+          anchorY="middle"
+        >
+          {post.map((single_post, i) =>
+            single_post.content
+              .replace("<p>", "")
+              .replace("</p>", "")
+              .substring(0, 38)
+          )}
+        </Text>
         <mesh
           castShadow
           receiveShadow
@@ -71,6 +99,20 @@ const PressRoomComponent = ({ ...props }) => {
           rotation={[Math.PI / 2, -Math.PI / 2, 0]}
           scale={[1.53, 0.77, 1]}
         />
+        <Text
+          position={[0.09, 0.51, -0.21]}
+          rotation={[0, 0.0, 0]}
+          color="black"
+          anchorX="center"
+          anchorY="middle"
+        >
+          {post.map((single_post, i) =>
+            single_post.content
+              .replace("<p>", "")
+              .replace("</p>", "")
+              .substring(0, 38)
+          )}
+        </Text>
         <mesh
           castShadow
           receiveShadow
@@ -80,6 +122,20 @@ const PressRoomComponent = ({ ...props }) => {
           rotation={[Math.PI, -1.31, Math.PI / 2]}
           scale={[1.53, 0.77, 1]}
         />
+        <Text
+          position={[2.84, 0.51, 0.3]}
+          rotation={[0, -0.3, 0]}
+          color="black"
+          anchorX="center"
+          anchorY="middle"
+        >
+          {post.map((single_post, i) =>
+            single_post.content
+              .replace("<p>", "")
+              .replace("</p>", "")
+              .substring(0, 38)
+          )}
+        </Text>
         <mesh
           castShadow
           receiveShadow
@@ -89,6 +145,20 @@ const PressRoomComponent = ({ ...props }) => {
           rotation={[Math.PI, -Math.PI / 3, Math.PI / 2]}
           scale={[1.53, 0.77, 1]}
         />
+        <Text
+          position={[5.2, 0.51, 1.4]}
+          rotation={[0, -0.7, 0]}
+          color="black"
+          anchorX="center"
+          anchorY="middle"
+        >
+          {post.map((single_post, i) =>
+            single_post.content
+              .replace("<p>", "")
+              .replace("</p>", "")
+              .substring(0, 38)
+          )}
+        </Text>
         <mesh
           onPointerOver={() => setHovered(true)}
           onPointerOut={() => setHovered(false)}
