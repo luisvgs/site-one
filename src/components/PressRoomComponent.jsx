@@ -35,6 +35,26 @@ const ART_ROTATION = [
   [0, -0.7, 0],
 ];
 
+const createCarousel = (array) => {
+  array.index = 0;
+  array.current = function () {
+    this.index = this.index % array.len;
+    return array[this.index];
+  };
+  array.next = function () {
+    this.index++;
+    return this.current();
+  };
+  array.previous = function () {
+    this.index += array.len - 1;
+    return this.current();
+  };
+  array.reset = function () {
+    this.index = 0;
+    return array[0];
+  };
+};
+
 const Article = ({ nodes, post }) => {
   const { materials } = useGLTF(PressModel);
   return (
@@ -77,6 +97,7 @@ const PressRoomComponent = ({ ...props }) => {
   const [post, setPost] = useState([]);
   const [active, setActive] = useState(false);
   const [leftactive, setLeftActive] = useState(false);
+  const [position, setPosition] = useState(0);
   const { scale } = useSpring({
     scale: active || leftactive ? 0.95 : 0.81,
     config: config.wobbly,
@@ -90,17 +111,25 @@ const PressRoomComponent = ({ ...props }) => {
       .then((blog) => blog.posts)
       .then((single_post) => {
         setPost(single_post);
+        // createCarousel(post);
       });
   };
 
   useEffect(() => {
     loadData();
+    const array = [9, 2, 3];
+    console.log(array)
+    const t = array.shift();
+    console.log(t);
+    array.push(t)
+    console.log(array)
   }, []);
 
   useEffect(
     () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
     [hovered]
   );
+
 
   return (
     <>
@@ -144,6 +173,8 @@ const PressRoomComponent = ({ ...props }) => {
           scale={scale}
           onClick={() => {
             console.log("Right button");
+            const p = post.shift();
+            post.push(p)
           }}
         />
         <mesh
