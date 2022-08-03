@@ -27,6 +27,14 @@ const ARTICLE = [
   [5.2, 0.51, 1.4],
 ];
 
+const ARTICLE_TITLE = [
+  [-5.11, 1.6, 1.3],
+  [-2.53, 1.6, 0.3],
+  [0.09, 1.6, -0.21],
+  [2.84, 1.6, 0.3],
+  [5.2, 1.6, 1.4],
+];
+
 const ART_ROTATION = [
   [0, 0.5, 0],
   [0, 0.3, 0],
@@ -35,34 +43,26 @@ const ART_ROTATION = [
   [0, -0.7, 0],
 ];
 
-const createCarousel = (array) => {
-  array.index = 0;
-  array.current = function () {
-    this.index = this.index % array.len;
-    return array[this.index];
-  };
-  array.next = function () {
-    this.index++;
-    return this.current();
-  };
-  array.previous = function () {
-    this.index += array.len - 1;
-    return this.current();
-  };
-  array.reset = function () {
-    this.index = 0;
-    return array[0];
-  };
-};
-
 const Article = ({ nodes, post }) => {
+  const [hovered, setHovered] = useState(false);
   const { materials } = useGLTF(PressModel);
+  useEffect(
+    () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
+    [hovered]
+  );
   return (
     <>
       {post.map((single_post, index) => {
         return (
           <>
             <mesh
+          onPointerOver={() => {
+            setHovered(true);
+          }}
+          onPointerOut={() => {
+            setHovered(false);
+          }}
+              onClick={() => window.open("https://www.google.com", '_blank').focus()}
               castShadow
               receiveShadow
               geometry={nodes.Article_1.geometry}
@@ -71,6 +71,19 @@ const Article = ({ nodes, post }) => {
               rotation={ROTATION[index]}
               scale={[1.53, 0.77, 1]}
             />
+            <Text
+              position={ARTICLE_TITLE[index] }
+              rotation={ART_ROTATION[index]}
+              fontSize={0.12}
+              color={index%2 === 0? "blue" : "#fa2720"}
+              anchorX="center"
+              anchorY="middle"
+            >
+              {single_post.title
+                .replace("<p>", "")
+                .replace("</p>", "")
+                .substring(0, 38)}
+            </Text>
             <Text
               position={ARTICLE[index]}
               rotation={ART_ROTATION[index]}
@@ -110,19 +123,13 @@ const PressRoomComponent = ({ ...props }) => {
       .then((request) => request.json())
       .then((blog) => blog.posts)
       .then((single_post) => {
+        console.log(single_post)
         setPost(single_post);
-        // createCarousel(post);
       });
   };
 
   useEffect(() => {
     loadData();
-    const array = [9, 2, 3];
-    console.log(array)
-    const t = array.shift();
-    console.log(t);
-    array.push(t)
-    console.log(array)
   }, []);
 
   useEffect(
