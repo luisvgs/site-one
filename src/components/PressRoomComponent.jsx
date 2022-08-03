@@ -62,7 +62,7 @@ const Article = ({ nodes, post }) => {
           onPointerOut={() => {
             setHovered(false);
           }}
-              onClick={() => window.open("https://www.google.com", '_blank').focus()}
+              onClick={() => window.open(single_post.URL, '_blank').focus()}
               castShadow
               receiveShadow
               geometry={nodes.Article_1.geometry}
