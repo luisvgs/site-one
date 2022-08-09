@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useGLTF, Text } from "@react-three/drei";
 import PressModel from "../models/PressRoom.glb";
 import { useSpring, animated, config } from "@react-spring/three";
+import Circulo from "./Circulo";
 
 const POSITION = [
   [-5.11, 0.5, 1.13],
@@ -56,13 +57,13 @@ const Article = ({ nodes, post }) => {
         return (
           <>
             <mesh
-          onPointerOver={() => {
-            setHovered(true);
-          }}
-          onPointerOut={() => {
-            setHovered(false);
-          }}
-              onClick={() => window.open(single_post.URL, '_blank').focus()}
+              onPointerOver={() => {
+                setHovered(true);
+              }}
+              onPointerOut={() => {
+                setHovered(false);
+              }}
+              onClick={() => window.open(single_post.URL, "_blank").focus()}
               castShadow
               receiveShadow
               geometry={nodes.Article_1.geometry}
@@ -72,10 +73,10 @@ const Article = ({ nodes, post }) => {
               scale={[1.53, 0.77, 1]}
             />
             <Text
-              position={ARTICLE_TITLE[index] }
+              position={ARTICLE_TITLE[index]}
               rotation={ART_ROTATION[index]}
               fontSize={0.12}
-              color={index%2 === 0? "blue" : "#fa2720"}
+              color={index % 2 === 0 ? "blue" : "#fa2720"}
               anchorX="center"
               anchorY="middle"
             >
@@ -123,7 +124,7 @@ const PressRoomComponent = ({ ...props }) => {
       .then((request) => request.json())
       .then((blog) => blog.posts)
       .then((single_post) => {
-        console.log(single_post)
+        console.log(single_post);
         setPost(single_post);
       });
   };
@@ -136,7 +137,6 @@ const PressRoomComponent = ({ ...props }) => {
     () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
     [hovered]
   );
-
 
   return (
     <>
@@ -158,9 +158,6 @@ const PressRoomComponent = ({ ...props }) => {
           position={[-1.66, -2.59, 1.71]}
           rotation={[Math.PI / 2, -Math.PI / 2, 0]}
           scale={scale}
-          onClick={() => {
-            console.log("Left button");
-          }}
         />
         <animated.mesh
           onPointerOver={() => {
@@ -179,11 +176,11 @@ const PressRoomComponent = ({ ...props }) => {
           rotation={[-Math.PI / 2, Math.PI / 2, 0]}
           scale={scale}
           onClick={() => {
-            console.log("Right button");
             const p = post.shift();
-            post.push(p)
+            post.push(p);
           }}
         />
+        <Circulo position={[2.0, -2.3, 2.1]} scale={0.08} />
         <mesh
           castShadow
           receiveShadow
