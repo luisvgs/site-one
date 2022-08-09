@@ -3,6 +3,7 @@ import { useGLTF, Html } from "@react-three/drei";
 import MicrosoftModel from "../models/microsoft.glb";
 import { useFrame } from "@react-three/fiber";
 import { useSpring, animated, config } from "@react-spring/three";
+import Circulo from "./Circulo";
 
 const Microsoft = (props) => {
   const [hovered, setHover] = useState(false);
@@ -63,12 +64,15 @@ const Microsoft = (props) => {
         geometry={nodes.Curve021.geometry}
         material={materials["Material.004"]}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Curve023.geometry}
-        material={materials["Material.005"]}
-      />
+      <group>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Curve023.geometry}
+          material={materials["Material.005"]}
+        />
+        <Circulo position={[-0.89, 0.48, -0.42]} scale={0.02} />
+      </group>
       <mesh
         castShadow
         receiveShadow
