@@ -3,6 +3,7 @@ import { useGLTF, Html } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import AppleModel from "../models/apple.glb";
 import { useSpring, animated, config } from "@react-spring/three";
+import Circulo from "./Circulo";
 
 const Apple = (props) => {
   const [hovered, setHover] = useState(false);
@@ -30,42 +31,47 @@ const Apple = (props) => {
   });
 
   return (
-    <animated.mesh
-      onClick={() => setActive(!active)}
-      onPointerOver={(e) => {
-        e.stopPropagation();
-        setHover(true);
-      }}
-      onPointerOut={(e) => {
-        e.stopPropagation();
-        setHover(false);
-      }}
-      ref={group}
-      castShadow
-      receiveShadow
-      position={[6.405, 0.75, 2]}
-      scale={isMobile ? 1 : scale}
-      {...props}
-      dispose={null}
-    >
-      <Html
-        position={[1.2, 0.4, -2]}
-        distanceFactor={65}
-        style={{
-          transition: "all 0.3s",
-          opacity: hovered ? 1 : 0.5,
-          transform: `scale(${hovered ? 1 : 0.0})`,
+    <>
+      <animated.mesh
+        onClick={() => setActive(!active)}
+        onPointerOver={(e) => {
+          e.stopPropagation();
+          setHover(true);
         }}
-      >
-        <div class="content">Descripcion del partership con Apple.</div>
-      </Html>
-      <mesh
+        onPointerOut={(e) => {
+          e.stopPropagation();
+          setHover(false);
+        }}
+        ref={group}
         castShadow
         receiveShadow
-        geometry={nodes.Curve022.geometry}
-        material={materials["Material.010"]}
-      />
-    </animated.mesh>
+        position={[6.405, 0.75, 2]}
+        scale={isMobile ? 1 : scale}
+        {...props}
+        dispose={null}
+      >
+        <Html
+          position={[1.2, 0.4, -2]}
+          distanceFactor={65}
+          style={{
+            transition: "all 0.3s",
+            opacity: hovered ? 1 : 0.5,
+            transform: `scale(${hovered ? 1 : 0.0})`,
+          }}
+        >
+          <div class="content">Descripcion del partership con Apple.</div>
+        </Html>
+        <group>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Curve022.geometry}
+            material={materials["Material.010"]}
+          ></mesh>
+          <Circulo position={[0.92, 0.46, -0.4]} scale={0.03} />
+        </group>
+      </animated.mesh>
+    </>
   );
 };
 
