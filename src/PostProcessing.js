@@ -10,15 +10,15 @@ const PostProcessing = () => {
   };
   const { width, height, intensity, luminanceSmoothing, luminanceThreshold } =
     useControls({
-      intensity: { value: 0.5, min: 0.0, max: 1.0, step: 0.1 },
-      luminanceSmoothing: { value: 0.025, min: 0.0, max: 1.0, step: 0.01 },
-      luminanceThreshold: { value: 0.9, min: 0.1, max: 1.0, step: 0.01 },
+      intensity: { value: 0.2, min: 0.0, max: 1.0, step: 0.1 },
+      luminanceSmoothing: { value: 0.01, min: 0.0, max: 1.0, step: 0.01 },
+      luminanceThreshold: { value: 0.84, min: 0.1, max: 1.0, step: 0.01 },
       width: { options: resolution },
       height: { options: resolution },
     });
   return (
     <EffectComposer>
-      <Noise opacity={0.01} />
+      <Noise opacity={0.02} />
       <Bloom
         blurPass={BlurPass}
         intensity={intensity}
