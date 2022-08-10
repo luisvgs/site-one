@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useGLTF, Text } from "@react-three/drei";
+import { useGLTF, Text, Image } from "@react-three/drei";
 import PressModel from "../models/PressRoom.glb";
 import { useSpring, animated, config } from "@react-spring/three";
 import Circulo from "./Circulo";
@@ -21,19 +21,27 @@ const ROTATION = [
 ];
 
 const ARTICLE = [
-  [-5.11, 0.5, 1.3],
-  [-2.53, 0.51, 0.3],
-  [0.09, 0.51, -0.21],
-  [2.84, 0.51, 0.3],
-  [5.2, 0.51, 1.4],
+  [-5.11, -0.3, 1.3],
+  [-2.53, -0.3, 0.3],
+  [0.09, -0.3, -0.21],
+  [2.84, -0.3, 0.3],
+  [5.2, -0.3, 1.4],
 ];
 
 const ARTICLE_TITLE = [
-  [-5.11, 1.6, 1.3],
-  [-2.53, 1.6, 0.3],
-  [0.09, 1.6, -0.21],
-  [2.84, 1.6, 0.3],
-  [5.2, 1.6, 1.4],
+  [-5.11, 0, 1.3],
+  [-2.53, 0, 0.3],
+  [0.09, 0, -0.21],
+  [2.84, 0, 0.3],
+  [5.2, 0, 1.4],
+];
+
+const IMAGE_TITLE = [
+  [-5.11, 1, 1.3],
+  [-2.53, 1, 0.3],
+  [0.09, 1, -0.21],
+  [2.84, 1, 0.3],
+  [5.2, 1, 1.4],
 ];
 
 const ART_ROTATION = [
@@ -47,6 +55,11 @@ const ART_ROTATION = [
 const Article = ({ nodes, post }) => {
   const [hovered, setHovered] = useState(false);
   const { materials } = useGLTF(PressModel);
+  const [active, setActive] = useState(false);
+  const { scale } = useSpring({
+    scale: active ? [1.55, 0.77, 1] : [1.53, 0.77, 1],
+    config: config.wobbly,
+  });
   useEffect(
     () => void (document.body.style.cursor = hovered ? "pointer" : "auto"),
     [hovered]
@@ -56,11 +69,20 @@ const Article = ({ nodes, post }) => {
       {post.map((single_post, index) => {
         return (
           <>
-            <mesh
-              onPointerOver={() => {
+            <Image
+              url="https://loremflickr.com/320/240"
+              position={IMAGE_TITLE[index]}
+              rotation={ART_ROTATION[index]}
+            />
+            <animated.mesh
+              key={index}
+              onPointerOver={(e) => {
+                e.stopPropagation();
+                setActive(true);
                 setHovered(true);
               }}
               onPointerOut={() => {
+                setActive(false);
                 setHovered(false);
               }}
               onClick={() => window.open(single_post.URL, "_blank").focus()}
@@ -70,7 +92,7 @@ const Article = ({ nodes, post }) => {
               material={materials["Material.017"]}
               position={POSITION[index]}
               rotation={ROTATION[index]}
-              scale={[1.53, 0.77, 1]}
+              scale={scale}
             />
             <Text
               position={ARTICLE_TITLE[index]}
@@ -95,7 +117,17 @@ const Article = ({ nodes, post }) => {
               {single_post.content
                 .replace("<p>", "")
                 .replace("</p>", "")
-                .substring(0, 38)}
+                .slice(0, 25) +
+                "\n" +
+                single_post.content
+                  .replace("<p>", "")
+                  .replace("</p>", "")
+                  .slice(25, 59) +
+                "\n" +
+                single_post.content
+                  .replace("<p>", "")
+                  .replace("</p>", "")
+                  .slice(59, 89)}
             </Text>
           </>
         );
@@ -126,6 +158,8 @@ const PressRoomComponent = ({ ...props }) => {
       .then((single_post) => {
         console.log(single_post);
         setPost(single_post);
+        const im = post[4].post_thumbnail.URL;
+        console.log(JSON.stringify(im));
       });
   };
 
