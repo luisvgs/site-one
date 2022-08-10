@@ -7,9 +7,6 @@ const UnoLights = ({ ...props }) => {
   const light = useRef();
   const light1 = useRef();
   const light2 = useRef();
-  useHelper(light, PointLightHelper, 0.5, "red");
-  useHelper(light1, PointLightHelper, 0.5, "red");
-  useHelper(light2, PointLightHelper, 0.5, "red");
   return (
     <group ref={group} {...props} dispose={null}>
       <group position={[-0.8, -0.01, -0.01]}>

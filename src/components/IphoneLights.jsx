@@ -9,11 +9,6 @@ const IphoneLights = ({ position }) => {
   const light2 = useRef();
   const light3 = useRef();
   const light4 = useRef();
-  useHelper(light, PointLightHelper, 0.5, "green");
-  useHelper(light1, PointLightHelper, 0.5, "pink");
-  useHelper(light2, PointLightHelper, 0.5, "cyan");
-  useHelper(light3, PointLightHelper, 0.5, "red");
-  useHelper(light4, PointLightHelper, 0.5, "hotpink");
   return (
     <group position={position} scale={[1, 1, 1]}>
       <mesh ref={group} castShadow>

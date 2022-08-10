@@ -13,14 +13,6 @@ const PressRoomLights = ({ ...props }) => {
   const light6 = useRef();
   const light7 = useRef();
   const light9 = useRef();
-  useHelper(light, PointLightHelper, 0.5, "green");
-  useHelper(light1, PointLightHelper, 0.5, "green");
-  useHelper(light2, PointLightHelper, 0.5, "green");
-  // useHelper(light4, PointLightHelper, 0.5, "green");
-  useHelper(light5, PointLightHelper, 0.5, "white");
-  useHelper(light6, PointLightHelper, 0.5, "green");
-  useHelper(light7, PointLightHelper, 0.5, "hotpink");
-  useHelper(light9, PointLightHelper, 0.5, "white");
   return (
     <group ref={group} {...props}>
       <group

@@ -11,11 +11,6 @@ const SupportLights = () => {
   const pointLight4 = useRef();
   const light = useRef();
 
-  useHelper(light, SpotLightHelper, "lightblue");
-  useHelper(pointLight, PointLightHelper, 0.2, "hotpink");
-  useHelper(pointLight2, PointLightHelper, 0.2, "hotpink");
-  useHelper(pointLight3, PointLightHelper, 0.2, "cyan");
-
   return (
     <group ref={group}>
       {/* Light from 3rd view */}
