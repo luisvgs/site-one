@@ -25,9 +25,9 @@ const LOOKAT = {
 
 const POSITION = {
   HOME: new Vector3(0.5, 0.1, 5.1),
-  ABOUT: new Vector3(5.1, 0.1, 4.6),
+  ABOUT: new Vector3(5.1, 0.1, 4.46),
   PARTNERS: new Vector3(10.0, 0.58, 4.3),
-  PORTFOLIO: new Vector3(16.4, 0.5, 3.9),
+  PORTFOLIO: new Vector3(16.4, 0.5, 3.8),
   CONTACT: new Vector3(23.4, 0.3, 4.1),
   NEWS: new Vector3(30.7, -0.9, 3.7),
 };
@@ -73,16 +73,16 @@ const Setup = () => {
 
   return (
     <>
-      {/* <Home /> */}
-      {/* <AboutUs /> */}
-      {/* <Partners /> */}
-      {/* <Portfolio /> */}
-      {/* <Contact /> */}
+      <Home />
+      <AboutUs />
+      <Partners />
+      <Portfolio />
+      <Contact />
       <PressRoom />
-      {/* <ambientLight color={"#351f4f"} intensity={0.98} /> */}
-      {/* <Lights /> */}
-      {/* <SupportLights /> */}
-      {/* <Plane /> */}
+      <ambientLight color={"#351f4f"} intensity={0.98} />
+      <Lights />
+      <SupportLights />
+      <Plane />
     </>
   );
 };
