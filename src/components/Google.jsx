@@ -3,6 +3,7 @@ import { useGLTF, Html } from "@react-three/drei";
 import GoogleModel from "../models/google.glb";
 import { useFrame } from "@react-three/fiber";
 import { useSpring, animated, config } from "@react-spring/three";
+import Circulo from "./Circulo";
 
 const Google = (props) => {
   const isMobile = window.screen.width <= 617;
@@ -93,6 +94,7 @@ const Google = (props) => {
         geometry={nodes.Curve020.geometry}
         material={materials["Material.003"]}
       />
+      <Circulo position={[0.25, 0.28, 0]} scale={0.02} />
     </animated.mesh>
   );
 };

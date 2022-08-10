@@ -68,7 +68,7 @@ const Apple = (props) => {
             geometry={nodes.Curve022.geometry}
             material={materials["Material.010"]}
           ></mesh>
-          <Circulo position={[0.92, 0.46, -0.4]} scale={0.03} />
+          <Circulo position={[0.87, 0.43, -0.4]} scale={0.02} />
         </group>
       </animated.mesh>
     </>

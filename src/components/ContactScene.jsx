@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import ContactHome from "../models/ContactHome.glb";
 import ContactLights from "./ContactLights";
+import Circulo from "./Circulo";
 
 const ContactScene = ({ ...props }) => {
   const group = useRef();
@@ -22,8 +23,8 @@ const ContactScene = ({ ...props }) => {
 
   return (
     <>
-      {/* <ContactLights {...props} /> */}
       <group ref={group} scale={[0.2, 0.2, 0.14]} {...props} dispose={null}>
+        <Circulo position={[1.47, 1.1, -0.87]} scale={0.09} />
         <group name="Scene">
           <group
             name="Master_Control"
@@ -56,6 +57,7 @@ const ContactScene = ({ ...props }) => {
                 rotation={[Math.PI, -0.05, Math.PI]}
               />
             </group>
+
             <group name="Empty008" position={[0, 0.27, 0]} scale={0.12}>
               <mesh
                 name="Cube013"
