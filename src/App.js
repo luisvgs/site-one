@@ -1,22 +1,13 @@
-import React, { useLayoutEffect, useRef, useState, Suspense } from "react";
-import { Canvas, useThree } from "@react-three/fiber";
+import React, { useRef, useState, Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
 import { AdaptiveDpr, BakeShadows, Loader, Preload } from "@react-three/drei";
 import "./App.scss";
-import Burger from "./components/Burger";
-import Menu from "./components/Menu";
-import OnClickOutside from "./components/OnClickOutside";
+import { Burger, Menu } from "./components/Menu";
+import { OnClickOutside, PostProcessing } from "./utils";
 import { useSnapshot } from "valtio";
-import { state } from "./state";
+import { state } from "./store/state";
 import Media from "react-media";
-import PhoneView from "./PhoneView";
-import DesktopView from "./DesktopView";
-import PostProcessing from "./PostProcessing";
-
-function Precompile() {
-  const { gl, scene, camera } = useThree();
-  useLayoutEffect(() => void gl.compile(scene, camera), []);
-  return null;
-}
+import { DesktopView, PhoneView } from "./views";
 
 const App = () => {
   const snap = useSnapshot(state);
