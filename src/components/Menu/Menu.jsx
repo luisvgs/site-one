@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { state } from "../../store/state";
 import { useSnapshot } from "valtio";
-import Logo from "../../img/site-one-technology.png";
+import Logo from "../../assets/site-one-technology.png";
 
 const StyledMenu = styled.div`
   display: flex;
