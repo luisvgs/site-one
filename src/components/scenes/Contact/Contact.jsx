@@ -1,5 +1,5 @@
 import { UnoLights } from "../../Light";
-import ContactRoom from "./ContactScene";
+import ContactV2 from "./ContactV2";
 import { useState } from "react";
 
 const Contact = () => {
@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <>
       <UnoLights position={[16.1, 0.88, 4.1]} />
-      <ContactRoom position={[14.9, 0.65, 2]} />
+      <ContactV2 position={[14.9, 0.65, 2]} />
     </>
   );
 };
