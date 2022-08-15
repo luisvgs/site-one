@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useGLTF, Text, Image } from "@react-three/drei";
 import PressModel from "../../../models/PressRoom.glb";
+import PressModelNew from "../../../models/PressRoomV3.glb";
+import Roboto from "../../../fonts/Roboto.ttf";
 import { useSpring, animated, config } from "@react-spring/three";
 import { Touch } from "../../Touch";
 
@@ -37,11 +39,11 @@ const ARTICLE_TITLE = [
 ];
 
 const IMAGE_TITLE = [
-  [-5.11, 1, 1.3],
-  [-2.53, 1, 0.3],
-  [0.09, 1, -0.21],
-  [2.84, 1, 0.3],
-  [5.2, 1, 1.4],
+  [-4.99, 1.15, 1.3],
+  [-2.50, 1.15, 0.3],
+  [0.06, 1.15, -0.21],
+  [2.82, 1.15, 0.3],
+  [5.1, 1.15, 1.4],
 ];
 
 const ART_ROTATION = [
@@ -52,7 +54,7 @@ const ART_ROTATION = [
   [0, -0.7, 0],
 ];
 
-const Article = ({ nodes, post }) => {
+const Article = ({ nodes, post, new_model}) => {
   const [hovered, setHovered] = useState(false);
   const { materials } = useGLTF(PressModel);
   const [active, setActive] = useState(false);
@@ -70,6 +72,7 @@ const Article = ({ nodes, post }) => {
         return (
           <>
             <Image
+              scale={[1.5,1.2,0]}
               url="https://loremflickr.com/320/240"
               position={IMAGE_TITLE[index]}
               rotation={ART_ROTATION[index]}
@@ -88,8 +91,8 @@ const Article = ({ nodes, post }) => {
               onClick={() => window.open(single_post.URL, "_blank").focus()}
               castShadow
               receiveShadow
-              geometry={nodes.Article_1.geometry}
-              material={materials["Material.017"]}
+              geometry={new_model.nodes.Article_1.geometry}
+              material={new_model.materials.Articulo}
               position={POSITION[index]}
               rotation={ROTATION[index]}
               scale={scale}
@@ -97,8 +100,8 @@ const Article = ({ nodes, post }) => {
             <Text
               position={ARTICLE_TITLE[index]}
               rotation={ART_ROTATION[index]}
-              fontSize={0.12}
-              color={index % 2 === 0 ? "blue" : "#fa2720"}
+              fontSize={0.15}
+              color={index % 2 === 0 ? "white" : "#fa2720"}
               anchorX="center"
               anchorY="middle"
             >
@@ -110,9 +113,10 @@ const Article = ({ nodes, post }) => {
             <Text
               position={ARTICLE[index]}
               rotation={ART_ROTATION[index]}
-              color="black"
+              color="white"
               anchorX="center"
               anchorY="middle"
+          font={Roboto}
             >
               {single_post.content
                 .replace("<p>", "")
@@ -139,6 +143,7 @@ const Article = ({ nodes, post }) => {
 const PressRoomComponent = ({ ...props }) => {
   const group = useRef();
   const { nodes, materials } = useGLTF(PressModel);
+  const new_model = useGLTF(PressModelNew);
   const [hovered, setHovered] = useState(false);
   const [post, setPost] = useState([]);
   const [active, setActive] = useState(false);
@@ -175,7 +180,7 @@ const PressRoomComponent = ({ ...props }) => {
   return (
     <>
       <group ref={group} scale={[0.2, 0.2, 0.2]} {...props} dispose={null}>
-        <Article nodes={nodes} post={post} />
+        <Article nodes={nodes} post={post} new_model={new_model}/>
         <animated.mesh
           onPointerOver={() => {
             setHovered(true);
