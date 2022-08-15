@@ -74,16 +74,16 @@ const Setup = () => {
 
   return (
     <>
-      <Home />
-      <About />
-      <Partners />
-      <Portfolio />
-      <Contact />
+      {/* <Home /> */}
+      {/* <About /> */}
+      {/* <Partners /> */}
+      {/* <Portfolio /> */}
+      {/* <Contact /> */}
       <PressRoom />
-      <ambientLight color={"#351f4f"} intensity={0.98} />
-      <Lights />
-      <SupportLights />
-      <Plane />
+      {/* <ambientLight color={"#351f4f"} intensity={0.98} /> */}
+      {/* <Lights /> */}
+      {/* <SupportLights /> */}
+      {/* <Plane /> */}
     </>
   );
 };
