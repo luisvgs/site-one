@@ -20,7 +20,7 @@ const LOOKAT = {
   ABOUT: new Vector3(2.2, -0.4, -12.8),
   PARTNERS: new Vector3(7, -2.9, -12.8),
   PORTFOLIO: new Vector3(9, -0, -12.8),
-  CONTACT: new Vector3(13.85, 0, -12.8),
+  CONTACT: new Vector3(13.85, 1.7, -12.8),
   NEWS: new Vector3(19.4, -0.3, 0),
 };
 
@@ -29,7 +29,7 @@ const POSITION = {
   ABOUT: new Vector3(5.1, 0.1, 4.46),
   PARTNERS: new Vector3(10.0, 0.58, 4.3),
   PORTFOLIO: new Vector3(16.4, 0.5, 3.8),
-  CONTACT: new Vector3(23.4, 0.3, 4.1),
+  CONTACT: new Vector3(23.4, 0.08, 3.69),
   NEWS: new Vector3(30.7, -0.9, 3.7),
 };
 
