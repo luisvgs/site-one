@@ -31,16 +31,16 @@ const ARTICLE = [
 ];
 
 const ARTICLE_TITLE = [
-  [-5.11, 0, 1.3],
-  [-2.53, 0, 0.3],
-  [0.09, 0, -0.21],
-  [2.84, 0, 0.3],
-  [5.2, 0, 1.4],
+  [-5, 0.1, 1.19],
+  [-2.53, 0.1, 0.3],
+  [0.09, 0.1, -0.21],
+  [2.84, 0.1, 0.3],
+  [5.2, 0.1, 1.4],
 ];
 
 const IMAGE_TITLE = [
   [-4.99, 1.15, 1.3],
-  [-2.50, 1.15, 0.3],
+  [-2.5, 1.15, 0.3],
   [0.06, 1.15, -0.21],
   [2.82, 1.15, 0.3],
   [5.1, 1.15, 1.4],
@@ -54,9 +54,8 @@ const ART_ROTATION = [
   [0, -0.7, 0],
 ];
 
-const Article = ({ nodes, post, new_model}) => {
+const Article = ({ post, new_model }) => {
   const [hovered, setHovered] = useState(false);
-  const { materials } = useGLTF(PressModel);
   const [active, setActive] = useState(false);
   const { scale } = useSpring({
     scale: active ? [1.55, 0.77, 1] : [1.53, 0.77, 1],
@@ -72,7 +71,7 @@ const Article = ({ nodes, post, new_model}) => {
         return (
           <>
             <Image
-              scale={[1.5,1.2,0]}
+              scale={[1.5, 1.2, 0]}
               url="https://loremflickr.com/320/240"
               position={IMAGE_TITLE[index]}
               rotation={ART_ROTATION[index]}
@@ -100,10 +99,11 @@ const Article = ({ nodes, post, new_model}) => {
             <Text
               position={ARTICLE_TITLE[index]}
               rotation={ART_ROTATION[index]}
-              fontSize={0.15}
+              fontSize={0.16}
               color={index % 2 === 0 ? "white" : "#fa2720"}
               anchorX="center"
               anchorY="middle"
+              font={Roboto}
             >
               {single_post.title
                 .replace("<p>", "")
@@ -115,23 +115,29 @@ const Article = ({ nodes, post, new_model}) => {
               rotation={ART_ROTATION[index]}
               color="white"
               anchorX="center"
+              textAlign="justify"
               anchorY="middle"
-          font={Roboto}
+              font={Roboto}
             >
               {single_post.content
                 .replace("<p>", "")
                 .replace("</p>", "")
-                .slice(0, 25) +
+                .slice(0, 34) +
                 "\n" +
                 single_post.content
                   .replace("<p>", "")
                   .replace("</p>", "")
-                  .slice(25, 59) +
+                  .slice(34, 70) +
                 "\n" +
                 single_post.content
                   .replace("<p>", "")
                   .replace("</p>", "")
-                  .slice(59, 89)}
+                  .slice(70, 104) +
+                "\n" +
+                single_post.content
+                  .replace("<p>", "")
+                  .replace("</p>", "")
+                  .slice(104, 137)}
             </Text>
           </>
         );
@@ -180,7 +186,7 @@ const PressRoomComponent = ({ ...props }) => {
   return (
     <>
       <group ref={group} scale={[0.2, 0.2, 0.2]} {...props} dispose={null}>
-        <Article nodes={nodes} post={post} new_model={new_model}/>
+        <Article nodes={nodes} post={post} new_model={new_model} />
         <animated.mesh
           onPointerOver={() => {
             setHovered(true);
