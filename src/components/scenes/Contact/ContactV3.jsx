@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
-import { useGLTF, useAnimations } from "@react-three/drei";
+import { useGLTF, useAnimations, Html } from "@react-three/drei";
 import ContactHome from "../../../models/ContactV3.glb";
+import Page from "./Page";
 
 const ContactV3 = (props) => {
   const group = useRef();
@@ -6040,12 +6041,28 @@ const ContactV3 = (props) => {
           name="MY_SCREEN001"
           castShadow
           receiveShadow
-          geometry={nodes.MY_SCREEN001.geometry}
-          material={materials["Material.036"]}
+          // geometry={nodes.MY_SCREEN001.geometry}
+          // material={materials["Material.036"]}
           position={[3.15, 2.54, 0.03]}
           rotation={[-0.03, 1.25, 1.53]}
           scale={[2.03, 2.03, 2.13]}
-        />
+        >
+          <Html
+            scale={0.1}
+            transform
+            // occlude
+            rotation={[1.2, 9.5, 1.5]}
+            position={[0, 0, -0.42]}
+            style={{
+              backgroundColor: "white",
+              height: "800px",
+              width: "500px",
+              overflowY: "auto",
+            }}
+          >
+            <Page />
+          </Html>
+        </mesh>
         <mesh
           name="Cube092"
           castShadow
@@ -6217,4 +6234,3 @@ const ContactV3 = (props) => {
 };
 
 export default ContactV3;
-useGLTF.preload("/Contact V3 .glb");
