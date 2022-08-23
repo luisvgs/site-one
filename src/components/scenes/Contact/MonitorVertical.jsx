@@ -54,13 +54,13 @@ const MonitorVertical = (props) => {
             // material={materials["Material.036"]}
           >
             <Html
-              scale={7.8}
+              scale={0.02}
               transform
-              distanceFactor={0.1}
+              // distanceFactor={0.1}
               // sprite
               occlude
               rotation={[1.6, 9.43, 1.57]}
-              position={[0.008, -0.003999999, -0.3777777]}
+              position={[0.008, -1.5423, -0.3777777]}
               style={{
                 backgroundColor: "white",
                 height: "870px",
