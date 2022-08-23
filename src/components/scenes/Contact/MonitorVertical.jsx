@@ -40,33 +40,38 @@ const MonitorVertical = (props) => {
           rotation={[3.07, 0.37, -1.56]}
           scale={[-2, -0.94, -0.09]}
         />
-        <mesh
-          name="MY_SCREEN001"
-          castShadow
-          receiveShadow
-          // geometry={nodes.MY_SCREEN001.geometry}
-          material={materials["Material.036"]}
+        <group
           position={[3.15, 2.54, 0.03]}
           rotation={[-0.03, 1.25, 1.53]}
           scale={[2.03, 2.03, 2.13]}
         >
-          <Html
-            scale={0.08}
-            transform
-            occlude
-            center
-            rotation={[1.6, 9.43, 1.57]}
-            position={[0, -0.0029, -0.347]}
-            style={{
-              backgroundColor: "white",
-              height: "870px",
-              width: "460px",
-              overflowY: "auto",
-            }}
+          <mesh
+            name="MY_SCREEN001"
+            castShadow
+            receiveShadow
+            prepend
+            // geometry={nodes.MY_SCREEN001.geometry}
+            // material={materials["Material.036"]}
           >
-            <Page />
-          </Html>
-        </mesh>
+            <Html
+              scale={7.8}
+              transform
+              distanceFactor={0.1}
+              // sprite
+              occlude
+              rotation={[1.6, 9.43, 1.57]}
+              position={[0.008, -0.003999999, -0.3777777]}
+              style={{
+                backgroundColor: "white",
+                height: "870px",
+                width: "460px",
+                // overflowY: "auto",
+              }}
+            >
+              <Page />
+            </Html>
+          </mesh>
+        </group>
         <mesh
           name="Cube092"
           castShadow
