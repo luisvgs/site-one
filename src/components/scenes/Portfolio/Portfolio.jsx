@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IphoneLights } from "../../Light";
-import { Text, Image } from "@react-three/drei";
+import { Text } from "@react-three/drei";
 import Iphone from "./Telefono_optimizado";
 import IphoneBase from "./Telefono_base";
 import { Flechas } from "../../common";
@@ -25,7 +25,6 @@ const descriptions = [
   "Descripcion 2",
 ];
 
-const AnimatedImage = animated(Image);
 const Portfolio = () => {
   const [rotate, setRotate] = useState(false);
   const [position, setPosition] = useState(0);
