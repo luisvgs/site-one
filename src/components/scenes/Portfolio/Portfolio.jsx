@@ -20,19 +20,21 @@ const Logos = () => {
   );
 };
 
-const images = ["/contemplative-reptile.jpg", "/pasticho.jpg"];
 const descriptions = [
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea nesciunt placeat recusandae id aperiam voluptatibus minus Eos temporibus",
   "Descripcion 2",
 ];
+
 const AnimatedImage = animated(Image);
 const Portfolio = () => {
   const [rotate, setRotate] = useState(false);
   const [position, setPosition] = useState(0);
   const [hovered, setHovered] = useState(false);
 
-  const setNext = () => setPosition((index) => (index + 1) % images.length);
-  const setPrev = () => setPosition((index) => (index - 1) % images.length);
+  const setPrev = () =>
+    setPosition((index) => (index - 1) % descriptions.length);
+  const setNext = () =>
+    setPosition((index) => (index + 1) % descriptions.length);
 
   const AnimatedText = animated(Text);
   const { wobble } = useSpring({
@@ -48,15 +50,7 @@ const Portfolio = () => {
 
   return (
     <>
-      {/* <AnimatedImage */}
-      {/*   url={images[position]} */}
-      {/*   position={[10.4, 1.6, 2]} */}
-      {/*   scale={[0.09, 0.09, 0.09]} */}
-      {/* /> */}
       <AnimatedText
-        //! TODO fix here
-        // onPointerOver={() => setHovered(true)}
-        // onPointerOut={() => setHovered(false)}
         position={[10.7, 1.5, 2]}
         scale={wobble}
         fontSize={0.06}
@@ -96,12 +90,6 @@ const Portfolio = () => {
         rotate={rotate}
         setRotate={setRotate}
       />
-      {/* <Selector */}
-      {/*   setNext={setNext} */}
-      {/*   setPrev={setPrev} */}
-      {/*   rotate={rotate} */}
-      {/*   setRotate={setRotate} */}
-      {/* /> */}
     </>
   );
 };

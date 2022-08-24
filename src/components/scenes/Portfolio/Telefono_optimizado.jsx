@@ -2,8 +2,10 @@ import React, { useRef, useState, useMemo } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 import TelefonoOpt from "../../../models/telefono_optimizado.glb";
 import * as THREE from "three";
-import { useThree, useFrame } from "@react-three/fiber";
+import { useThree, useFrame, useLoader } from "@react-three/fiber";
 import { config, useSpring, animated } from "@react-spring/three";
+import Foodish from "../../../assets/food.jpg";
+import EasyArrive from "../../../assets/easyarrive.jpg";
 
 const Iphone = ({ position, content, rotate, setRotate }) => {
   const group = useRef();
@@ -13,6 +15,18 @@ const Iphone = ({ position, content, rotate, setRotate }) => {
     () => [new THREE.Euler(), new THREE.Quaternion()],
     []
   );
+  const [pos, setPosition] = useState(0);
+  const foodish = new THREE.TextureLoader().load(Foodish);
+  foodish.flipY = false;
+  foodish.center = new THREE.Vector2(0.7, 0.5);
+  foodish.repeat.set(3, 2);
+  const easy = new THREE.TextureLoader().load(EasyArrive);
+  easy.flipY = false;
+  easy.center = new THREE.Vector2(0.7, 0.5);
+  easy.repeat.set(3, 2);
+
+  const portfolio = [foodish, easy];
+
   useFrame(() => {
     if (group.current) {
       rEuler.set((-mouse.y * Math.PI) / 48, (mouse.x * Math.PI) / 28, 0);
@@ -21,14 +35,14 @@ const Iphone = ({ position, content, rotate, setRotate }) => {
     }
   });
 
-  // https://react-spring.io/common/props#events
   const spring = useSpring({
     from: { rotation: [0, 0, 0] },
-    to: [{ rotation: [0, -6.3, 0] }, { rotation: [0, 0, 0] }],
-    config: config.default,
-    immediate: false,
-    pause: rotate ? true : false,
-    onRest: setRotate(!rotate),
+    to: [{ rotation: [0, -6.3, 0] }, { rotation: [0, -1.32, 0] }],
+    config: config.gentle,
+    loop: false,
+    immediate: true,
+    pause: setRotate(false),
+    onRest: () => setRotate(false),
   });
 
   return (
@@ -37,16 +51,19 @@ const Iphone = ({ position, content, rotate, setRotate }) => {
       ref={group}
       dispose={null}
       scale={[1, 1, 1]}
-      {...spring}
     >
       <mesh
         geometry={nodes.Glass_top.geometry}
-        material={nodes.Glass_top.material}
         position={[0.013, 0.367, 0.035]}
         rotation={[-Math.PI, 0, 0]}
         scale={0.05}
       >
         {content}
+        <meshBasicMaterial
+          attach="material"
+          // onUpdate={() => setRotate(false)}
+          map={rotate ? portfolio[0] : portfolio[1]}
+        />
       </mesh>
       <mesh
         geometry={nodes.Screen.geometry}

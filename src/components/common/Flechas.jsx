@@ -25,7 +25,7 @@ const Flechas = ({ setNext, setPrev, rotate, setRotate }) => {
           onPointerOut={() => setHovered(false)}
           onClick={() => {
             setNext();
-            setRotate(true);
+            setRotate(!rotate);
           }}
         />
         <mesh
@@ -40,7 +40,7 @@ const Flechas = ({ setNext, setPrev, rotate, setRotate }) => {
           onPointerOut={() => setHovered(false)}
           onClick={() => {
             setPrev();
-            setRotate(true);
+            setRotate(!rotate);
           }}
         />
       </group>
