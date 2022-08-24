@@ -41,8 +41,8 @@ const Iphone = ({ position, content, rotate, setRotate }) => {
     config: config.gentle,
     loop: false,
     immediate: true,
-    pause: setRotate(false),
-    onRest: () => setRotate(false),
+    // pause: setRotate(false),
+    // onRest: () => setRotate(false),
   });
 
   return (
