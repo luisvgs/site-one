@@ -60,16 +60,24 @@ const Setup = () => {
   const scroll = useScroll();
   const { size } = useThree();
   const page = state.clicked;
+  const isZoom = state.zoom;
 
   useEffect(() => {
     scroll.el.scrollLeft = size.width * 2 * SCROLL_POSITION[SECTIONS[page]];
   }, [page, scroll.el, size.width]);
 
   useFrame((state) => {
-    cameraPositionCurve.getPoint(scroll.offset, position);
-    cameraLookAtCurve.getPoint(scroll.offset, lookAt);
-    state.camera.lookAt(lookAt);
-    state.camera.position.lerp(position, step);
+    if (isZoom) {
+      cameraPositionCurve.getPoint(scroll.offset, new Vector3(14.4, 0.2, 2));
+      cameraLookAtCurve.getPoint(scroll.offset, new Vector3(14.4, 0.2, 2));
+      state.camera.lookAt(new Vector3(14.4, 0.2, 2));
+      state.camera.position.lerp(new Vector3(22.8, 0.23, 3.4), step);
+    } else {
+      cameraPositionCurve.getPoint(scroll.offset, position);
+      cameraLookAtCurve.getPoint(scroll.offset, lookAt);
+      state.camera.lookAt(lookAt);
+      state.camera.position.lerp(position, step);
+    }
   });
 
   return (

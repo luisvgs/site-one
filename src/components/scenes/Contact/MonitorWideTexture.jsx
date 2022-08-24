@@ -1,12 +1,22 @@
 import React, { useRef } from "react";
 import { useGLTF, useAnimations, Html } from "@react-three/drei";
 import Monitor from "../../../models/MonitorWideTexture.glb";
+import { useSnapshot } from "valtio";
+import { state } from "../../../store/state";
 
 const MonitorWideTexture = (props) => {
+  useSnapshot(state);
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(Monitor);
   return (
-    <group ref={group} scale={[0.2, 0.2, 0.14]} {...props} dispose={null}>
+    <group
+      onDoubleClick={() => (state.zoom = false)}
+      onClick={() => (state.zoom = true)}
+      ref={group}
+      scale={[0.2, 0.2, 0.14]}
+      {...props}
+      dispose={null}
+    >
       <group name="Scene">
         <mesh
           name="Plane011"
