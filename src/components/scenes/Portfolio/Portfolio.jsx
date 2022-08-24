@@ -75,7 +75,7 @@ const Portfolio = () => {
           {[descriptions[index]]}
         </AnimatedText>
       ))}
-      <Logos />
+      {/* <Logos /> */}
       <Iphone
         position={[10.27, 0.9, 2]}
         rotate={rotate}
