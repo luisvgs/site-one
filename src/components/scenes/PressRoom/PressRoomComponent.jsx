@@ -167,10 +167,8 @@ const PressRoomComponent = ({ ...props }) => {
       .then((request) => request.json())
       .then((blog) => blog.posts)
       .then((single_post) => {
-        console.log(single_post);
         setPost(single_post);
-        const im = post[4].post_thumbnail.URL;
-        console.log(JSON.stringify(im));
+        // const im = post[4].post_thumbnail.URL;
       });
   };
 
