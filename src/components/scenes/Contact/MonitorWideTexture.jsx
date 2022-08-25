@@ -42,24 +42,67 @@ const MonitorWideTexture = (props) => {
           material={materials["pantalla_wide "]}
           position={[-1.25, 1.9, -0.36]}
         >
-          <Html
-            scale={0.3}
-            occlude
-            // position={[-2.7, 0.4, -0.98]}
-            style={{ background: "transparent" }}
-            // zIndexRange={[0.5, 0]} // Z-order range (default=[16777271, 0])
-            transform // If true, applies matrix3d transformations (default=false)
-          >
-            <input
-              type="text"
-              placeholder="Hola"
-              style={{
-                background: "transparent",
-                border: "none",
-                color: "white",
-              }}
-            />
-          </Html>
+          {state.zoom ? (
+            <>
+              <Html
+                scale={0.3}
+                position={[-2.4, 0.57, -0.98]}
+                style={{
+                  background: "transparent",
+                }}
+                transform
+              >
+                <input
+                  type="text"
+                  placeholder="Name"
+                  style={{
+                    background: "transparent",
+                    border: "none",
+                    color: "white",
+                  }}
+                />
+              </Html>
+              <Html
+                scale={0.3}
+                position={[-2.4, -0.08, -0.98]}
+                style={{
+                  background: "transparent",
+                }}
+                transform
+              >
+                <input
+                  type="text"
+                  placeholder="Phone"
+                  style={{
+                    background: "transparent",
+                    border: "none",
+                    color: "white",
+                  }}
+                />
+              </Html>
+              <Html
+                scale={0.3}
+                position={[-2.4, -0.77, -0.98]}
+                rotateX={6}
+                style={{
+                  background: "transparent",
+                }}
+                transform
+              >
+                <input
+                  type="text"
+                  placeholder="Email"
+                  style={{
+                    background: "transparent",
+                    border: "none",
+                    color: "white",
+                  }}
+                />
+              </Html>
+            </>
+          ) : (
+            ""
+          )}
         </mesh>
       </group>
     </group>
