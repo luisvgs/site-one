@@ -68,15 +68,16 @@ const Setup = () => {
 
   useFrame((state) => {
     if (isZoom) {
-      cameraPositionCurve.getPoint(scroll.offset, new Vector3(14.4, 0.2, 2));
-      cameraLookAtCurve.getPoint(scroll.offset, new Vector3(14.4, 0.2, 2));
-      state.camera.lookAt(new Vector3(14.4, 0.2, 2));
-      state.camera.position.lerp(new Vector3(22.8, 0.23, 3.4), step);
+      // cameraPositionCurve.getPoint(scroll.offset, position);
+      // cameraLookAtCurve.getPoint(scroll.offset, lookAt);
+      state.camera.position.lerp(new Vector3(16.4, 0.08, 3.33), 0.1);
+      // state.camera.position.lerp(cameraTarget, 0.1);
+      state.camera.lookAt(new Vector3(14.6, 0.18, 2));
     } else {
       cameraPositionCurve.getPoint(scroll.offset, position);
       cameraLookAtCurve.getPoint(scroll.offset, lookAt);
-      state.camera.lookAt(lookAt);
       state.camera.position.lerp(position, step);
+      state.camera.lookAt(lookAt);
     }
   });
 
