@@ -42,8 +42,9 @@ const Cuarto = (props) => {
           receiveShadow
           geometry={nodes.Cube010.geometry}
           material={materials["Cuadro Horiz"]}
+          position={[-2.72, 4.41, -5.57]}
           rotation={[0, 0, Math.PI / 2]}
-          scale={1.12}
+          scale={1.28}
         />
         <mesh
           name="Cube009"
@@ -51,7 +52,8 @@ const Cuarto = (props) => {
           receiveShadow
           geometry={nodes.Cube009.geometry}
           material={materials["Cuadro vertical"]}
-          scale={1.12}
+          position={[3.32, 4.07, -5.57]}
+          scale={1.28}
         />
       </group>
     </group>
