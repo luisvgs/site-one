@@ -83,11 +83,11 @@ const Setup = () => {
 
   return (
     <>
-      <Home />
+      {/* <Home /> */}
       {/* <About /> */}
       {/* <Partners /> */}
       {/* <Portfolio /> */}
-      {/* <Contact /> */}
+      <Contact />
       {/* <PressRoom /> */}
       {/* <ambientLight color={"#351f4f"} intensity={0.98} /> */}
       {/* <Lights /> */}

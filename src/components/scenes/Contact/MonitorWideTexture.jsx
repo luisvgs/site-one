@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useGLTF, useAnimations, Html } from "@react-three/drei";
-import Monitor from "../../../models/MonitorWideTexture.glb";
+import Monitor from "../../../models/WideMonitor.glb";
 import { useSnapshot } from "valtio";
 import { state } from "../../../store/state";
 

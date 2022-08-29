@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useGLTF, Html } from "@react-three/drei";
-import Monitor from "../../../models/MonitorVertical.glb";
+import Monitor from "../../../models/VerticalMonitor.glb";
 import Page from "./Page";
 
 const MonitorVertical = (props) => {
@@ -17,8 +17,6 @@ const MonitorVertical = (props) => {
           geometry={nodes.Cube071.geometry}
           material={materials["Material.089"]}
           position={[3.77, 2.08, 0.08]}
-          rotation={[1.5, -0.01, 0.25]}
-          scale={[0.1, 0.03, 0.06]}
         />
         <mesh
           name="Cube079"
@@ -26,9 +24,7 @@ const MonitorVertical = (props) => {
           receiveShadow
           geometry={nodes.Cube079.geometry}
           material={materials["Material.055"]}
-          position={[3.18, 2.54, 0.02]}
-          rotation={[-0.07, -0.32, 1.56]}
-          scale={[2, 1.13, 0.02]}
+          position={[3.08, 2.54, 0]}
         />
         <mesh
           name="Cube082"
@@ -36,51 +32,15 @@ const MonitorVertical = (props) => {
           receiveShadow
           geometry={nodes.Cube082.geometry}
           material={materials["Material.044"]}
-          position={[3.38, 2.54, 0.02]}
-          rotation={[3.07, 0.37, -1.56]}
-          scale={[-2, -0.94, -0.09]}
+          position={[3.28, 2.34, -0.04]}
         />
-        <group
-          position={[3.15, 2.54, 0.03]}
-          rotation={[-0.03, 1.25, 1.53]}
-          scale={[2.03, 2.03, 2.13]}
-        >
-          <mesh
-            name="MY_SCREEN001"
-            castShadow
-            receiveShadow
-            prepend
-            // geometry={nodes.MY_SCREEN001.geometry}
-            // material={materials["Material.036"]}
-          >
-            <Html
-              scale={0.02}
-              transform
-              // distanceFactor={0.1}
-              // sprite
-              occlude
-              rotation={[1.6, 9.43, 1.57]}
-              position={[0.008, -1.5423, -0.3777777]}
-              style={{
-                backgroundColor: "white",
-                height: "870px",
-                width: "460px",
-                // overflowY: "auto",
-              }}
-            >
-              <Page />
-            </Html>
-          </mesh>
-        </group>
         <mesh
           name="Cube092"
           castShadow
           receiveShadow
           geometry={nodes.Cube092.geometry}
           material={materials["Material.006"]}
-          position={[3.87, 2.55, 0.13]}
-          rotation={[-0.07, -0.32, 1.56]}
-          scale={[1.03, 1.19, 0.11]}
+          position={[3.22, 2.55, -0.09]}
         />
         <mesh
           name="Cube093"
@@ -89,8 +49,14 @@ const MonitorVertical = (props) => {
           geometry={nodes.Cube093.geometry}
           material={materials["Material.007"]}
           position={[3.38, 1.65, -0.07]}
-          rotation={[0, -0.36, 0]}
-          scale={[0.1, 0.08, 0.18]}
+        />
+        <mesh
+          name="Cube095"
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube095.geometry}
+          material={materials["Material.043"]}
+          position={[3.43, 1.27, -0.25]}
         />
         <mesh
           name="Cube096"
@@ -98,9 +64,7 @@ const MonitorVertical = (props) => {
           receiveShadow
           geometry={nodes.Cube096.geometry}
           material={materials["Material.037"]}
-          position={[3.44, 0.07, -0.18]}
-          rotation={[-Math.PI, 0.36, 0]}
-          scale={[-1.19, -0.06, -0.33]}
+          position={[3.49, 0.07, -0.49]}
         />
         <mesh
           name="Cube097"
@@ -108,9 +72,7 @@ const MonitorVertical = (props) => {
           receiveShadow
           geometry={nodes.Cube097.geometry}
           material={materials["Material.057"]}
-          position={[3.37, 0.05, 0]}
-          rotation={[0, 1.21, 0]}
-          scale={[0.27, 0.03, 0.59]}
+          position={[3.25, 0.05, -0.04]}
         />
         <mesh
           name="bg2001"
@@ -119,8 +81,14 @@ const MonitorVertical = (props) => {
           geometry={nodes.bg2001.geometry}
           material={materials.bg2}
           position={[3.81, 3.87, -0.01]}
-          rotation={[-0.05, 1.19, -1.59]}
-          scale={0.69}
+        />
+        <mesh
+          name="MY_SCREEN001"
+          castShadow
+          receiveShadow
+          geometry={nodes.MY_SCREEN001.geometry}
+          material={materials.pantalla_horizontal}
+          position={[3.15, 2.54, 0.03]}
         />
       </group>
     </group>

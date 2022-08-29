@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import Monitor from "../../../models/MonitorVerticalTexture.glb";
+import Monitor from "../../../models/VerticalMonitor.glb";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
 const MonitorTexture = (props) => {
