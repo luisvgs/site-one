@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useGLTF, Text, Image } from "@react-three/drei";
 import PressModel from "../../../models/PressRoom.glb";
 import PressModelNew from "../../../models/PressRoomV3.glb";
-import Roboto from "../../../fonts/Roboto.ttf";
+import Urbanist from "../../../fonts/Urbanist.ttf";
 import { useSpring, animated, config } from "@react-spring/three";
 import { Touch } from "../../Touch";
 
@@ -103,7 +103,7 @@ const Article = ({ post, new_model }) => {
               color={index % 2 === 0 ? "white" : "#fa2720"}
               anchorX="center"
               anchorY="middle"
-              font={Roboto}
+              font={Urbanist}
             >
               {single_post.title
                 .replace("<p>", "")
@@ -117,7 +117,7 @@ const Article = ({ post, new_model }) => {
               anchorX="center"
               textAlign="justify"
               anchorY="middle"
-              font={Roboto}
+              font={Urbanist}
             >
               {single_post.content
                 .replace("<p>", "")

@@ -6,6 +6,7 @@ import { UnoLights } from "../../Light";
 import { Base } from "../../common";
 import { config, useSpring, animated } from "@react-spring/three";
 import { useState } from "react";
+import Urbanist from "../../../fonts/Urbanist.ttf";
 
 const Partners = () => {
   const isMobile = window.screen.width <= 617;
@@ -26,6 +27,7 @@ const Partners = () => {
         maxWidth={0.69}
         anchorX="center"
         anchorY="middle"
+        font={Urbanist}
       >
         Partners
       </AnimatedText>

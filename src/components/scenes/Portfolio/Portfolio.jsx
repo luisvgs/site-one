@@ -8,6 +8,7 @@ import { config, useSpring, animated } from "@react-spring/three";
 import { useTransition } from "react-spring";
 import AppStore from "./AppStore";
 import Playstore from "./Playstore";
+import Urbanist from "../../../fonts/Urbanist.ttf";
 
 const Logos = () => {
   return (
@@ -57,6 +58,7 @@ const Portfolio = () => {
         maxWidth={0.69}
         anchorX="center"
         anchorY="middle"
+        font={Urbanist}
       >
         Portfolio
       </AnimatedText>
