@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IphoneLights } from "../../Light";
 import { Text } from "@react-three/drei";
-import Iphone from "./Telefono_optimizado";
+import IphoneX from "./iphone";
 import IphoneBase from "./Telefono_base";
 import { Flechas } from "../../common";
 import { config, useSpring, animated } from "@react-spring/three";
@@ -78,7 +78,7 @@ const Portfolio = () => {
         </AnimatedText>
       ))}
       {/* <Logos /> */}
-      <Iphone
+      <IphoneX
         position={[10.27, 0.9, 2]}
         rotate={rotate}
         setRotate={setRotate}
