@@ -1,0 +1,220 @@
+import React, { useMemo, useRef } from "react";
+import { useGLTF } from "@react-three/drei";
+import { useThree, useFrame } from "@react-three/fiber";
+import * as THREE from "three";
+import TelefonoOpt from "../../../models/IphoneX.glb";
+import Foodish from "../../../assets/food.jpg";
+import EasyArrive from "../../../assets/easyarrive.jpg";
+
+const IphoneX = ({ position, rotate, setRotate }) => {
+  const group = useRef();
+  const { nodes, materials } = useGLTF(TelefonoOpt);
+  const { mouse, clock } = useThree();
+  const [rEuler, rQuaternion] = useMemo(
+    () => [new THREE.Euler(), new THREE.Quaternion()],
+    []
+  );
+
+  const foodish = new THREE.TextureLoader().load(Foodish);
+  foodish.flipY = false;
+  foodish.center = new THREE.Vector2(0.1, 0.4);
+  foodish.repeat.set(3, 2.0);
+  const easy = new THREE.TextureLoader().load(EasyArrive);
+  easy.flipY = false;
+  easy.center = new THREE.Vector2(0.1, 0.4);
+  easy.repeat.set(3, 2.0);
+
+  const portfolio = [foodish, easy];
+
+  useFrame(() => {
+    if (group.current) {
+      rEuler.set((-mouse.y * Math.PI) / 48, (mouse.x * Math.PI) / 28, 0);
+      group.current.quaternion.slerp(rQuaternion.setFromEuler(rEuler), 0.05);
+      group.current.time = clock.getElapsedTime() * 5;
+    }
+  });
+
+  console.log(easy);
+
+  return (
+    <group position={position} ref={group} dispose={null} scale={[1, 1, 1]}>
+      <group
+        position={[0.01, 0.38, 0]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+        scale={0.4}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane.geometry}
+          material={materials.Frame}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane_1.geometry}
+          material={materials.Frame2}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane_2.geometry}
+          material={materials.Mic}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane_3.geometry}
+          material={materials.Port}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane_4.geometry}
+          material={materials.Antenna}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Apple_Logo.geometry}
+          material={materials.Logo}
+        />
+        <mesh castShadow receiveShadow geometry={nodes.Body001.geometry}>
+          <meshBasicMaterial
+            attach="material"
+            // onUpdate={() => setRotate(false)}
+            map={rotate ? portfolio[0] : portfolio[1]}
+          />
+        </mesh>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Button.geometry}
+          material={materials.Frame}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane004.geometry}
+          material={materials.Mic}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane004_1.geometry}
+          material={materials.Body}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane004_2.geometry}
+          material={materials.Glass}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane004_3.geometry}
+          material={materials["Camera Frame.001"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Camera003.geometry}
+          material={materials["Material.001"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle003.geometry}
+          material={materials.Frame}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane002.geometry}
+          material={materials.Mic}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane002_1.geometry}
+          material={materials.Body}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane002_2.geometry}
+          material={materials.Bezel}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane002_3.geometry}
+          material={materials["Camera Glass"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane002_4.geometry}
+          material={materials.Lens}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane002_5.geometry}
+          material={materials.Material}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane001.geometry}
+          material={materials.Port}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane001_1.geometry}
+          material={materials.Body}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane001_2.geometry}
+          material={materials["Camera Glass"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane001_3.geometry}
+          material={materials.Lens}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane001_4.geometry}
+          material={materials["Camera Frame"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane001_5.geometry}
+          material={materials["Black Glass"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane001_6.geometry}
+          material={materials["Gray Glass"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane001_7.geometry}
+          material={materials.Flash}
+        />
+      </group>
+    </group>
+  );
+};
+
+export default IphoneX;
