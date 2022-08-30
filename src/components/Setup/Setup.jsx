@@ -86,8 +86,8 @@ const Setup = () => {
       {/* <Home /> */}
       {/* <About /> */}
       {/* <Partners /> */}
-      <Portfolio />
-      {/* <Contact /> */}
+      {/* <Portfolio /> */}
+      <Contact />
       {/* <PressRoom /> */}
       {/* <ambientLight color={"#351f4f"} intensity={0.98} /> */}
       {/* <Lights /> */}

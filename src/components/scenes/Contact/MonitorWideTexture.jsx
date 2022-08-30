@@ -3,6 +3,7 @@ import { useGLTF, useAnimations, Html } from "@react-three/drei";
 import Monitor from "../../../models/WideMonitor.glb";
 import { useSnapshot } from "valtio";
 import { state } from "../../../store/state";
+import { Touch } from "../../Touch";
 
 const MonitorWideTexture = (props) => {
   useSnapshot(state);
@@ -17,6 +18,7 @@ const MonitorWideTexture = (props) => {
       {...props}
       dispose={null}
     >
+      {state.zoom ? <> </> : <Touch position={[-4.0, 2.6, 0.3]} scale={0.08} />}
       <group name="Scene">
         <mesh
           name="Plane011"
@@ -46,7 +48,7 @@ const MonitorWideTexture = (props) => {
             <>
               <Html
                 scale={0.3}
-                position={[-2.4, 0.57, -0.98]}
+                position={[-2.6, 0.44, -0.98]}
                 style={{
                   background: "transparent",
                 }}
@@ -64,7 +66,7 @@ const MonitorWideTexture = (props) => {
               </Html>
               <Html
                 scale={0.3}
-                position={[-2.4, -0.08, -0.98]}
+                position={[-2.6, -0.18, -0.98]}
                 style={{
                   background: "transparent",
                 }}
@@ -82,7 +84,7 @@ const MonitorWideTexture = (props) => {
               </Html>
               <Html
                 scale={0.3}
-                position={[-2.4, -0.77, -0.98]}
+                position={[-2.6, -0.89, -0.98]}
                 rotateX={6}
                 style={{
                   background: "transparent",

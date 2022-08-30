@@ -3,7 +3,6 @@ import { useGLTF } from "@react-three/drei";
 import { useThree, useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { TextureLoader } from "three";
-
 import TelefonoOpt from "../../../models/IphoneX.glb";
 import Foodish from "../../../assets/food.jpg";
 import EasyArrive from "../../../assets/easyarrive.jpg";
