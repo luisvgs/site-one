@@ -21,10 +21,7 @@ const Logos = () => {
   );
 };
 
-const descriptions = [
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea nesciunt placeat recusandae id aperiam voluptatibus minus Eos temporibus",
-  "Descripcion 2",
-];
+const descriptions = ["Easy Arrive", "Foodish", "EAR placeholder text"];
 
 const Portfolio = () => {
   const [rotate, setRotate] = useState(false);

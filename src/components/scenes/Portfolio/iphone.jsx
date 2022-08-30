@@ -1,13 +1,17 @@
-import React, { useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useState, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import { useThree, useFrame } from "@react-three/fiber";
+import { useThree, useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
+import { TextureLoader } from "three";
+
 import TelefonoOpt from "../../../models/IphoneX.glb";
 import Foodish from "../../../assets/food.jpg";
 import EasyArrive from "../../../assets/easyarrive.jpg";
+import EAR from "../../../assets/ear.jpg";
 
 const IphoneX = ({ position, rotate, setRotate }) => {
   const group = useRef();
+  const [current, setPosition] = useState(0);
   const { nodes, materials } = useGLTF(TelefonoOpt);
   const { mouse, clock } = useThree();
   const [rEuler, rQuaternion] = useMemo(
@@ -23,8 +27,12 @@ const IphoneX = ({ position, rotate, setRotate }) => {
   easy.flipY = false;
   easy.center = new THREE.Vector2(0.1, 0.4);
   easy.repeat.set(3, 2.0);
+  const ear = new THREE.TextureLoader().load(EAR);
+  ear.flipY = false;
+  ear.center = new THREE.Vector2(0.1, 0.4);
+  ear.repeat.set(3, 2.0);
 
-  const portfolio = [foodish, easy];
+  const portfolio = [easy, foodish, ear];
 
   useFrame(() => {
     if (group.current) {
@@ -34,7 +42,9 @@ const IphoneX = ({ position, rotate, setRotate }) => {
     }
   });
 
-  console.log(easy);
+  useEffect(() => {
+    setPosition((pos) => (pos + 1) % portfolio.length);
+  }, [rotate, portfolio.length]);
 
   return (
     <group position={position} ref={group} dispose={null} scale={[1, 1, 1]}>
@@ -82,8 +92,8 @@ const IphoneX = ({ position, rotate, setRotate }) => {
         <mesh castShadow receiveShadow geometry={nodes.Body001.geometry}>
           <meshBasicMaterial
             attach="material"
-            // onUpdate={() => setRotate(false)}
-            map={rotate ? portfolio[0] : portfolio[1]}
+            map={portfolio[current]}
+            needsUpdate
           />
         </mesh>
         <mesh
