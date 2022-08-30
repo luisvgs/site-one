@@ -1,10 +1,7 @@
 import { UnoLights } from "../../Light";
-import ContactV3 from "./ContactV3";
-// import MonitorVertical from "./MonitorVertical";
 import MonitorTexture from "./MonitorTexture";
-// import MonitorWide from "./MonitorWide";
 import MonitorWideTexture from "./MonitorWideTexture";
-import Cuarto from "./Cuarto";
+import Room from "./Room";
 import { useState } from "react";
 
 const Contact = () => {
@@ -14,7 +11,7 @@ const Contact = () => {
       <UnoLights position={[16.1, 0.88, 4.1]} />
       <MonitorTexture position={[14.9, 0.65, 2]} />
       <MonitorWideTexture position={[14.9, 0.65, 2]} />
-      <Cuarto position={[14.9, 0.65, 2]} />
+      <Room position={[14.9, 0.65, 2]} />
     </>
   );
 };
