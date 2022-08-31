@@ -1,0 +1,46 @@
+steps:
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["install"]
+
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["run", "create-env"]
+    env:
+      - "TM_API_KEY=${_TM_API_KEY}"
+      - "REACT_APP_TM_API_KEY=${_TM_API_KEY}"
+
+  - id: build
+    name: gcr.io/cloud-builders/docker
+    args:
+      [
+        "build",
+        "-t",
+        "gcr.io/${PROJECT_ID}/siteone:${SHORT_SHA}",
+        "--build-arg=ENV=TM_API_KEY=${_TM_API_KEY}",
+        ".",
+      ]
+
+  - id: push
+    name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/${PROJECT_ID}/siteone:${SHORT_SHA}"]
+
+  - id: deploy
+    name: "gcr.io/cloud-builders/gcloud"
+    timeout: 1600s
+    env:
+      - "TM_API_KEY=${_TM_API_KEY}"
+      - "REACT_APP_TM_API_KEY=${_TM_API_KEY}"
+    args:
+      - "run"
+      - "deploy"
+      - "siteone"
+      - "--image"
+      - "gcr.io/${PROJECT_ID}/siteone:${SHORT_SHA}"
+      - "--region"
+      - "us-central1"
+      - "--platform"
+      - "managed"
+      - "--allow-unauthenticated"
+
+timeout: "1600s"
+images:
+  - "gcr.io/${PROJECT_ID}/siteone:${SHORT_SHA}"
