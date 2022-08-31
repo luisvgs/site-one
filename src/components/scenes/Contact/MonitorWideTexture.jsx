@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useGLTF, useAnimations, Html } from "@react-three/drei";
 import Monitor from "../../../models/WideMonitor.glb";
 import { useSnapshot } from "valtio";
@@ -9,6 +9,10 @@ const MonitorWideTexture = (props) => {
   useSnapshot(state);
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(Monitor);
+  const name = document.getElementById("name");
+  const phone = document.getElementById("phone");
+  const email = document.getElementById("email");
+
   return (
     <group
       onDoubleClick={() => (state.zoom = false)}
@@ -44,67 +48,66 @@ const MonitorWideTexture = (props) => {
           material={materials["pantalla_wide "]}
           position={[-1.25, 1.9, -0.36]}
         >
-          {state.zoom ? (
-            <>
-              <Html
-                scale={0.3}
-                position={[-2.6, 0.44, -0.98]}
+          <>
+            <Html
+              scale={0.3}
+              position={[-2.6, 0.44, -0.98]}
+              style={{
+                background: "transparent",
+              }}
+              transform
+            >
+              <input
+                id="name"
+                type="text"
+                placeholder="Name"
                 style={{
                   background: "transparent",
+                  border: "none",
+                  color: "white",
                 }}
-                transform
-              >
-                <input
-                  type="text"
-                  placeholder="Name"
-                  style={{
-                    background: "transparent",
-                    border: "none",
-                    color: "white",
-                  }}
-                />
-              </Html>
-              <Html
-                scale={0.3}
-                position={[-2.6, -0.18, -0.98]}
+              />
+            </Html>
+            <Html
+              scale={0.3}
+              position={[-2.6, -0.18, -0.98]}
+              style={{
+                background: "transparent",
+              }}
+              transform
+            >
+              <input
+                type="text"
+                id="phone"
+                placeholder="Phone"
                 style={{
                   background: "transparent",
+                  border: "none",
+                  color: "white",
                 }}
-                transform
-              >
-                <input
-                  type="text"
-                  placeholder="Phone"
-                  style={{
-                    background: "transparent",
-                    border: "none",
-                    color: "white",
-                  }}
-                />
-              </Html>
-              <Html
-                scale={0.3}
-                position={[-2.6, -0.89, -0.98]}
-                rotateX={6}
+              />
+            </Html>
+            <Html
+              scale={0.3}
+              position={[-2.6, -0.89, -0.98]}
+              rotateX={6}
+              style={{
+                background: "transparent",
+              }}
+              transform
+            >
+              <input
+                type="text"
+                id="email"
+                placeholder="Email"
                 style={{
                   background: "transparent",
+                  border: "none",
+                  color: "white",
                 }}
-                transform
-              >
-                <input
-                  type="text"
-                  placeholder="Email"
-                  style={{
-                    background: "transparent",
-                    border: "none",
-                    color: "white",
-                  }}
-                />
-              </Html>
-            </>
-          ) : (
-            ""
-          )}
+              />
+            </Html>
+          </>
         </mesh>
       </group>
     </group>
@@ -112,4 +115,4 @@ const MonitorWideTexture = (props) => {
 };
 
 export default MonitorWideTexture;
-useGLTF.preload("/Monitor Wide (1).glb");
+useGLTF.preload(Monitor);
