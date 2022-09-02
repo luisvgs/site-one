@@ -70,7 +70,7 @@ const MonitorWideTexture = (props) => {
           e.stopPropagation();
           setHover(false);
         }}
-        onClick={() => axios_promise()}
+        // onClick={() => axios_promise()}
       >
         <boxGeometry />
         <meshPhongMaterial color="#ff0000" opacity={0.01} transparent />
