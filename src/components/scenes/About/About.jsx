@@ -2,6 +2,7 @@ import { Text, Line } from "@react-three/drei";
 import React, { useState } from "react";
 import SuComponent from "./SiteOne";
 import { useSpring, animated, config } from "@react-spring/three";
+import Urbanist from "../../../fonts/Urbanist.ttf";
 
 const About = () => {
   const [flip, set] = useState(false);
@@ -25,6 +26,7 @@ const About = () => {
         maxWidth={0.69}
         anchorX="center"
         anchorY="middle"
+        font={Urbanist}
       >
         Lorem ipsum dolor sit amet
       </Text>
@@ -45,6 +47,7 @@ const About = () => {
         maxWidth={0.69}
         anchorX="center"
         anchorY="middle"
+        font={Urbanist}
       >
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
         nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
