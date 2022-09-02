@@ -1,13 +1,12 @@
-FROM node:latest as react-build
+FROM node:latest
 WORKDIR /app
-COPY . ./
+COPY package*.json ./
 RUN npm install && npm run build
 
-FROM node:latest as server-build
-WORKDIR /root/
-COPY . ./app
-COPY --from=react-build /app/build ./app/build
-RUN cd app && npm install
+# FROM node:latest as server-build
+# WORKDIR /root/
+COPY . .
+# COPY --from=react-build /app/build ./app/build
+# RUN cd app && npm install
 
-EXPOSE 8080
 CMD npm start
