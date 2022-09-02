@@ -117,89 +117,89 @@ const MonitorWideTexture = (props) => {
           material={materials["pantalla_wide "]}
           position={[-1.25, 1.9, -0.36]}
         >
-          <>
-            <Html
-              scale={0.3}
-              position={[-3.3, 0.44, -0.98]}
-              style={{
-                background: "transparent",
-              }}
-              transform
-            >
-              <input
-                id="name"
-                type="text"
-                placeholder="Name"
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  color: "white",
-                }}
-              />
-            </Html>
-            <Html
-              scale={0.3}
-              position={[-3.2, -0.18, -0.98]}
-              style={{
-                background: "transparent",
-              }}
-              transform
-            >
-              <input
-                type="text"
-                id="phone"
-                placeholder="Phone"
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  color: "white",
-                }}
-              />
-            </Html>
-            <Html
-              scale={0.3}
-              position={[-3.3, -0.89, -0.98]}
-              rotateX={6}
-              style={{
-                background: "transparent",
-              }}
-              transform
-            >
-              <input
-                type="text"
-                id="email"
-                placeholder="Email"
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  color: "white",
-                }}
-              />
-            </Html>
-            <Html
-              scale={0.3}
-              position={[-0.01, -0.09, -0.98]}
-              rotation={[0, 0.1, 0]}
-              style={{
-                background: "transparent",
-              }}
-              transform
-            >
-              <textarea
-                rows="10"
-                cols="13"
-                type="text"
-                id="message"
-                placeholder="Message"
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  color: "white",
-                  resize: "none",
-                }}
-              />
-            </Html>
-          </>
+          {/* <> */}
+          {/*   <Html */}
+          {/*     scale={0.3} */}
+          {/*     position={[-3.3, 0.44, -0.98]} */}
+          {/*     style={{ */}
+          {/*       background: "transparent", */}
+          {/*     }} */}
+          {/*     transform */}
+          {/*   > */}
+          {/*     <input */}
+          {/*       id="name" */}
+          {/*       type="text" */}
+          {/*       placeholder="Name" */}
+          {/*       style={{ */}
+          {/*         background: "transparent", */}
+          {/*         border: "none", */}
+          {/*         color: "white", */}
+          {/*       }} */}
+          {/*     /> */}
+          {/*   </Html> */}
+          {/*   <Html */}
+          {/*     scale={0.3} */}
+          {/*     position={[-3.2, -0.18, -0.98]} */}
+          {/*     style={{ */}
+          {/*       background: "transparent", */}
+          {/*     }} */}
+          {/*     transform */}
+          {/*   > */}
+          {/*     <input */}
+          {/*       type="text" */}
+          {/*       id="phone" */}
+          {/*       placeholder="Phone" */}
+          {/*       style={{ */}
+          {/*         background: "transparent", */}
+          {/*         border: "none", */}
+          {/*         color: "white", */}
+          {/*       }} */}
+          {/*     /> */}
+          {/*   </Html> */}
+          {/*   <Html */}
+          {/*     scale={0.3} */}
+          {/*     position={[-3.3, -0.89, -0.98]} */}
+          {/*     rotateX={6} */}
+          {/*     style={{ */}
+          {/*       background: "transparent", */}
+          {/*     }} */}
+          {/*     transform */}
+          {/*   > */}
+          {/*     <input */}
+          {/*       type="text" */}
+          {/*       id="email" */}
+          {/*       placeholder="Email" */}
+          {/*       style={{ */}
+          {/*         background: "transparent", */}
+          {/*         border: "none", */}
+          {/*         color: "white", */}
+          {/*       }} */}
+          {/*     /> */}
+          {/*   </Html> */}
+          {/*   <Html */}
+          {/*     scale={0.3} */}
+          {/*     position={[-0.01, -0.09, -0.98]} */}
+          {/*     rotation={[0, 0.1, 0]} */}
+          {/*     style={{ */}
+          {/*       background: "transparent", */}
+          {/*     }} */}
+          {/*     transform */}
+          {/*   > */}
+          {/*     <textarea */}
+          {/*       rows="10" */}
+          {/*       cols="13" */}
+          {/*       type="text" */}
+          {/*       id="message" */}
+          {/*       placeholder="Message" */}
+          {/*       style={{ */}
+          {/*         background: "transparent", */}
+          {/*         border: "none", */}
+          {/*         color: "white", */}
+          {/*         resize: "none", */}
+          {/*       }} */}
+          {/*     /> */}
+          {/*   </Html> */}
+          {/* </> */}
         </mesh>
       </group>
     </group>
