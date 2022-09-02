@@ -41,11 +41,11 @@ const MonitorWideTexture = (props) => {
         from: "noreply@siteone.com",
         subject: "Testsito",
         text: "Test",
-        html: `<h1> hola ${name}</h1>`,
+        html: `<h1> Prueba </h1>`,
       })
       .then((res) => {
         console.log("Message was send");
-        console.log(res)
+        console.log(res);
       })
       .catch((err) => {
         console.log("OH SHIT OH FUCK");
@@ -60,19 +60,21 @@ const MonitorWideTexture = (props) => {
       [hovered]
     );
     return (
-      <mesh {...props}
-      onPointerOver={(e) => {
-        e.stopPropagation();
-        setHover(true);
-      }}
-      onPointerOut={(e) => {
-        e.stopPropagation();
-        setHover(false);
-      }}
-      onClick={() => axios_promise()}>
-      <boxGeometry />
-      <meshPhongMaterial color="#ff0000" opacity={0.01} transparent />
-    </mesh>
+      <mesh
+        {...props}
+        onPointerOver={(e) => {
+          e.stopPropagation();
+          setHover(true);
+        }}
+        onPointerOut={(e) => {
+          e.stopPropagation();
+          setHover(false);
+        }}
+        onClick={() => axios_promise()}
+      >
+        <boxGeometry />
+        <meshPhongMaterial color="#ff0000" opacity={0.01} transparent />
+      </mesh>
     );
   };
 
@@ -85,7 +87,10 @@ const MonitorWideTexture = (props) => {
       {...props}
       dispose={null}
     >
-      <TransparentButton position={[-0.66, 1.3, 0.3]} scale={[0.3,0.17,0.1]} />
+      <TransparentButton
+        position={[-0.66, 1.3, 0.3]}
+        scale={[0.3, 0.17, 0.1]}
+      />
       {state.zoom ? <> </> : <Touch position={[-4.0, 2.6, 0.3]} scale={0.08} />}
       <group name="Scene">
         <mesh
@@ -173,7 +178,7 @@ const MonitorWideTexture = (props) => {
             </Html>
             <Html
               scale={0.3}
-              position={[-0.07, 0.08, -0.98]}
+              position={[-0.01, -0.09, -0.98]}
               rotation={[0, 0.1, 0]}
               style={{
                 background: "transparent",
@@ -181,7 +186,7 @@ const MonitorWideTexture = (props) => {
               transform
             >
               <textarea
-                rows="12"
+                rows="10"
                 cols="13"
                 type="text"
                 id="message"

@@ -21,7 +21,7 @@ const Logos = () => {
   );
 };
 
-const descriptions = ["Easy Arrive", "Foodish", "EAR placeholder text"];
+const descriptions = ["Foodish", "EAR", "Easy Arrive"];
 
 const Portfolio = () => {
   const [rotate, setRotate] = useState(false);
