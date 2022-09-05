@@ -1,13 +1,20 @@
 import React, { useRef } from "react";
 import Monitor from "../../../models/VerticalMonitor.glb";
 import { useGLTF, useAnimations } from "@react-three/drei";
+import { state } from "../../../store/state";
 
 const MonitorTexture = (props) => {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(Monitor);
-  const { actions } = useAnimations(animations, group);
   return (
-    <group ref={group} scale={[0.2, 0.2, 0.14]} {...props} dispose={null}>
+    <group
+      onDoubleClick={() => (state.mapZoom = false)}
+      onClick={() => (state.mapZoom = true)}
+      ref={group}
+      scale={[0.2, 0.2, 0.14]}
+      {...props}
+      dispose={null}
+    >
       <group name="Scene">
         <mesh
           name="Cube071"
