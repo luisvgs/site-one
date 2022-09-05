@@ -153,7 +153,7 @@ const UnoComponent = () => {
           state.clicked = 4;
         }}
         onPointerOver={() => {
-          state.hovered = "news";
+          state.hovered = "contact";
           setHovered(true);
         }}
         onPointerLeave={() => {
@@ -170,11 +170,11 @@ const UnoComponent = () => {
           distanceFactor={20}
           style={{
             transition: "all 0.2s",
-            opacity: state.hovered === "news" ? 1 : 0.2,
-            transform: `scale(${state.hovered === "news" ? 1 : 0.0})`,
+            opacity: state.hovered === "contact" ? 1 : 0.2,
+            transform: `scale(${state.hovered === "contact" ? 1 : 0.0})`,
           }}
         >
-          <div class="content">Press room</div>
+          <div class="content">Contact</div>
         </Html>
       </mesh>
       <mesh
@@ -182,7 +182,7 @@ const UnoComponent = () => {
           state.clicked = 5;
         }}
         onPointerOver={() => {
-          state.hovered = "contact";
+          state.hovered = "news";
           setHovered(true);
         }}
         onPointerLeave={() => {
@@ -199,11 +199,11 @@ const UnoComponent = () => {
           distanceFactor={20}
           style={{
             transition: "all 0.2s",
-            opacity: state.hovered === "contact" ? 1 : 0.2,
-            transform: `scale(${state.hovered === "contact" ? 1 : 0.0})`,
+            opacity: state.hovered === "news" ? 1 : 0.2,
+            transform: `scale(${state.hovered === "news" ? 1 : 0.0})`,
           }}
         >
-          <div class="content">Contact</div>
+          <div class="content">Press Room</div>
         </Html>
       </mesh>
       <mesh
