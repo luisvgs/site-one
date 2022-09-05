@@ -3,6 +3,7 @@ import { useGLTF, Text, Image } from "@react-three/drei";
 import PressModel from "../../../models/PressRoom.glb";
 import PressModelNew from "../../../models/PressRoomV3.glb";
 import Urbanist from "../../../fonts/Urbanist.ttf";
+import UrbanistBold from "../../../fonts/UrbanistBold.ttf";
 import { useSpring, animated, config } from "@react-spring/three";
 import { Touch } from "../../Touch";
 
@@ -103,7 +104,7 @@ const Article = ({ post, new_model }) => {
               color={index % 2 === 0 ? "white" : "#fa2720"}
               anchorX="center"
               anchorY="middle"
-              font={Urbanist}
+              font={UrbanistBold}
             >
               {single_post.title
                 .replace("<p>", "")

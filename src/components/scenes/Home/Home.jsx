@@ -2,7 +2,7 @@ import UnoComponent from "./UnoModel";
 import { Text } from "@react-three/drei";
 import { UnoLights } from "../../Light";
 import { useSpring, animated } from "@react-spring/three";
-import Urbanist from "../../../fonts/Urbanist.ttf";
+import UrbanistBold from "../../../fonts/UrbanistBold.ttf";
 
 const Home = () => {
   const isMobile = window.screen.width <= 617;
@@ -26,7 +26,7 @@ const Home = () => {
         maxWidth={0.69}
         anchorX="center"
         anchorY="middle"
-        font={Urbanist}
+        font={UrbanistBold}
       >
         Lorem ipsum dolor sit amet
       </AnimatedText>
