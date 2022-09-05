@@ -3,6 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import { useThree, useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { TextureLoader } from "three";
+import { config, useSpring, animated } from "@react-spring/three";
 import TelefonoOpt from "../../../models/IphoneX.glb";
 import Foodish from "../../../assets/food.jpg";
 import EasyArrive from "../../../assets/easyarrive.jpg";
@@ -12,6 +13,7 @@ const IphoneX = ({ position, rotate, setRotate }) => {
   const group = useRef();
   const [current, setPosition] = useState(0);
   const { nodes, materials } = useGLTF(TelefonoOpt);
+  const [cancel, setCancel] = useState(false);
   const { mouse, clock } = useThree();
   const [rEuler, rQuaternion] = useMemo(
     () => [new THREE.Euler(), new THREE.Quaternion()],
@@ -41,12 +43,25 @@ const IphoneX = ({ position, rotate, setRotate }) => {
     }
   });
 
+  const spring = useSpring({
+    to: [{ rotation: [0, 6.3, 0] }],
+    config: config.slow,
+    // Wtf?
+    loop: false,
+  });
+
   useEffect(() => {
     setPosition((pos) => (pos + 1) % portfolio.length);
   }, [rotate, portfolio.length]);
 
   return (
-    <group position={position} ref={group} dispose={null} scale={[1, 1, 1]}>
+    <animated.mesh
+      position={position}
+      ref={group}
+      dispose={null}
+      scale={[1, 1, 1]}
+      {...spring}
+    >
       <group
         position={[0.01, 0.38, 0]}
         rotation={[Math.PI / 2, 0, Math.PI]}
@@ -222,7 +237,7 @@ const IphoneX = ({ position, rotate, setRotate }) => {
           material={materials.Flash}
         />
       </group>
-    </group>
+    </animated.mesh>
   );
 };
 
