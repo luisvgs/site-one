@@ -16,7 +16,6 @@ const DesktopView = () => {
         <ScrollControls damping={3} distance={1} pages={3} horizontal>
           <PerspectiveCamera
             fov={35}
-            // position={[0.111, -0.932, -1]}
             position={[0.111, -0.932, 2.191]}
             rotation={[0.0, -6.2, 0.0]}
           >
