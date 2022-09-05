@@ -1,7 +1,21 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { state } from "../../store/state";
 import { useSnapshot } from "valtio";
 import Logo from "../../assets/site-one-technology.png";
+import Urbanist from "../../fonts/Urbanist.ttf";
+
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Urbanist';
+    src: url(${Urbanist}) format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: auto;
+  }
+  a {
+    font-family: 'Urbanist';
+  }
+`;
 
 const StyledMenu = styled.div`
   display: flex;
@@ -35,6 +49,7 @@ const StyledMenu = styled.div`
     top: 0;
     padding-left: 2px;
   }
+
   .div-2 {
     background-color: #f00c23;
     height: 77px;
@@ -83,8 +98,8 @@ const StyledMenu = styled.div`
     align-items: center;
     justify-content: space-between;
     display: flex;
+    font-family: Urbanist;
     font-size: 20px;
-    text-transform: uppercase;
     padding: 2rem 0;
     font-weight: bold;
     letter-spacing: 0.3rem;
@@ -110,108 +125,111 @@ const StyledMenu = styled.div`
 const Menu = ({ setOpen, open }) => {
   useSnapshot(state);
   return (
-    <StyledMenu className="menu" open={open}>
-      <a href="javascript: return false;">
-        <img
-          class="logo"
-          onClick={() => {
-            setOpen(false);
-            state.clicked = 0;
-          }}
-          src={Logo}
-        />
-      </a>
+    <>
+      <GlobalStyle />
+      <StyledMenu className="menu" open={open}>
+        <a href="javascript: return false;">
+          <img
+            class="logo"
+            onClick={() => {
+              setOpen(false);
+              state.clicked = 0;
+            }}
+            src={Logo}
+          />
+        </a>
 
-      <a
-        onMouseEnter={() => (state.hovered = "about")}
-        onMouseLeave={() => (state.hovered = null)}
-        href="javascript: return false;"
-        id="about"
-      >
-        <span
-          onClick={() => {
-            setOpen(false);
-            state.clicked = 1;
-          }}
-          role="img"
-          aria-label="about us"
+        <a
+          onMouseEnter={() => (state.hovered = "about")}
+          onMouseLeave={() => (state.hovered = null)}
+          href="javascript: return false;"
+          id="about"
         >
-          About us
-        </span>
-        <div class="div-1" />
-      </a>
+          <span
+            onClick={() => {
+              setOpen(false);
+              state.clicked = 1;
+            }}
+            role="img"
+            aria-label="about us"
+          >
+            About us
+          </span>
+          <div class="div-1" />
+        </a>
 
-      <a
-        onMouseEnter={() => (state.hovered = "partners")}
-        onMouseLeave={() => (state.hovered = null)}
-        href="javascript: return false;"
-      >
-        <span
-          onClick={() => {
-            setOpen(false);
-            state.clicked = 2;
-          }}
-          role="img"
-          aria-label="partners"
+        <a
+          onMouseEnter={() => (state.hovered = "partners")}
+          onMouseLeave={() => (state.hovered = null)}
+          href="javascript: return false;"
         >
-          Partners
-        </span>
-        <div class="div-2" />
-      </a>
+          <span
+            onClick={() => {
+              setOpen(false);
+              state.clicked = 2;
+            }}
+            role="img"
+            aria-label="partners"
+          >
+            Partners
+          </span>
+          <div class="div-2" />
+        </a>
 
-      <a
-        onMouseEnter={() => (state.hovered = "portfolio")}
-        onMouseLeave={() => (state.hovered = null)}
-        href="javascript: return false;"
-      >
-        <span
-          onClick={() => {
-            setOpen(false);
-            state.clicked = 3;
-          }}
-          role="img"
-          aria-label="portfolio"
+        <a
+          onMouseEnter={() => (state.hovered = "portfolio")}
+          onMouseLeave={() => (state.hovered = null)}
+          href="javascript: return false;"
         >
-          Portfolio
-        </span>
-        <div class="div-3" />
-      </a>
+          <span
+            onClick={() => {
+              setOpen(false);
+              state.clicked = 3;
+            }}
+            role="img"
+            aria-label="portfolio"
+          >
+            Portfolio
+          </span>
+          <div class="div-3" />
+        </a>
 
-      <a
-        onMouseEnter={() => (state.hovered = "news")}
-        onMouseLeave={() => (state.hovered = null)}
-        href="javascript: return false;"
-      >
-        <span
-          onClick={() => {
-            setOpen(false);
-            state.clicked = 4;
-          }}
-          role="img"
-          aria-label="portfolio"
+        <a
+          onMouseEnter={() => (state.hovered = "news")}
+          onMouseLeave={() => (state.hovered = null)}
+          href="javascript: return false;"
         >
-          Contact
-        </span>
-        <div class="div-4" />
-      </a>
-      <a
-        onMouseEnter={() => (state.hovered = "contact")}
-        onMouseLeave={() => (state.hovered = null)}
-        href="javascript: return false;"
-      >
-        <span
-          onClick={() => {
-            setOpen(false);
-            state.clicked = 5;
-          }}
-          role="img"
-          aria-label="portfolio"
+          <span
+            onClick={() => {
+              setOpen(false);
+              state.clicked = 4;
+            }}
+            role="img"
+            aria-label="portfolio"
+          >
+            Contact
+          </span>
+          <div class="div-4" />
+        </a>
+        <a
+          onMouseEnter={() => (state.hovered = "contact")}
+          onMouseLeave={() => (state.hovered = null)}
+          href="javascript: return false;"
         >
-          Press Room
-        </span>
-        <div class="div-5" />
-      </a>
-    </StyledMenu>
+          <span
+            onClick={() => {
+              setOpen(false);
+              state.clicked = 5;
+            }}
+            role="img"
+            aria-label="portfolio"
+          >
+            Press Room
+          </span>
+          <div class="div-5" />
+        </a>
+      </StyledMenu>
+    </>
   );
 };
 
