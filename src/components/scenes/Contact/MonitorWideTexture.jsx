@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { useGLTF, useAnimations, Html } from "@react-three/drei";
 import axios from "axios";
 import Monitor from "../../../models/WideMonitor.glb";
+import MonitorRRS from "../../../models/MonitorRRS.glb";
 import { useSnapshot } from "valtio";
 import { state } from "../../../store/state";
 import { Touch } from "../../Touch";
@@ -9,7 +10,7 @@ import { Touch } from "../../Touch";
 const MonitorWideTexture = (props) => {
   useSnapshot(state);
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF(Monitor);
+  const { nodes, materials, animations } = useGLTF(MonitorRRS);
   const name = null;
   const phone = null;
   const email = null;
@@ -54,7 +55,6 @@ const MonitorWideTexture = (props) => {
         document.getElementById("phone").value = "";
       })
       .catch((err) => {
-        console.log("OH SHIT OH FUCK");
         console.log(err);
       });
   };
@@ -128,8 +128,8 @@ const MonitorWideTexture = (props) => {
           {state.zoom ? (
             <>
               <Html
-                scale={0.3}
-                position={[-2.4, 0.44, -0.98]}
+                scale={0.25}
+                position={[-2.1, 0.39, -0.36666666]}
                 style={{
                   background: "transparent",
                 }}
@@ -147,8 +147,8 @@ const MonitorWideTexture = (props) => {
                 />
               </Html>
               <Html
-                scale={0.3}
-                position={[-2.4, -0.18, -0.98]}
+                scale={0.25}
+                position={[-2.1, -0.18, -0.36666666]}
                 style={{
                   background: "transparent",
                 }}
@@ -166,9 +166,10 @@ const MonitorWideTexture = (props) => {
                 />
               </Html>
               <Html
-                scale={0.3}
-                position={[-2.4, -0.89, -0.98]}
-                rotateX={6}
+                scale={0.25}
+                position={[-2.0, -0.75, -0.36666666]}
+                rotation={[0, 0.2, 0]}
+                // rotateX={6}
                 style={{
                   background: "transparent",
                 }}
@@ -186,8 +187,8 @@ const MonitorWideTexture = (props) => {
                 />
               </Html>
               <Html
-                scale={0.3}
-                position={[0.7, -0.1, -0.98]}
+                scale={0.2}
+                position={[0.6, 0.07, -0.36666666]}
                 rotation={[0, 0.1, 0]}
                 style={{
                   background: "transparent",
@@ -195,7 +196,7 @@ const MonitorWideTexture = (props) => {
                 transform
               >
                 <textarea
-                  rows="10"
+                  rows="14"
                   cols="13"
                   type="text"
                   id="message"
