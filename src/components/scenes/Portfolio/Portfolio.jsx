@@ -8,7 +8,7 @@ import { config, useSpring, animated } from "@react-spring/three";
 import { useTransition } from "react-spring";
 import AppStore from "./AppStore";
 import Playstore from "./Playstore";
-import Urbanist from "../../../fonts/Urbanist.ttf";
+import UrbanistBold from "../../../fonts/UrbanistBold.ttf";
 
 const Logos = () => {
   return (
@@ -55,7 +55,7 @@ const Portfolio = () => {
         maxWidth={0.69}
         anchorX="center"
         anchorY="middle"
-        font={Urbanist}
+        font={UrbanistBold}
       >
         Portfolio
       </AnimatedText>
@@ -74,7 +74,6 @@ const Portfolio = () => {
           {[descriptions[index]]}
         </AnimatedText>
       ))}
-      {/* <Logos /> */}
       <IphoneX
         position={[10.27, 0.9, 2]}
         rotate={rotate}
