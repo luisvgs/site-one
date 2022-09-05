@@ -71,7 +71,7 @@ const Setup = () => {
     if (isZoom) {
       // cameraPositionCurve.getPoint(scroll.offset, position);
       // cameraLookAtCurve.getPoint(scroll.offset, lookAt);
-      state.camera.position.lerp(new Vector3(16.4, 0.08, 3.33), 0.1);
+      state.camera.position.lerp(new Vector3(16.4, 0.08, 3.33), 0.09);
       // state.camera.position.lerp(cameraTarget, 0.1);
       state.camera.lookAt(new Vector3(14.6, 0.18, 2));
     } else if (mapZoom) {
