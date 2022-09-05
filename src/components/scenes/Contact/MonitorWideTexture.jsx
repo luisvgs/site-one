@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useGLTF, useAnimations, Html } from "@react-three/drei";
 import axios from "axios";
-import Monitor from "../../../models/WideMonitor.glb";
 import MonitorRRS from "../../../models/MonitorRRS.glb";
 import { useSnapshot } from "valtio";
 import { state } from "../../../store/state";
@@ -220,4 +219,4 @@ const MonitorWideTexture = (props) => {
 };
 
 export default MonitorWideTexture;
-useGLTF.preload(Monitor);
+useGLTF.preload(MonitorRRS);
