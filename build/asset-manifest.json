@@ -1,23 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.f601d3b5.css",
-    "main.js": "/static/js/main.21f2d7b5.js",
+    "main.css": "/static/css/main.1c75d652.css",
+    "main.js": "/static/js/main.54bb901e.js",
     "static/js/787.775b8429.chunk.js": "/static/js/787.775b8429.chunk.js",
-    "static/media/telefono_optimizado.glb": "/static/media/telefono_optimizado.d7cafdd3b2afdca9f566.glb",
-    "static/media/Contactv2.glb": "/static/media/Contactv2.6cd0a56465d4d66a121d.glb",
-    "static/media/ContactHome.glb": "/static/media/ContactHome.e22dd833db24a6fe57b5.glb",
+    "static/media/ContactNew.glb": "/static/media/ContactNew.742fcfb3c792b078c1a3.glb",
     "static/media/partners_base.glb": "/static/media/partners_base.fc73cee6eb2df8cf4e98.glb",
     "static/media/telefono_base.glb": "/static/media/telefono_base.fbae4fbd2de11557ca21.glb",
     "static/media/PressRoomV3.glb": "/static/media/PressRoomV3.5cb15cca395c55fd4d64.glb",
     "static/media/Background.png": "/static/media/Background.435a6f40efa953ade133.png",
     "static/media/PressRoom.glb": "/static/media/PressRoom.c32ba4ad495e34c11103.glb",
+    "static/media/WideMonitor.glb": "/static/media/WideMonitor.00d44fcd58ed43a887c4.glb",
     "static/media/Number1C.glb": "/static/media/Number1C.3eadb162ed08b5809983.glb",
+    "static/media/VerticalMonitor.glb": "/static/media/VerticalMonitor.c47ecd599f8c0da99e92.glb",
     "static/media/playstore.glb": "/static/media/playstore.514bf1fa432b7a8830c4.glb",
     "static/media/SU_technology.glb": "/static/media/SU_technology.207a154efa062637a240.glb",
     "static/media/app_store.glb": "/static/media/app_store.0b42bb55b996968184e7.glb",
+    "static/media/IphoneX.glb": "/static/media/IphoneX.c308b948e8028c8392db.glb",
     "static/media/google.glb": "/static/media/google.c090671332639ceda1ae.glb",
     "static/media/microsoft.glb": "/static/media/microsoft.956945d16d5727f0d379.glb",
-    "static/media/Roboto.ttf": "/static/media/Roboto.f25bd05915c1a3468d3d.ttf",
+    "static/media/ear.jpg": "/static/media/ear.d7af9a783b2ffc895ff3.jpg",
+    "static/media/easyarrive.jpg": "/static/media/easyarrive.231c97e125edaaa17a7a.jpg",
+    "static/media/food.jpg": "/static/media/food.5f621ce5a202792776cb.jpg",
+    "static/media/Urbanist.ttf": "/static/media/Urbanist.934caf896c405316f809.ttf",
     "static/media/apple.glb": "/static/media/apple.3ce6295ff86476c7bc00.glb",
     "static/media/site-one-technology.png": "/static/media/site-one-technology.524c64e999baaf98f218.png",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -25,12 +29,12 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.f601d3b5.css.map": "/static/css/main.f601d3b5.css.map",
-    "main.21f2d7b5.js.map": "/static/js/main.21f2d7b5.js.map",
+    "main.1c75d652.css.map": "/static/css/main.1c75d652.css.map",
+    "main.54bb901e.js.map": "/static/js/main.54bb901e.js.map",
     "787.775b8429.chunk.js.map": "/static/js/787.775b8429.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f601d3b5.css",
-    "static/js/main.21f2d7b5.js"
+    "static/css/main.1c75d652.css",
+    "static/js/main.54bb901e.js"
   ]
 }
