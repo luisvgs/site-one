@@ -40,7 +40,7 @@ const App = () => {
                 <PhoneView />
               ) : (
                 <>
-                  <DesktopView /> <Preload all /> <BakeShadows />{" "}
+                  <DesktopView /> <Preload /> <BakeShadows />{" "}
                   <AdaptiveDpr pixelated />
                 </>
               )
