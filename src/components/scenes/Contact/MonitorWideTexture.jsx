@@ -23,8 +23,8 @@ const MonitorWideTexture = (props) => {
   const axios_promise = async () => {
     await axios
       .post(`https://api-techminds-qqyvwq2paa-uc.a.run.app/api/v1/email`, {
-        to: "luis.vegas@sitiouno.com",
-        from: "noreply@siteone.com",
+        to: "info@sitiouno.us",
+        from: "noreply@siteone.us",
         subject: "Testsito",
         text: "Test",
         html: `<h1>Site One received a new message</h1>
