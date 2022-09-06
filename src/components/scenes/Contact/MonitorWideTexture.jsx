@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useGLTF, useAnimations, Html, Sphere } from "@react-three/drei";
+import { useGLTF, useAnimations, Html } from "@react-three/drei";
 import axios from "axios";
 import Monitor from "../../../models/WideMonitor.glb";
 import { useSnapshot } from "valtio";
@@ -37,7 +37,7 @@ const MonitorWideTexture = (props) => {
             Email: ${document.getElementById("email").value}
           </li>
           <li>
-            Phone: ${document.getElementById("message").value}
+            Phone: ${document.getElementById("phone").value}
           </li>
           <li>
             Message: ${document.getElementById("message").value}
@@ -48,6 +48,10 @@ const MonitorWideTexture = (props) => {
       .then((res) => {
         console.log("Message was send");
         console.log(res);
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+        document.getElementById("phone").value = "";
       })
       .catch((err) => {
         console.log("OH SHIT OH FUCK");
@@ -72,7 +76,9 @@ const MonitorWideTexture = (props) => {
           e.stopPropagation();
           setHover(false);
         }}
-        // onClick={() => axios_promise()}
+        onClick={() => {
+          axios_promise();
+        }}
       >
         <boxGeometry />
         <meshPhongMaterial color="#ff0000" opacity={0.01} transparent />
