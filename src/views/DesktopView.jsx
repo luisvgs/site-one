@@ -6,7 +6,6 @@ import {
 } from "@react-three/drei";
 import "../App.scss";
 import Rig from "../utils/Rig";
-import PostProcessing from "../utils/PostProcessing";
 import { Setup } from "../components/Setup";
 
 const DesktopView = () => {
