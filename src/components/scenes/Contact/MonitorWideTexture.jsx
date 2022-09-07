@@ -128,7 +128,8 @@ const MonitorWideTexture = (props) => {
             <>
               <Html
                 scale={0.25}
-                position={[-2.0, 0.39, -0.36666666]}
+                position={[-1.9, 0.39, -0.36666666]}
+                rotation={[0, 0.2, 0]}
                 style={{
                   background: "transparent",
                   transition: "all 0.5s",
@@ -143,13 +144,14 @@ const MonitorWideTexture = (props) => {
                   style={{
                     background: "transparent",
                     border: "none",
-                    color: "none",
+                    color: "white",
                   }}
                 />
               </Html>
               <Html
                 scale={0.25}
-                position={[-2.0, -0.18, -0.36666666]}
+                position={[-1.9, -0.17, -0.36666666]}
+                rotation={[0, 0.2, 0]}
                 style={{
                   background: "transparent",
                   transition: "all 0.9s",
@@ -186,7 +188,7 @@ const MonitorWideTexture = (props) => {
                   style={{
                     background: "transparent",
                     border: "none",
-                    color: "none",
+                    color: "white",
                   }}
                 />
               </Html>
