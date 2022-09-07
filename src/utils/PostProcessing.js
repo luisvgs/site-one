@@ -21,7 +21,7 @@ const PostProcessing = () => {
       <Noise opacity={0.02} />
       <Bloom
         blurPass={BlurPass}
-        intensity={0.2}
+        intensity={0.16}
         width={720}
         height={720}
         kernelSize={KernelSize.LARGE}

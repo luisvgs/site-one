@@ -47,7 +47,7 @@ const App = () => {
             }
           </Media>
         </Suspense>
-        {/* <PostProcessing /> */}
+        <PostProcessing />
       </Canvas>
       <Loader />
     </>
