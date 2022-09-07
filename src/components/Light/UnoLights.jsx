@@ -38,15 +38,6 @@ const UnoLights = ({ ...props }) => {
       <group position={[-0.16, 0.85, -0.08]} scale={0.55}>
         <pointLight intensity={10} decay={2} rotation={[-Math.PI / 2, 0, 0]} />
       </group>
-      <group position={[-0.94, 0.52, 0.34]}>
-        <pointLight
-          ref={light2}
-          intensity={14}
-          decay={2}
-          color="#0c20ff"
-          rotation={[-Math.PI / 2, 0, 0]}
-        />
-      </group>
     </group>
   );
 };
