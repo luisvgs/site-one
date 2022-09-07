@@ -88,7 +88,10 @@ const MonitorWideTexture = (props) => {
   return (
     <group
       onDoubleClick={() => (state.zoom = false)}
-      onClick={() => (state.zoom = true)}
+      onClick={(e) => {
+        e.stopPropagation();
+        state.zoom = true;
+      }}
       ref={group}
       scale={[0.2, 0.2, 0.14]}
       {...props}
